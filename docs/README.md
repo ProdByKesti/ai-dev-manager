@@ -1,7 +1,12 @@
 # Documentation
 
-This repository is in the foundation phase. Documentation is added as it is approved and verified.
+This repository is in the foundation phase. Approved decisions are versioned here; implementation and validation are separate work.
 
+- [Product specification — 25 decisions](product/product-specification.md)
+- [Technical architecture and 15 ADRs](architecture/README.md)
+- [System invariants](architecture/system-invariants.md)
+- [Consolidation amendments](architecture/consolidation.md)
+- [Master roadmap overview](roadmap/overview.md)
 - [Development workflow](developer-guide/git-workflow.md)
 
 ## Intended monorepo layout
