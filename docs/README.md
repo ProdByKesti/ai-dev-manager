@@ -6,6 +6,7 @@ This repository is in the foundation phase. Approved decisions are versioned her
 - [Technical architecture and 15 ADRs](architecture/README.md)
 - [System invariants](architecture/system-invariants.md)
 - [Consolidation amendments](architecture/consolidation.md)
+- [Technical feasibility evidence (T01–T12)](feasibility/README.md)
 - [Master roadmap overview](roadmap/overview.md)
 - [Development workflow](developer-guide/git-workflow.md)
 
