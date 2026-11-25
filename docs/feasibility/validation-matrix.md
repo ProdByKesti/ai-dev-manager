@@ -1,10 +1,10 @@
 # Validation matrix
 
-Historical evidence vs remaining acceptance work. This matrix describes reports, not newly executed tests.
+Historical evidence vs remaining acceptance work. This matrix describes historical reports, not newly executed tests. Subsequent M00-05 environment and K01 evidence is recorded separately in [M00-05 environment and K01 evidence](M00-05-environment-k01-evidence.md).
 
 | ID | Reported evidence | Outstanding gate | Owner |
 | --- | --- | --- | --- |
-| [T01](T01-development-environment.md) | Partial feasibility | Rust/Cargo, Windows build tools, WebView2, Tauri builds, supported OS matrix and reproducible installation remain unverified. | M00-05, M01-01, M01-02 |
+| [T01](T01-development-environment.md) | Partial feasibility | Later minimal Rust/MSVC build evidence is recorded separately; WebView2 behavior, complete Tauri builds, supported OS matrix, reproducible installation and agent-context WSL access remain unverified. | M00-05, M01-01, M01-02 |
 | [T02](T02-app-server-transport.md) | Demonstrated within probe | Production framing, malformed messages, timeouts, concurrent requests, stderr handling, authentication events and native Linux transport in authenticated operation require further testing. | M02-05, M02-06 |
 | [T03](T03-authenticated-inference.md) | Demonstrated within probe | Public provider terms, public account onboarding, actual billing behavior, protected credentials, authenticated native Linux inference and quota exhaustion remain open. No automatic paid fallback. | M00-05, M02-06, M02-13, M11-02 |
 | [T04](T04-session-isolation.md) | Demonstrated within probe | This was not a filesystem, network, IPC, credential, model-side retention or adversarial security isolation test. | M02-14, M04-03, M04-06 |
