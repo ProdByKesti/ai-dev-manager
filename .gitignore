@@ -22,3 +22,65 @@ rustc-ice-*.txt
 #  and can be added to the global gitignore or merged into this file.  For a more nuclear
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
+
+# JavaScript / TypeScript / Tauri build outputs
+node_modules/
+dist/
+dist-ssr/
+.vite/
+coverage/
+playwright-report/
+test-results/
+*.tsbuildinfo
+*.log
+
+# Python helper scripts
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.mypy_cache/
+
+# Local settings, credentials and key material (never commit secrets)
+.env
+.env.*
+!.env.example
+!.env.*.example
+*.pem
+*.key
+*.pfx
+*.p12
+*.jks
+*.keystore
+credentials.json
+auth.json
+.codex/
+.adm-local/
+
+# Local runtime data and temporary work
+*.sqlite
+*.sqlite3
+*.sqlite-wal
+*.sqlite-shm
+*.sqlite3-wal
+*.sqlite3-shm
+*.db
+*.db-wal
+*.db-shm
+/backups/
+/logs/
+/artifacts/
+/worktrees/
+/tmp/
+
+# OS and editor-local files
+.DS_Store
+Thumbs.db
+Desktop.ini
+.idea/
+.vscode/
+*.swp
+
+# Keep application lockfiles tracked for reproducible builds.
+# Ignore rules are not a substitute for secret review or access control.
