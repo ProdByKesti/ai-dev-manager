@@ -1,6 +1,6 @@
-# Reconstructed work package catalogue — review draft
+# Historical reconstructed package index
 
-Status: incomplete, **not authorized for Linear import**. Names and stable IDs reconstructed from retained planning summaries, not a verbatim copy of the original detailed roadmap. Milestone counts checked against [approved overview](overview.md). No requirements, dependencies or test descriptions silently invented. The [JSON catalogue](catalogue-draft.json) uses null for unrecovered package-level data. The 526 count is a milestone-level target, not 526 recovered individual checks.
+Status: historical index, superseded for import by the [detailed reconstruction review](reconstruction-review.md). **Do not import this index.** Names and stable IDs reconstructed from retained planning summaries, not a verbatim copy of the original detailed roadmap. Milestone counts checked against [approved overview](overview.md). No requirements, dependencies or test descriptions silently invented. The [JSON catalogue](catalogue-draft.json) uses null for unrecovered package-level data. The 526 count is a milestone-level target, not 526 recovered individual checks.
 
 ## M00 — Project Foundation
 

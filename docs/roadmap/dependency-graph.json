@@ -1,0 +1,3468 @@
+{
+  "schemaVersion": 2,
+  "status": "reconstructed-awaiting-owner-approval",
+  "direction": "prerequisite -> dependent",
+  "nodes": [
+    "M00-01",
+    "M00-02",
+    "M00-03",
+    "M00-04",
+    "M00-05",
+    "M00-06",
+    "M00-07",
+    "M00-08",
+    "M00-09",
+    "M00-10",
+    "M01-01",
+    "M01-02",
+    "M01-03",
+    "M01-04",
+    "M01-05",
+    "M01-06",
+    "M01-07",
+    "M01-08",
+    "M01-09",
+    "M01-10",
+    "M01-11",
+    "M01-12",
+    "M02-01",
+    "M02-02",
+    "M02-03",
+    "M02-04",
+    "M02-05",
+    "M02-06",
+    "M02-07",
+    "M02-08",
+    "M02-09",
+    "M02-10",
+    "M02-11",
+    "M02-12",
+    "M02-13",
+    "M02-14",
+    "M02-15",
+    "M03-01",
+    "M03-02",
+    "M03-03",
+    "M03-04",
+    "M03-05",
+    "M03-06",
+    "M03-07",
+    "M03-08",
+    "M03-09",
+    "M03-10",
+    "M03-11",
+    "M03-12",
+    "M04-01",
+    "M04-02",
+    "M04-03",
+    "M04-04",
+    "M04-05",
+    "M04-06",
+    "M04-07",
+    "M04-08",
+    "M04-09",
+    "M04-10",
+    "M04-11",
+    "M04-12",
+    "M04-13",
+    "M04-14",
+    "M05-01",
+    "M05-02",
+    "M05-03",
+    "M05-04",
+    "M05-05",
+    "M05-06",
+    "M05-07",
+    "M05-08",
+    "M05-09",
+    "M05-10",
+    "M05-11",
+    "M05-12",
+    "M05-13",
+    "M05-14",
+    "M05-15",
+    "M05-16",
+    "M06-01",
+    "M06-02",
+    "M06-03",
+    "M06-04",
+    "M06-05",
+    "M06-06",
+    "M06-07",
+    "M06-08",
+    "M06-09",
+    "M06-10",
+    "M06-11",
+    "M06-12",
+    "M06-13",
+    "M06-14",
+    "M06-15",
+    "M07-01",
+    "M07-02",
+    "M07-03",
+    "M07-04",
+    "M07-05",
+    "M07-06",
+    "M07-07",
+    "M07-08",
+    "M07-09",
+    "M07-10",
+    "M07-11",
+    "M07-12",
+    "M07-13",
+    "M07-14",
+    "M07-15",
+    "M08-01",
+    "M08-02",
+    "M08-03",
+    "M08-04",
+    "M08-05",
+    "M08-06",
+    "M08-07",
+    "M08-08",
+    "M08-09",
+    "M08-10",
+    "M08-11",
+    "M08-12",
+    "M08-13",
+    "M08-14",
+    "M09-01",
+    "M09-02",
+    "M09-03",
+    "M09-04",
+    "M09-05",
+    "M09-06",
+    "M09-07",
+    "M09-08",
+    "M09-09",
+    "M09-10",
+    "M09-11",
+    "M09-12",
+    "M09-13",
+    "M09-14",
+    "M10-01",
+    "M10-02",
+    "M10-03",
+    "M10-04",
+    "M10-05",
+    "M10-06",
+    "M10-07",
+    "M10-08",
+    "M10-09",
+    "M10-10",
+    "M10-11",
+    "M10-12",
+    "M10-13",
+    "M10-14",
+    "M11-01",
+    "M11-02",
+    "M11-03",
+    "M11-04",
+    "M11-05",
+    "M11-06",
+    "M11-07",
+    "M11-08",
+    "M11-09",
+    "M11-10",
+    "M11-11",
+    "M11-12",
+    "M11-13",
+    "M11-14",
+    "M11-15",
+    "M11-16",
+    "M12-01",
+    "M12-02",
+    "M12-03",
+    "M12-04",
+    "M12-05",
+    "M12-06",
+    "M12-07",
+    "M12-08",
+    "M12-09",
+    "M12-10",
+    "M12-11",
+    "M12-12",
+    "M12-13",
+    "M12-14",
+    "M12-15",
+    "M12-16",
+    "M13-01",
+    "M13-02",
+    "M13-03",
+    "M13-04",
+    "M13-05",
+    "M13-06",
+    "M13-07",
+    "M13-08",
+    "M13-09",
+    "M13-10",
+    "M13-11",
+    "M13-12",
+    "M13-13",
+    "M13-14",
+    "M13-15",
+    "M13-16",
+    "M13-17",
+    "M13-18"
+  ],
+  "edges": [
+    {
+      "prerequisite": "M00-01",
+      "dependent": "M00-02",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M00-01",
+      "dependent": "M00-03",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M00-02",
+      "dependent": "M00-03",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M00-03",
+      "dependent": "M00-04",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M00-03",
+      "dependent": "M00-05",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M00-04",
+      "dependent": "M00-05",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M00-03",
+      "dependent": "M00-06",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M00-04",
+      "dependent": "M00-06",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M00-02",
+      "dependent": "M00-07",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M00-03",
+      "dependent": "M00-07",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M00-06",
+      "dependent": "M00-07",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M00-05",
+      "dependent": "M00-08",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M00-06",
+      "dependent": "M00-08",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M00-07",
+      "dependent": "M00-08",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M00-05",
+      "dependent": "M00-09",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M00-06",
+      "dependent": "M00-09",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M00-07",
+      "dependent": "M00-09",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M00-08",
+      "dependent": "M00-09",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M00-01",
+      "dependent": "M00-10",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M00-02",
+      "dependent": "M00-10",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M00-03",
+      "dependent": "M00-10",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M00-04",
+      "dependent": "M00-10",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M00-05",
+      "dependent": "M00-10",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M00-06",
+      "dependent": "M00-10",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M00-07",
+      "dependent": "M00-10",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M00-08",
+      "dependent": "M00-10",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M00-09",
+      "dependent": "M00-10",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M00-10",
+      "dependent": "M01-01",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M01-01",
+      "dependent": "M01-02",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M01-01",
+      "dependent": "M01-03",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M01-03",
+      "dependent": "M01-04",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M01-04",
+      "dependent": "M01-05",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M01-04",
+      "dependent": "M01-06",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M01-05",
+      "dependent": "M01-06",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M01-06",
+      "dependent": "M01-07",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M01-04",
+      "dependent": "M01-08",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M01-02",
+      "dependent": "M01-09",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M01-06",
+      "dependent": "M01-09",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M01-07",
+      "dependent": "M01-09",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M01-08",
+      "dependent": "M01-09",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M01-05",
+      "dependent": "M01-10",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M01-06",
+      "dependent": "M01-10",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M01-09",
+      "dependent": "M01-11",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M01-10",
+      "dependent": "M01-11",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M01-01",
+      "dependent": "M01-12",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M01-02",
+      "dependent": "M01-12",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M01-03",
+      "dependent": "M01-12",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M01-04",
+      "dependent": "M01-12",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M01-05",
+      "dependent": "M01-12",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M01-06",
+      "dependent": "M01-12",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M01-07",
+      "dependent": "M01-12",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M01-08",
+      "dependent": "M01-12",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M01-09",
+      "dependent": "M01-12",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M01-10",
+      "dependent": "M01-12",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M01-11",
+      "dependent": "M01-12",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M01-12",
+      "dependent": "M02-01",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M02-01",
+      "dependent": "M02-02",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M02-01",
+      "dependent": "M02-03",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M02-02",
+      "dependent": "M02-03",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M02-01",
+      "dependent": "M02-04",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M02-02",
+      "dependent": "M02-04",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M02-02",
+      "dependent": "M02-05",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M02-03",
+      "dependent": "M02-05",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M02-04",
+      "dependent": "M02-06",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M02-05",
+      "dependent": "M02-06",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M02-01",
+      "dependent": "M02-07",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M02-02",
+      "dependent": "M02-07",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M02-03",
+      "dependent": "M02-08",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M02-07",
+      "dependent": "M02-08",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M02-01",
+      "dependent": "M02-09",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M02-07",
+      "dependent": "M02-09",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M02-01",
+      "dependent": "M02-10",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M02-04",
+      "dependent": "M02-10",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M02-07",
+      "dependent": "M02-10",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M02-08",
+      "dependent": "M02-10",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M02-05",
+      "dependent": "M02-11",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M02-08",
+      "dependent": "M02-11",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M02-10",
+      "dependent": "M02-11",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M02-06",
+      "dependent": "M02-12",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M02-07",
+      "dependent": "M02-12",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M02-08",
+      "dependent": "M02-12",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M02-09",
+      "dependent": "M02-12",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M02-10",
+      "dependent": "M02-12",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M02-11",
+      "dependent": "M02-12",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M02-12",
+      "dependent": "M02-13",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M02-08",
+      "dependent": "M02-14",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M02-09",
+      "dependent": "M02-14",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M02-10",
+      "dependent": "M02-14",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M02-11",
+      "dependent": "M02-14",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M02-12",
+      "dependent": "M02-14",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M02-13",
+      "dependent": "M02-14",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M02-01",
+      "dependent": "M02-15",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M02-02",
+      "dependent": "M02-15",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M02-03",
+      "dependent": "M02-15",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M02-04",
+      "dependent": "M02-15",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M02-05",
+      "dependent": "M02-15",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M02-06",
+      "dependent": "M02-15",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M02-07",
+      "dependent": "M02-15",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M02-08",
+      "dependent": "M02-15",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M02-09",
+      "dependent": "M02-15",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M02-10",
+      "dependent": "M02-15",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M02-11",
+      "dependent": "M02-15",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M02-12",
+      "dependent": "M02-15",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M02-13",
+      "dependent": "M02-15",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M02-14",
+      "dependent": "M02-15",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M01-12",
+      "dependent": "M03-01",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M03-01",
+      "dependent": "M03-02",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M02-09",
+      "dependent": "M03-02",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M03-01",
+      "dependent": "M03-03",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M03-02",
+      "dependent": "M03-03",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M03-01",
+      "dependent": "M03-04",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M03-03",
+      "dependent": "M03-04",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M03-01",
+      "dependent": "M03-05",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M03-01",
+      "dependent": "M03-06",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M03-05",
+      "dependent": "M03-06",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M03-06",
+      "dependent": "M03-07",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M03-06",
+      "dependent": "M03-08",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M03-07",
+      "dependent": "M03-08",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M03-01",
+      "dependent": "M03-09",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M03-06",
+      "dependent": "M03-09",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M03-05",
+      "dependent": "M03-10",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M03-06",
+      "dependent": "M03-10",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M03-07",
+      "dependent": "M03-10",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M03-02",
+      "dependent": "M03-11",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M03-03",
+      "dependent": "M03-11",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M03-04",
+      "dependent": "M03-11",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M03-05",
+      "dependent": "M03-11",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M03-06",
+      "dependent": "M03-11",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M03-07",
+      "dependent": "M03-11",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M03-08",
+      "dependent": "M03-11",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M03-09",
+      "dependent": "M03-11",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M03-10",
+      "dependent": "M03-11",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M03-01",
+      "dependent": "M03-12",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M03-02",
+      "dependent": "M03-12",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M03-03",
+      "dependent": "M03-12",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M03-04",
+      "dependent": "M03-12",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M03-05",
+      "dependent": "M03-12",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M03-06",
+      "dependent": "M03-12",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M03-07",
+      "dependent": "M03-12",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M03-08",
+      "dependent": "M03-12",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M03-09",
+      "dependent": "M03-12",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M03-10",
+      "dependent": "M03-12",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M03-11",
+      "dependent": "M03-12",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M03-12",
+      "dependent": "M04-01",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M02-15",
+      "dependent": "M04-01",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M04-01",
+      "dependent": "M04-02",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M04-02",
+      "dependent": "M04-03",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M02-06",
+      "dependent": "M04-03",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M04-03",
+      "dependent": "M04-04",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M02-11",
+      "dependent": "M04-04",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M04-02",
+      "dependent": "M04-05",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M01-04",
+      "dependent": "M04-05",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M04-05",
+      "dependent": "M04-06",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M04-03",
+      "dependent": "M04-07",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M04-05",
+      "dependent": "M04-07",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M04-06",
+      "dependent": "M04-07",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M04-07",
+      "dependent": "M04-08",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M04-02",
+      "dependent": "M04-09",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M01-05",
+      "dependent": "M04-09",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M04-03",
+      "dependent": "M04-10",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M04-06",
+      "dependent": "M04-10",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M04-09",
+      "dependent": "M04-10",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M04-01",
+      "dependent": "M04-11",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M04-02",
+      "dependent": "M04-11",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M04-10",
+      "dependent": "M04-11",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M04-04",
+      "dependent": "M04-12",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M04-05",
+      "dependent": "M04-12",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M04-07",
+      "dependent": "M04-12",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M04-08",
+      "dependent": "M04-12",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M04-09",
+      "dependent": "M04-12",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M04-10",
+      "dependent": "M04-12",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M04-11",
+      "dependent": "M04-12",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M04-01",
+      "dependent": "M04-13",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M04-02",
+      "dependent": "M04-13",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M04-03",
+      "dependent": "M04-13",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M04-04",
+      "dependent": "M04-13",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M04-05",
+      "dependent": "M04-13",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M04-06",
+      "dependent": "M04-13",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M04-07",
+      "dependent": "M04-13",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M04-08",
+      "dependent": "M04-13",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M04-09",
+      "dependent": "M04-13",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M04-10",
+      "dependent": "M04-13",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M04-11",
+      "dependent": "M04-13",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M04-12",
+      "dependent": "M04-13",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M04-13",
+      "dependent": "M04-14",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M04-14",
+      "dependent": "M05-01",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M03-12",
+      "dependent": "M05-01",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M05-01",
+      "dependent": "M05-02",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M02-06",
+      "dependent": "M05-02",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M05-01",
+      "dependent": "M05-03",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M05-02",
+      "dependent": "M05-03",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M05-03",
+      "dependent": "M05-04",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M05-01",
+      "dependent": "M05-05",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M05-03",
+      "dependent": "M05-05",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M05-04",
+      "dependent": "M05-05",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M03-08",
+      "dependent": "M05-05",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M05-05",
+      "dependent": "M05-06",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M04-01",
+      "dependent": "M05-06",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M04-02",
+      "dependent": "M05-06",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M05-04",
+      "dependent": "M05-07",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M05-06",
+      "dependent": "M05-07",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M04-06",
+      "dependent": "M05-07",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M04-07",
+      "dependent": "M05-07",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M05-05",
+      "dependent": "M05-08",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M05-06",
+      "dependent": "M05-08",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M05-07",
+      "dependent": "M05-08",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M05-10",
+      "dependent": "M05-08",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M02-12",
+      "dependent": "M05-08",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M05-08",
+      "dependent": "M05-09",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M05-10",
+      "dependent": "M05-09",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M02-09",
+      "dependent": "M05-09",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M05-01",
+      "dependent": "M05-10",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M02-06",
+      "dependent": "M05-10",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M05-08",
+      "dependent": "M05-11",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M04-07",
+      "dependent": "M05-11",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M04-09",
+      "dependent": "M05-11",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M05-08",
+      "dependent": "M05-12",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M05-10",
+      "dependent": "M05-12",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M05-11",
+      "dependent": "M05-12",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M05-04",
+      "dependent": "M05-13",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M05-08",
+      "dependent": "M05-13",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M05-12",
+      "dependent": "M05-13",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M02-11",
+      "dependent": "M05-13",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M05-04",
+      "dependent": "M05-14",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M05-05",
+      "dependent": "M05-14",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M05-06",
+      "dependent": "M05-14",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M05-08",
+      "dependent": "M05-14",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M05-09",
+      "dependent": "M05-14",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M05-10",
+      "dependent": "M05-14",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M05-11",
+      "dependent": "M05-14",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M05-12",
+      "dependent": "M05-14",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M05-13",
+      "dependent": "M05-14",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M05-01",
+      "dependent": "M05-15",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M05-02",
+      "dependent": "M05-15",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M05-03",
+      "dependent": "M05-15",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M05-04",
+      "dependent": "M05-15",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M05-05",
+      "dependent": "M05-15",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M05-06",
+      "dependent": "M05-15",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M05-07",
+      "dependent": "M05-15",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M05-08",
+      "dependent": "M05-15",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M05-09",
+      "dependent": "M05-15",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M05-10",
+      "dependent": "M05-15",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M05-11",
+      "dependent": "M05-15",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M05-12",
+      "dependent": "M05-15",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M05-13",
+      "dependent": "M05-15",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M05-14",
+      "dependent": "M05-15",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M05-15",
+      "dependent": "M05-16",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M05-16",
+      "dependent": "M06-01",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M06-01",
+      "dependent": "M06-02",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M01-04",
+      "dependent": "M06-02",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M06-01",
+      "dependent": "M06-03",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M02-02",
+      "dependent": "M06-03",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M06-01",
+      "dependent": "M06-04",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M06-02",
+      "dependent": "M06-04",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M06-03",
+      "dependent": "M06-04",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M06-02",
+      "dependent": "M06-05",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M06-04",
+      "dependent": "M06-05",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M06-02",
+      "dependent": "M06-06",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M06-03",
+      "dependent": "M06-06",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M06-04",
+      "dependent": "M06-06",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M06-05",
+      "dependent": "M06-06",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M06-02",
+      "dependent": "M06-07",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M06-04",
+      "dependent": "M06-07",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M06-06",
+      "dependent": "M06-07",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M04-10",
+      "dependent": "M06-07",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M06-01",
+      "dependent": "M06-08",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M06-02",
+      "dependent": "M06-08",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M06-05",
+      "dependent": "M06-08",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M06-06",
+      "dependent": "M06-08",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M06-07",
+      "dependent": "M06-08",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M06-08",
+      "dependent": "M06-09",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M05-12",
+      "dependent": "M06-09",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M06-04",
+      "dependent": "M06-10",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M06-06",
+      "dependent": "M06-10",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M06-08",
+      "dependent": "M06-10",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M02-09",
+      "dependent": "M06-10",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M06-08",
+      "dependent": "M06-11",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M06-10",
+      "dependent": "M06-11",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M06-08",
+      "dependent": "M06-12",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M06-10",
+      "dependent": "M06-12",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M06-11",
+      "dependent": "M06-12",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M06-06",
+      "dependent": "M06-13",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M06-07",
+      "dependent": "M06-13",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M06-08",
+      "dependent": "M06-13",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M06-09",
+      "dependent": "M06-13",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M06-10",
+      "dependent": "M06-13",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M06-11",
+      "dependent": "M06-13",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M06-12",
+      "dependent": "M06-13",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M06-01",
+      "dependent": "M06-14",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M06-02",
+      "dependent": "M06-14",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M06-03",
+      "dependent": "M06-14",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M06-04",
+      "dependent": "M06-14",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M06-05",
+      "dependent": "M06-14",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M06-06",
+      "dependent": "M06-14",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M06-07",
+      "dependent": "M06-14",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M06-08",
+      "dependent": "M06-14",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M06-09",
+      "dependent": "M06-14",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M06-10",
+      "dependent": "M06-14",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M06-11",
+      "dependent": "M06-14",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M06-12",
+      "dependent": "M06-14",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M06-13",
+      "dependent": "M06-14",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M06-14",
+      "dependent": "M06-15",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M06-15",
+      "dependent": "M07-01",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M07-01",
+      "dependent": "M07-02",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M02-06",
+      "dependent": "M07-02",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M05-10",
+      "dependent": "M07-02",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M07-01",
+      "dependent": "M07-03",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M07-01",
+      "dependent": "M07-04",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M07-02",
+      "dependent": "M07-04",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M07-03",
+      "dependent": "M07-04",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M07-02",
+      "dependent": "M07-05",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M07-04",
+      "dependent": "M07-05",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M04-03",
+      "dependent": "M07-05",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M07-02",
+      "dependent": "M07-06",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M07-03",
+      "dependent": "M07-06",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M07-04",
+      "dependent": "M07-06",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M07-05",
+      "dependent": "M07-06",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M05-10",
+      "dependent": "M07-06",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M07-01",
+      "dependent": "M07-07",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M07-01",
+      "dependent": "M07-08",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M07-07",
+      "dependent": "M07-08",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M06-08",
+      "dependent": "M07-08",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M07-06",
+      "dependent": "M07-09",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M07-07",
+      "dependent": "M07-09",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M07-08",
+      "dependent": "M07-09",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M05-12",
+      "dependent": "M07-09",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M06-09",
+      "dependent": "M07-09",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M07-08",
+      "dependent": "M07-10",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M07-09",
+      "dependent": "M07-10",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M02-11",
+      "dependent": "M07-10",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M07-01",
+      "dependent": "M07-11",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M07-08",
+      "dependent": "M07-11",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M01-04",
+      "dependent": "M07-11",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M07-02",
+      "dependent": "M07-12",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M07-03",
+      "dependent": "M07-12",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M07-04",
+      "dependent": "M07-12",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M07-06",
+      "dependent": "M07-12",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M07-07",
+      "dependent": "M07-12",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M07-08",
+      "dependent": "M07-12",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M07-09",
+      "dependent": "M07-12",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M07-10",
+      "dependent": "M07-12",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M07-11",
+      "dependent": "M07-12",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M07-02",
+      "dependent": "M07-13",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M07-03",
+      "dependent": "M07-13",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M07-04",
+      "dependent": "M07-13",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M07-05",
+      "dependent": "M07-13",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M07-06",
+      "dependent": "M07-13",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M07-12",
+      "dependent": "M07-13",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M07-07",
+      "dependent": "M07-14",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M07-08",
+      "dependent": "M07-14",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M07-09",
+      "dependent": "M07-14",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M07-10",
+      "dependent": "M07-14",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M07-11",
+      "dependent": "M07-14",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M07-12",
+      "dependent": "M07-14",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M07-01",
+      "dependent": "M07-15",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M07-02",
+      "dependent": "M07-15",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M07-03",
+      "dependent": "M07-15",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M07-04",
+      "dependent": "M07-15",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M07-05",
+      "dependent": "M07-15",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M07-06",
+      "dependent": "M07-15",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M07-07",
+      "dependent": "M07-15",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M07-08",
+      "dependent": "M07-15",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M07-09",
+      "dependent": "M07-15",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M07-10",
+      "dependent": "M07-15",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M07-11",
+      "dependent": "M07-15",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M07-12",
+      "dependent": "M07-15",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M07-13",
+      "dependent": "M07-15",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M07-14",
+      "dependent": "M07-15",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M03-12",
+      "dependent": "M08-01",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M01-05",
+      "dependent": "M08-01",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M08-01",
+      "dependent": "M08-02",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M02-04",
+      "dependent": "M08-02",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M08-01",
+      "dependent": "M08-03",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M08-02",
+      "dependent": "M08-03",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M08-03",
+      "dependent": "M08-04",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M03-03",
+      "dependent": "M08-04",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M08-01",
+      "dependent": "M08-05",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M08-04",
+      "dependent": "M08-05",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M08-01",
+      "dependent": "M08-06",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M08-05",
+      "dependent": "M08-06",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M08-03",
+      "dependent": "M08-07",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M08-05",
+      "dependent": "M08-07",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M08-06",
+      "dependent": "M08-07",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M07-08",
+      "dependent": "M08-07",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M08-06",
+      "dependent": "M08-08",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M08-07",
+      "dependent": "M08-08",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M08-06",
+      "dependent": "M08-09",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M08-07",
+      "dependent": "M08-09",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M08-08",
+      "dependent": "M08-09",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M08-06",
+      "dependent": "M08-10",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M08-07",
+      "dependent": "M08-10",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M08-08",
+      "dependent": "M08-10",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M06-12",
+      "dependent": "M08-10",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M08-07",
+      "dependent": "M08-11",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M08-08",
+      "dependent": "M08-11",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M08-09",
+      "dependent": "M08-11",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M08-10",
+      "dependent": "M08-11",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M07-10",
+      "dependent": "M08-11",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M08-02",
+      "dependent": "M08-12",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M08-04",
+      "dependent": "M08-12",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M08-06",
+      "dependent": "M08-12",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M08-08",
+      "dependent": "M08-12",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M08-09",
+      "dependent": "M08-12",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M08-10",
+      "dependent": "M08-12",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M08-11",
+      "dependent": "M08-12",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M08-01",
+      "dependent": "M08-13",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M08-02",
+      "dependent": "M08-13",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M08-03",
+      "dependent": "M08-13",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M08-04",
+      "dependent": "M08-13",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M08-05",
+      "dependent": "M08-13",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M08-06",
+      "dependent": "M08-13",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M08-07",
+      "dependent": "M08-13",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M08-08",
+      "dependent": "M08-13",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M08-09",
+      "dependent": "M08-13",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M08-10",
+      "dependent": "M08-13",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M08-11",
+      "dependent": "M08-13",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M08-12",
+      "dependent": "M08-13",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M08-13",
+      "dependent": "M08-14",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M01-12",
+      "dependent": "M09-01",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M09-01",
+      "dependent": "M09-02",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M03-11",
+      "dependent": "M09-02",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M09-02",
+      "dependent": "M09-03",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M01-07",
+      "dependent": "M09-03",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M09-03",
+      "dependent": "M09-04",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M07-12",
+      "dependent": "M09-04",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M08-12",
+      "dependent": "M09-04",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M09-03",
+      "dependent": "M09-05",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M05-14",
+      "dependent": "M09-05",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M03-11",
+      "dependent": "M09-05",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M09-03",
+      "dependent": "M09-06",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M04-12",
+      "dependent": "M09-06",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M06-13",
+      "dependent": "M09-06",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M09-03",
+      "dependent": "M09-07",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M06-11",
+      "dependent": "M09-07",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M05-13",
+      "dependent": "M09-07",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M09-01",
+      "dependent": "M09-08",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M09-02",
+      "dependent": "M09-08",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M09-03",
+      "dependent": "M09-08",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M09-07",
+      "dependent": "M09-08",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M09-03",
+      "dependent": "M09-09",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M07-12",
+      "dependent": "M09-09",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M08-12",
+      "dependent": "M09-09",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M09-02",
+      "dependent": "M09-10",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M09-07",
+      "dependent": "M09-10",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M02-11",
+      "dependent": "M09-10",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M09-01",
+      "dependent": "M09-11",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M09-02",
+      "dependent": "M09-11",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M09-08",
+      "dependent": "M09-11",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M09-09",
+      "dependent": "M09-11",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M09-10",
+      "dependent": "M09-11",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M09-03",
+      "dependent": "M09-12",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M09-04",
+      "dependent": "M09-12",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M09-05",
+      "dependent": "M09-12",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M09-06",
+      "dependent": "M09-12",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M09-07",
+      "dependent": "M09-12",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M09-08",
+      "dependent": "M09-12",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M09-09",
+      "dependent": "M09-12",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M09-10",
+      "dependent": "M09-12",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M09-11",
+      "dependent": "M09-12",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M09-01",
+      "dependent": "M09-13",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M09-02",
+      "dependent": "M09-13",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M09-03",
+      "dependent": "M09-13",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M09-04",
+      "dependent": "M09-13",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M09-05",
+      "dependent": "M09-13",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M09-06",
+      "dependent": "M09-13",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M09-07",
+      "dependent": "M09-13",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M09-08",
+      "dependent": "M09-13",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M09-09",
+      "dependent": "M09-13",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M09-10",
+      "dependent": "M09-13",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M09-11",
+      "dependent": "M09-13",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M09-12",
+      "dependent": "M09-13",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M09-13",
+      "dependent": "M09-14",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M02-15",
+      "dependent": "M10-01",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M03-12",
+      "dependent": "M10-01",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M04-14",
+      "dependent": "M10-01",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M05-16",
+      "dependent": "M10-01",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M06-15",
+      "dependent": "M10-01",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M07-15",
+      "dependent": "M10-01",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M08-14",
+      "dependent": "M10-01",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M09-14",
+      "dependent": "M10-01",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M10-01",
+      "dependent": "M10-02",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M10-01",
+      "dependent": "M10-03",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M10-02",
+      "dependent": "M10-03",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M10-02",
+      "dependent": "M10-04",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M10-03",
+      "dependent": "M10-04",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M10-02",
+      "dependent": "M10-05",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M10-03",
+      "dependent": "M10-05",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M10-03",
+      "dependent": "M10-06",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M10-02",
+      "dependent": "M10-07",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M10-03",
+      "dependent": "M10-07",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M10-02",
+      "dependent": "M10-08",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M10-03",
+      "dependent": "M10-08",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M10-04",
+      "dependent": "M10-08",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M10-05",
+      "dependent": "M10-08",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M10-02",
+      "dependent": "M10-09",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M10-03",
+      "dependent": "M10-09",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M10-02",
+      "dependent": "M10-10",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M10-03",
+      "dependent": "M10-10",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M07-15",
+      "dependent": "M10-10",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M08-14",
+      "dependent": "M10-10",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M10-02",
+      "dependent": "M10-11",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M10-03",
+      "dependent": "M10-11",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M10-04",
+      "dependent": "M10-11",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M10-05",
+      "dependent": "M10-11",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M10-04",
+      "dependent": "M10-12",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M10-05",
+      "dependent": "M10-12",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M10-06",
+      "dependent": "M10-12",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M10-07",
+      "dependent": "M10-12",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M10-08",
+      "dependent": "M10-12",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M10-09",
+      "dependent": "M10-12",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M10-10",
+      "dependent": "M10-12",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M10-11",
+      "dependent": "M10-12",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M10-12",
+      "dependent": "M10-13",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M10-13",
+      "dependent": "M10-14",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M10-14",
+      "dependent": "M11-01",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M11-01",
+      "dependent": "M11-02",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M02-06",
+      "dependent": "M11-02",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M08-02",
+      "dependent": "M11-02",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M11-01",
+      "dependent": "M11-03",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M11-01",
+      "dependent": "M11-04",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M11-03",
+      "dependent": "M11-04",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M00-08",
+      "dependent": "M11-04",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M11-04",
+      "dependent": "M11-05",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M11-05",
+      "dependent": "M11-06",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M11-02",
+      "dependent": "M11-06",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M11-05",
+      "dependent": "M11-07",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M11-06",
+      "dependent": "M11-07",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M02-03",
+      "dependent": "M11-07",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M11-04",
+      "dependent": "M11-08",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M11-05",
+      "dependent": "M11-08",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M11-08",
+      "dependent": "M11-09",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M07-11",
+      "dependent": "M11-09",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M11-05",
+      "dependent": "M11-10",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M11-06",
+      "dependent": "M11-10",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M11-07",
+      "dependent": "M11-10",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M11-08",
+      "dependent": "M11-10",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M11-09",
+      "dependent": "M11-10",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M11-01",
+      "dependent": "M11-11",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M11-02",
+      "dependent": "M11-11",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M11-03",
+      "dependent": "M11-11",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M11-02",
+      "dependent": "M11-12",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M11-04",
+      "dependent": "M11-12",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M11-05",
+      "dependent": "M11-12",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M11-06",
+      "dependent": "M11-12",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M11-07",
+      "dependent": "M11-12",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M11-08",
+      "dependent": "M11-12",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M11-09",
+      "dependent": "M11-12",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M11-10",
+      "dependent": "M11-12",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M11-11",
+      "dependent": "M11-12",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M11-12",
+      "dependent": "M11-13",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M11-13",
+      "dependent": "M11-14",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M11-12",
+      "dependent": "M11-15",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M11-14",
+      "dependent": "M11-15",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M11-14",
+      "dependent": "M11-16",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M11-15",
+      "dependent": "M11-16",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M11-16",
+      "dependent": "M12-01",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M12-01",
+      "dependent": "M12-02",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M08-02",
+      "dependent": "M12-02",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M12-02",
+      "dependent": "M12-03",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M06-12",
+      "dependent": "M12-03",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M08-06",
+      "dependent": "M12-03",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M12-01",
+      "dependent": "M12-04",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M12-04",
+      "dependent": "M12-05",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M02-07",
+      "dependent": "M12-05",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M12-01",
+      "dependent": "M12-06",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M07-15",
+      "dependent": "M12-06",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M12-01",
+      "dependent": "M12-07",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M02-02",
+      "dependent": "M12-07",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M12-07",
+      "dependent": "M12-08",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M12-07",
+      "dependent": "M12-09",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M12-01",
+      "dependent": "M12-10",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M04-05",
+      "dependent": "M12-10",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M12-10",
+      "dependent": "M12-11",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M04-06",
+      "dependent": "M12-11",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M12-01",
+      "dependent": "M12-12",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M05-16",
+      "dependent": "M12-12",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M06-15",
+      "dependent": "M12-12",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M07-15",
+      "dependent": "M12-12",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M12-01",
+      "dependent": "M12-13",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M08-14",
+      "dependent": "M12-13",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M12-01",
+      "dependent": "M12-14",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M09-14",
+      "dependent": "M12-14",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M12-01",
+      "dependent": "M12-15",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M12-02",
+      "dependent": "M12-15",
+      "kind": "conditional",
+      "condition": "Package included in selected release scope"
+    },
+    {
+      "prerequisite": "M12-03",
+      "dependent": "M12-15",
+      "kind": "conditional",
+      "condition": "Package included in selected release scope"
+    },
+    {
+      "prerequisite": "M12-04",
+      "dependent": "M12-15",
+      "kind": "conditional",
+      "condition": "Package included in selected release scope"
+    },
+    {
+      "prerequisite": "M12-05",
+      "dependent": "M12-15",
+      "kind": "conditional",
+      "condition": "Package included in selected release scope"
+    },
+    {
+      "prerequisite": "M12-06",
+      "dependent": "M12-15",
+      "kind": "conditional",
+      "condition": "Package included in selected release scope"
+    },
+    {
+      "prerequisite": "M12-07",
+      "dependent": "M12-15",
+      "kind": "conditional",
+      "condition": "Package included in selected release scope"
+    },
+    {
+      "prerequisite": "M12-08",
+      "dependent": "M12-15",
+      "kind": "conditional",
+      "condition": "Package included in selected release scope"
+    },
+    {
+      "prerequisite": "M12-09",
+      "dependent": "M12-15",
+      "kind": "conditional",
+      "condition": "Package included in selected release scope"
+    },
+    {
+      "prerequisite": "M12-10",
+      "dependent": "M12-15",
+      "kind": "conditional",
+      "condition": "Package included in selected release scope"
+    },
+    {
+      "prerequisite": "M12-11",
+      "dependent": "M12-15",
+      "kind": "conditional",
+      "condition": "Package included in selected release scope"
+    },
+    {
+      "prerequisite": "M12-12",
+      "dependent": "M12-15",
+      "kind": "conditional",
+      "condition": "Package included in selected release scope"
+    },
+    {
+      "prerequisite": "M12-13",
+      "dependent": "M12-15",
+      "kind": "conditional",
+      "condition": "Package included in selected release scope"
+    },
+    {
+      "prerequisite": "M12-14",
+      "dependent": "M12-15",
+      "kind": "conditional",
+      "condition": "Package included in selected release scope"
+    },
+    {
+      "prerequisite": "M12-15",
+      "dependent": "M12-16",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M11-16",
+      "dependent": "M13-01",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M13-01",
+      "dependent": "M13-02",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M13-01",
+      "dependent": "M13-03",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M13-01",
+      "dependent": "M13-04",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M13-02",
+      "dependent": "M13-04",
+      "kind": "conditional",
+      "condition": "Linux included in selected release scope"
+    },
+    {
+      "prerequisite": "M13-03",
+      "dependent": "M13-04",
+      "kind": "conditional",
+      "condition": "macOS included in selected release scope"
+    },
+    {
+      "prerequisite": "M12-01",
+      "dependent": "M13-05",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M13-05",
+      "dependent": "M13-06",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M02-07",
+      "dependent": "M13-06",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M13-05",
+      "dependent": "M13-07",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M13-06",
+      "dependent": "M13-07",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M13-05",
+      "dependent": "M13-08",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M13-06",
+      "dependent": "M13-08",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M13-06",
+      "dependent": "M13-09",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M13-08",
+      "dependent": "M13-09",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M13-05",
+      "dependent": "M13-10",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M13-06",
+      "dependent": "M13-10",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M12-01",
+      "dependent": "M13-11",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M02-07",
+      "dependent": "M13-11",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M13-11",
+      "dependent": "M13-12",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M07-06",
+      "dependent": "M13-12",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M13-11",
+      "dependent": "M13-13",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M13-12",
+      "dependent": "M13-13",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M05-16",
+      "dependent": "M13-13",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M12-01",
+      "dependent": "M13-14",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M03-12",
+      "dependent": "M13-14",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M13-14",
+      "dependent": "M13-15",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M04-05",
+      "dependent": "M13-15",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M08-07",
+      "dependent": "M13-15",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M12-01",
+      "dependent": "M13-16",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M11-16",
+      "dependent": "M13-17",
+      "kind": "hard"
+    },
+    {
+      "prerequisite": "M13-01",
+      "dependent": "M13-17",
+      "kind": "conditional",
+      "condition": "Package included in selected release scope"
+    },
+    {
+      "prerequisite": "M13-02",
+      "dependent": "M13-17",
+      "kind": "conditional",
+      "condition": "Package included in selected release scope"
+    },
+    {
+      "prerequisite": "M13-03",
+      "dependent": "M13-17",
+      "kind": "conditional",
+      "condition": "Package included in selected release scope"
+    },
+    {
+      "prerequisite": "M13-04",
+      "dependent": "M13-17",
+      "kind": "conditional",
+      "condition": "Package included in selected release scope"
+    },
+    {
+      "prerequisite": "M13-05",
+      "dependent": "M13-17",
+      "kind": "conditional",
+      "condition": "Package included in selected release scope"
+    },
+    {
+      "prerequisite": "M13-06",
+      "dependent": "M13-17",
+      "kind": "conditional",
+      "condition": "Package included in selected release scope"
+    },
+    {
+      "prerequisite": "M13-07",
+      "dependent": "M13-17",
+      "kind": "conditional",
+      "condition": "Package included in selected release scope"
+    },
+    {
+      "prerequisite": "M13-08",
+      "dependent": "M13-17",
+      "kind": "conditional",
+      "condition": "Package included in selected release scope"
+    },
+    {
+      "prerequisite": "M13-09",
+      "dependent": "M13-17",
+      "kind": "conditional",
+      "condition": "Package included in selected release scope"
+    },
+    {
+      "prerequisite": "M13-10",
+      "dependent": "M13-17",
+      "kind": "conditional",
+      "condition": "Package included in selected release scope"
+    },
+    {
+      "prerequisite": "M13-11",
+      "dependent": "M13-17",
+      "kind": "conditional",
+      "condition": "Package included in selected release scope"
+    },
+    {
+      "prerequisite": "M13-12",
+      "dependent": "M13-17",
+      "kind": "conditional",
+      "condition": "Package included in selected release scope"
+    },
+    {
+      "prerequisite": "M13-13",
+      "dependent": "M13-17",
+      "kind": "conditional",
+      "condition": "Package included in selected release scope"
+    },
+    {
+      "prerequisite": "M13-14",
+      "dependent": "M13-17",
+      "kind": "conditional",
+      "condition": "Package included in selected release scope"
+    },
+    {
+      "prerequisite": "M13-15",
+      "dependent": "M13-17",
+      "kind": "conditional",
+      "condition": "Package included in selected release scope"
+    },
+    {
+      "prerequisite": "M13-16",
+      "dependent": "M13-17",
+      "kind": "conditional",
+      "condition": "Package included in selected release scope"
+    },
+    {
+      "prerequisite": "M13-17",
+      "dependent": "M13-18",
+      "kind": "hard"
+    }
+  ],
+  "conditionalPolicy": "Compute closure of chosen release scope under hard dependencies. Include conditional prerequisites only for included package/platform; verify all applicable selected scope gates before publication. Do not materialize every conditional edge as an unconditional Linear blocker.",
+  "provenance": "All package-level edges reconstructed except retained explicit K02/K04 relationships. This is a new graph, not the unrecovered historical 697-edge graph."
+}

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "status": "reconstructed-index-not-import-ready",
-  "provenance": "Package names and scope reconstructed from retained approved planning summaries; milestone totals checked against merged overview. Original detailed definitions, dependency list and individual acceptance checks were not retrieved. Do not represent unknown fields as approved.",
+  "status": "historical-index-superseded-for-import",
+  "provenance": "Package names and scope reconstructed from retained approved planning summaries; milestone totals checked against merged overview. Original detailed definitions, dependency list and individual acceptance checks were not retrieved. Do not represent unknown fields as approved. Retained as reconstruction baseline only. Review reconstructed requirements in reconstruction-manifest.json; not a source for import.",
   "milestones": [
     {
       "id": "M00",
