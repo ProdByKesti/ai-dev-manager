@@ -1,0 +1,2648 @@
+{
+  "schemaVersion": 2,
+  "status": "reconstructed-review-draft",
+  "provenance": "Stable IDs/titles/scope retained; owner, type, requirements, individual checks and dependency assignments reconstructed for review. Notes retain earlier constraints; targets provisional.",
+  "milestones": [
+    {
+      "id": "M05",
+      "name": "Orchestration Engine",
+      "plannedChecks": 42,
+      "notes": [
+        "M05-10 precedes M05-09 (K04); central inference guard from M02 (K03). Before guard completion use fakes or explicitly controlled single runs.",
+        "Defaults: 2 concurrent jobs, 1 turn/session, 2 technical retries/task, 3 repairs/task, 3 question rounds, 2 extra planning calls/change request; cumulative M04 communication budgets. Unknown quota holds automation; no paid fallback or default cross-project messaging.",
+        "Approved plan revisions, separate security approvals, no scope/architecture/new tasks or reduced criteria without approval. K05 distinct task/run/gate/sync states."
+      ],
+      "packages": [
+        {
+          "id": "M05-01",
+          "title": "Orchestration Domain & Execution Plan",
+          "priority": "P0",
+          "owner": "Orchestration",
+          "issueType": "Feature",
+          "requirements": "Versioned execution plan with stable tasks, dependencies, budgets and gate requirements independent of runs.",
+          "dependencies": [
+            "M04-14",
+            "M03-12"
+          ],
+          "acceptanceCriteria": [
+            {
+              "id": "M05-01-AC01",
+              "description": "Round-trip plan revision",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M05-01-AC02",
+              "description": "Reject invalid task references",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M05-01-AC03",
+              "description": "Prevent run success from completing task",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M05-02",
+          "title": "AI Project Manager",
+          "priority": "P0",
+          "owner": "Orchestration",
+          "issueType": "Feature",
+          "requirements": "AI project manager proposes structured plans from scoped context through guarded provider.",
+          "dependencies": [
+            "M05-01",
+            "M02-06"
+          ],
+          "acceptanceCriteria": [
+            {
+              "id": "M05-02-AC01",
+              "description": "Generate valid proposal using fake or authorized live provider",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M05-02-AC02",
+              "description": "Block unknown quota",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M05-02-AC03",
+              "description": "Verify proposal creates no execution or permissions",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M05-03",
+          "title": "Structured Plan Generation & Validation",
+          "priority": "P0",
+          "owner": "Orchestration",
+          "issueType": "Feature",
+          "requirements": "Validate plan schema, DAG, scope, capabilities and protected criteria.",
+          "dependencies": [
+            "M05-01",
+            "M05-02"
+          ],
+          "acceptanceCriteria": [
+            {
+              "id": "M05-03-AC01",
+              "description": "Reject missing references and cycles",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M05-03-AC02",
+              "description": "Reject unauthorized scope or capability",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M05-03-AC03",
+              "description": "Reject omitted mandatory criteria",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M05-04",
+          "title": "Plan Approval & Revision Management",
+          "priority": "P0",
+          "owner": "Orchestration",
+          "issueType": "Feature",
+          "requirements": "Persist human approval, revision and withdrawal tied to exact plan.",
+          "dependencies": [
+            "M05-03"
+          ],
+          "acceptanceCriteria": [
+            {
+              "id": "M05-04-AC01",
+              "description": "Dispatch only approved revision",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M05-04-AC02",
+              "description": "Reject stale/revoked approval",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M05-04-AC03",
+              "description": "Preserve revision history",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M05-05",
+          "title": "Deterministic DAG Scheduler",
+          "priority": "P0",
+          "owner": "Orchestration",
+          "issueType": "Feature",
+          "requirements": "Deterministic DAG scheduler with readiness, priority and starvation prevention.",
+          "dependencies": [
+            "M05-01",
+            "M05-03",
+            "M05-04",
+            "M03-08"
+          ],
+          "acceptanceCriteria": [
+            {
+              "id": "M05-05-AC01",
+              "description": "Schedule only ready compatible tasks",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M05-05-AC02",
+              "description": "Reject blocked/unapproved tasks",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M05-05-AC03",
+              "description": "Test bounded starvation prevention",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M05-06",
+          "title": "Agent Assignment Engine",
+          "priority": "P0",
+          "owner": "Orchestration",
+          "issueType": "Feature",
+          "requirements": "Assign eligible agent identity, session and workspace without privilege change.",
+          "dependencies": [
+            "M05-05",
+            "M04-01",
+            "M04-02"
+          ],
+          "acceptanceCriteria": [
+            {
+              "id": "M05-06-AC01",
+              "description": "Assign compatible role",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M05-06-AC02",
+              "description": "Reject unavailable or overprivileged assignment",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M05-06-AC03",
+              "description": "Preserve manual assignment rationale",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M05-07",
+          "title": "Work Package Prompt Builder",
+          "priority": "P0",
+          "owner": "Orchestration",
+          "issueType": "Feature",
+          "requirements": "Build scoped work-order prompts from approved criteria, relevant context and handoffs.",
+          "dependencies": [
+            "M05-04",
+            "M05-06",
+            "M04-06",
+            "M04-07"
+          ],
+          "acceptanceCriteria": [
+            {
+              "id": "M05-07-AC01",
+              "description": "Render exact revision and requirements",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M05-07-AC02",
+              "description": "Exclude secrets and foreign context",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M05-07-AC03",
+              "description": "Reject missing mandatory context or excess budget",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M05-08",
+          "title": "Execution Dispatch & Run Tracking",
+          "priority": "P0",
+          "owner": "Orchestration",
+          "issueType": "Feature",
+          "requirements": "Dispatch approved scoped runs, track lifecycle and evidence via adapter.",
+          "dependencies": [
+            "M05-05",
+            "M05-06",
+            "M05-07",
+            "M05-10",
+            "M02-12"
+          ],
+          "acceptanceCriteria": [
+            {
+              "id": "M05-08-AC01",
+              "description": "Execute fake-provider pipeline",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M05-08-AC02",
+              "description": "Block unknown quota or incompatible workspace",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M05-08-AC03",
+              "description": "Reconcile uncertain dispatch without duplicate",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M05-09",
+          "title": "Parallel Execution & Workspace Reservations",
+          "priority": "P0",
+          "owner": "Orchestration",
+          "issueType": "Feature",
+          "requirements": "Reserve compatible separate worktrees and resources for parallel runs, one turn/session.",
+          "dependencies": [
+            "M05-08",
+            "M05-10",
+            "M02-09"
+          ],
+          "acceptanceCriteria": [
+            {
+              "id": "M05-09-AC01",
+              "description": "Run compatible jobs with observed overlap",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M05-09-AC02",
+              "description": "Reject workspace/session contention and oversubscription",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M05-09-AC03",
+              "description": "Release reservation after verified termination",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M05-10",
+          "title": "Basic Resource & Quota Guard",
+          "priority": "P0",
+          "owner": "Orchestration",
+          "issueType": "Security",
+          "requirements": "Extend central admission guard with deterministic quota and resource reservation.",
+          "dependencies": [
+            "M05-01",
+            "M02-06"
+          ],
+          "acceptanceCriteria": [
+            {
+              "id": "M05-10-AC01",
+              "description": "Block unknown/exhausted quota",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M05-10-AC02",
+              "description": "Prevent concurrent over-admission",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M05-10-AC03",
+              "description": "Verify dispatch and communication use same guard",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M05-11",
+          "title": "Dependency Handover & Result Processing",
+          "priority": "P0",
+          "owner": "Orchestration",
+          "issueType": "Feature",
+          "requirements": "Validate dependency handover/result and release readiness only after valid completion.",
+          "dependencies": [
+            "M05-08",
+            "M04-07",
+            "M04-09"
+          ],
+          "acceptanceCriteria": [
+            {
+              "id": "M05-11-AC01",
+              "description": "Deliver valid handoff and update readiness",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M05-11-AC02",
+              "description": "Reject stale/duplicate result",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M05-12",
+          "title": "Blocker, Retry & Escalation Management",
+          "priority": "P0",
+          "owner": "Orchestration",
+          "issueType": "Feature",
+          "requirements": "Classify blockers, bounded retry and escalation with persistent counters.",
+          "dependencies": [
+            "M05-08",
+            "M05-10",
+            "M05-11"
+          ],
+          "acceptanceCriteria": [
+            {
+              "id": "M05-12-AC01",
+              "description": "Preserve retry limit through restart/session change",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M05-12-AC02",
+              "description": "Escalate unknown/security failure without blind replay",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M05-13",
+          "title": "Dynamic Plan Change & User Intervention",
+          "priority": "P0",
+          "owner": "Orchestration",
+          "issueType": "Feature",
+          "requirements": "Control plan changes, clarification and persistent pause/cancel/emergency stop.",
+          "dependencies": [
+            "M05-04",
+            "M05-08",
+            "M05-12",
+            "M02-11"
+          ],
+          "acceptanceCriteria": [
+            {
+              "id": "M05-13-AC01",
+              "description": "Require approval for scope/gate change",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M05-13-AC02",
+              "description": "Stop new starts and distinguish actual termination",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M05-14",
+          "title": "Planner & Orchestration Workspace UI",
+          "priority": "P0",
+          "owner": "Frontend",
+          "issueType": "Feature",
+          "requirements": "Planner/orchestration UI with revisions, DAG, runs, blockers and intervention.",
+          "dependencies": [
+            "M05-04",
+            "M05-05",
+            "M05-06",
+            "M05-08",
+            "M05-09",
+            "M05-10",
+            "M05-11",
+            "M05-12",
+            "M05-13"
+          ],
+          "acceptanceCriteria": [
+            {
+              "id": "M05-14-AC01",
+              "description": "Review and approve plan in GUI",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M05-14-AC02",
+              "description": "Show actual blocked/quota/run status and controls",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M05-15",
+          "title": "Orchestration Regression & End-to-End Suite",
+          "priority": "P0",
+          "owner": "Quality & Recovery",
+          "issueType": "Testing",
+          "requirements": "Independent orchestration regression and controlled end-to-end suite.",
+          "dependencies": [
+            "M05-01",
+            "M05-02",
+            "M05-03",
+            "M05-04",
+            "M05-05",
+            "M05-06",
+            "M05-07",
+            "M05-08",
+            "M05-09",
+            "M05-10",
+            "M05-11",
+            "M05-12",
+            "M05-13",
+            "M05-14"
+          ],
+          "acceptanceCriteria": [
+            {
+              "id": "M05-15-AC01",
+              "description": "Run fake workflow and approved live checks",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M05-15-AC02",
+              "description": "Test cycle, stale approval, contention and budget failure",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M05-16",
+          "title": "Orchestration Engine Acceptance",
+          "priority": "P0",
+          "owner": "Quality & Recovery",
+          "issueType": "Testing",
+          "requirements": "Accept coordinated workflow only with authorized execution and evidence.",
+          "dependencies": [
+            "M05-15"
+          ],
+          "acceptanceCriteria": [
+            {
+              "id": "M05-16-AC01",
+              "description": "Verify required gates and M05-10 before M05-09",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M05-16-AC02",
+              "description": "Record acceptance or blockers",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        }
+      ]
+    },
+    {
+      "id": "M06",
+      "name": "Quality Engine",
+      "plannedChecks": 42,
+      "notes": [
+        "Only valid Passed satisfies mandatory gate; states Pending, Running, Passed, Failed, Skipped, Inconclusive, Invalidated, Blocked, Not applicable. Exit zero with zero required tests insufficient; approved policy revision distinct from pass.",
+        "Protected baseline and evidence tied to exact commit/target/environment/policy. One independent reviewer when required, human acceptance where required. 3 repairs cumulative across M05/M06 and 2 technical retries; hold if required reviewer unavailable unless equivalent manual review authorized.",
+        "Optional low-risk dogfooding after M06, not M07 prerequisite: separate copy, docs/unit tests/utility/UI bug/small package, no self-overwrite/security changes, independent acceptance."
+      ],
+      "packages": [
+        {
+          "id": "M06-01",
+          "title": "Quality Policy & Gate Configuration",
+          "priority": "P0",
+          "owner": "Quality & Recovery",
+          "issueType": "Feature",
+          "requirements": "Versioned risk-based quality policy and gate configuration.",
+          "dependencies": [
+            "M05-16"
+          ],
+          "acceptanceCriteria": [
+            {
+              "id": "M06-01-AC01",
+              "description": "Resolve applicable gate set",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M06-01-AC02",
+              "description": "Reject unauthorized reduction",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M06-01-AC03",
+              "description": "Bind evidence to policy revision",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M06-02",
+          "title": "Persistent Quality Evidence Store",
+          "priority": "P0",
+          "owner": "Core",
+          "issueType": "Feature",
+          "requirements": "Protected persistent evidence store for candidate, environment and outcomes.",
+          "dependencies": [
+            "M06-01",
+            "M01-04"
+          ],
+          "acceptanceCriteria": [
+            {
+              "id": "M06-02-AC01",
+              "description": "Round-trip evidence references",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M06-02-AC02",
+              "description": "Reject mismatch or unauthorized changes",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M06-02-AC03",
+              "description": "Verify persistence and redaction",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M06-03",
+          "title": "Modular Test Adapter Framework",
+          "priority": "P0",
+          "owner": "Quality & Recovery",
+          "issueType": "Feature",
+          "requirements": "Modular Test Adapter contract for deterministic project-specific checks.",
+          "dependencies": [
+            "M06-01",
+            "M02-02"
+          ],
+          "acceptanceCriteria": [
+            {
+              "id": "M06-03-AC01",
+              "description": "Run sample adapter with real results",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M06-03-AC02",
+              "description": "Reject unsupported adapter",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M06-03-AC03",
+              "description": "Report timeout and zero tests correctly",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M06-04",
+          "title": "Protected Test & Acceptance Baseline",
+          "priority": "P0",
+          "owner": "Quality & Recovery",
+          "issueType": "Security",
+          "requirements": "Protect tests, requirements, fixtures, runner and evidence capture (K08).",
+          "dependencies": [
+            "M06-01",
+            "M06-02",
+            "M06-03"
+          ],
+          "acceptanceCriteria": [
+            {
+              "id": "M06-04-AC01",
+              "description": "Detect unauthorized baseline modification",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M06-04-AC02",
+              "description": "Require separate approval for baseline revision",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M06-04-AC03",
+              "description": "Reject manipulated evidence",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M06-05",
+          "title": "Requirements & Artifact Validation",
+          "priority": "P0",
+          "owner": "Quality & Recovery",
+          "issueType": "Feature",
+          "requirements": "Validate actual requirements, scope and candidate artifacts against protected baseline.",
+          "dependencies": [
+            "M06-02",
+            "M06-04"
+          ],
+          "acceptanceCriteria": [
+            {
+              "id": "M06-05-AC01",
+              "description": "Detect omitted requirement/out-of-scope diff",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M06-05-AC02",
+              "description": "Match artifact to recorded candidate",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M06-05-AC03",
+              "description": "Block stale evidence",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M06-06",
+          "title": "Automated Validation & Regression Engine",
+          "priority": "P0",
+          "owner": "Quality & Recovery",
+          "issueType": "Testing",
+          "requirements": "Execute deterministic validation and regression with commands, counts and artifacts.",
+          "dependencies": [
+            "M06-02",
+            "M06-03",
+            "M06-04",
+            "M06-05"
+          ],
+          "acceptanceCriteria": [
+            {
+              "id": "M06-06-AC01",
+              "description": "Run successful and failing suites",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M06-06-AC02",
+              "description": "Reject exit zero with no tests",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M06-06-AC03",
+              "description": "Record skipped/inconclusive results",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M06-07",
+          "title": "Independent Review Engine",
+          "priority": "P0",
+          "owner": "Quality & Recovery",
+          "issueType": "Feature",
+          "requirements": "Independent review with scoped evidence and bounded inference.",
+          "dependencies": [
+            "M06-02",
+            "M06-04",
+            "M06-06",
+            "M04-10"
+          ],
+          "acceptanceCriteria": [
+            {
+              "id": "M06-07-AC01",
+              "description": "Assign distinct reviewer and record findings",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M06-07-AC02",
+              "description": "Reject self-review",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M06-07-AC03",
+              "description": "Hold unavailable required review absent approved alternative",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M06-08",
+          "title": "Quality Gate State Machine",
+          "priority": "P0",
+          "owner": "Quality & Recovery",
+          "issueType": "Feature",
+          "requirements": "Deterministic gate state machine, invalidation and mandatory pass rules.",
+          "dependencies": [
+            "M06-01",
+            "M06-02",
+            "M06-05",
+            "M06-06",
+            "M06-07"
+          ],
+          "acceptanceCriteria": [
+            {
+              "id": "M06-08-AC01",
+              "description": "Exercise valid transitions",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M06-08-AC02",
+              "description": "Reject skipped/invalidated mandatory gate",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M06-08-AC03",
+              "description": "Invalidate stale candidate result",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M06-09",
+          "title": "Bounded Automatic Repair Loop",
+          "priority": "P0",
+          "owner": "Orchestration",
+          "issueType": "Feature",
+          "requirements": "Bounded repair loop sharing persistent budgets across sessions and restarts.",
+          "dependencies": [
+            "M06-08",
+            "M05-12"
+          ],
+          "acceptanceCriteria": [
+            {
+              "id": "M06-09-AC01",
+              "description": "Repair known failure and rerun affected gates",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M06-09-AC02",
+              "description": "Stop at shared ceiling",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M06-09-AC03",
+              "description": "Verify restart does not reset budget",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M06-10",
+          "title": "Integration Candidate & Conflict Validation",
+          "priority": "P0",
+          "owner": "Integrations",
+          "issueType": "Security",
+          "requirements": "Create exact isolated integration candidate with target drift and conflict validation.",
+          "dependencies": [
+            "M06-04",
+            "M06-06",
+            "M06-08",
+            "M02-09"
+          ],
+          "acceptanceCriteria": [
+            {
+              "id": "M06-10-AC01",
+              "description": "Validate combined diff",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M06-10-AC02",
+              "description": "Detect target drift before merge",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M06-10-AC03",
+              "description": "Revalidate changed candidate without destructive reset",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M06-11",
+          "title": "Human Acceptance & Approval Center",
+          "priority": "P0",
+          "owner": "Frontend",
+          "issueType": "Feature",
+          "requirements": "Human acceptance center with exact candidate approval/rejection.",
+          "dependencies": [
+            "M06-08",
+            "M06-10"
+          ],
+          "acceptanceCriteria": [
+            {
+              "id": "M06-11-AC01",
+              "description": "Bind approval to revision",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M06-11-AC02",
+              "description": "Reject stale/self authorization",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M06-11-AC03",
+              "description": "Expose failed gate and limitations",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M06-12",
+          "title": "Controlled Git Integration & Task Finalization",
+          "priority": "P0",
+          "owner": "Integrations",
+          "issueType": "Security",
+          "requirements": "Integrate only authorized candidate, reconcile actual refs and finalize task before external sync.",
+          "dependencies": [
+            "M06-08",
+            "M06-10",
+            "M06-11"
+          ],
+          "acceptanceCriteria": [
+            {
+              "id": "M06-12-AC01",
+              "description": "Verify actual merged commit",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M06-12-AC02",
+              "description": "Block changed/unknown result",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M06-12-AC03",
+              "description": "Release dependencies only after all gates",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M06-13",
+          "title": "Quality Workspace UI",
+          "priority": "P0",
+          "owner": "Frontend",
+          "issueType": "Feature",
+          "requirements": "Quality workspace showing evidence, findings, repair, acceptance and integration.",
+          "dependencies": [
+            "M06-06",
+            "M06-07",
+            "M06-08",
+            "M06-09",
+            "M06-10",
+            "M06-11",
+            "M06-12"
+          ],
+          "acceptanceCriteria": [
+            {
+              "id": "M06-13-AC01",
+              "description": "Display separate actual gate outcomes",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M06-13-AC02",
+              "description": "Show invalidation/review blockers",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M06-14",
+          "title": "Quality & Integration Regression Suite",
+          "priority": "P0",
+          "owner": "Quality & Recovery",
+          "issueType": "Testing",
+          "requirements": "Independent quality regression including evidence tampering, drift and budgets.",
+          "dependencies": [
+            "M06-01",
+            "M06-02",
+            "M06-03",
+            "M06-04",
+            "M06-05",
+            "M06-06",
+            "M06-07",
+            "M06-08",
+            "M06-09",
+            "M06-10",
+            "M06-11",
+            "M06-12",
+            "M06-13"
+          ],
+          "acceptanceCriteria": [
+            {
+              "id": "M06-14-AC01",
+              "description": "Test mandatory failures and altered baseline",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M06-14-AC02",
+              "description": "Run bounded repair and controlled integration",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M06-15",
+          "title": "Quality Engine & Autonomous Workflow Acceptance",
+          "priority": "P0",
+          "owner": "Quality & Recovery",
+          "issueType": "Testing",
+          "requirements": "Accept first bounded human-approved autonomous workflow, not unrestricted autonomy.",
+          "dependencies": [
+            "M06-14"
+          ],
+          "acceptanceCriteria": [
+            {
+              "id": "M06-15-AC01",
+              "description": "Verify plan to integrated candidate with required gates",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M06-15-AC02",
+              "description": "Record acceptance and remaining risks",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        }
+      ]
+    },
+    {
+      "id": "M07",
+      "name": "Resource & Recovery",
+      "plannedChecks": 42,
+      "notes": [
+        "Eco/Balanced/Performance defaults: slots 1/2/4, quota reserve 25/15/10%, CPU start threshold 65/80/90%, RAM 70/80/85%; Eco low effort preferred; Balanced default. Start thresholds not kill thresholds. No inference for monitoring/admission; unknown quota blocks automation; no paid fallback.",
+        "Seven checkpoints CP01 approved, CP02 workspace ready, CP03 agent started, CP04 implementation ready, CP05 validation completed, CP06 acceptance completed, CP07 integration completed; not exact inference snapshot.",
+        "Daily backup if running; pre-migration/update mandatory. 7 daily/4 weekly and 2GB configurable target; protect last verified restore basis, block unsafe update on insufficient disk (K11); credentials separate, disk loss not covered. Full automatic crash recovery later."
+      ],
+      "packages": [
+        {
+          "id": "M07-01",
+          "title": "Resource & Recovery Domain Foundation",
+          "priority": "P0",
+          "owner": "Core",
+          "issueType": "Feature",
+          "requirements": "Resource, quota, reservation, error and recovery domain with persistent budget identity.",
+          "dependencies": [
+            "M06-15"
+          ],
+          "acceptanceCriteria": [
+            {
+              "id": "M07-01-AC01",
+              "description": "Round-trip records",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M07-01-AC02",
+              "description": "Reject invalid units or budget reset",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M07-01-AC03",
+              "description": "Trace task/run/reservation through restart",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M07-02",
+          "title": "Provider Quota Monitoring",
+          "priority": "P0",
+          "owner": "Execution & Security",
+          "issueType": "Feature",
+          "requirements": "Monitor provider short/long quota windows, staleness and capability changes.",
+          "dependencies": [
+            "M07-01",
+            "M02-06",
+            "M05-10"
+          ],
+          "acceptanceCriteria": [
+            {
+              "id": "M07-02-AC01",
+              "description": "Read actual permitted or fake metadata",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M07-02-AC02",
+              "description": "Block stale/unknown/exhausted quota",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M07-02-AC03",
+              "description": "Verify confirmed reset without paid fallback",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M07-03",
+          "title": "Hardware & Process Monitoring",
+          "priority": "P0",
+          "owner": "Core",
+          "issueType": "Feature",
+          "requirements": "Monitor CPU/RAM/disk/process and Windows/WSL boundaries, report missing GPU metrics.",
+          "dependencies": [
+            "M07-01"
+          ],
+          "acceptanceCriteria": [
+            {
+              "id": "M07-03-AC01",
+              "description": "Measure representative processes",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M07-03-AC02",
+              "description": "Mark unavailable metric unknown",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M07-03-AC03",
+              "description": "Measure sampling overhead and scope",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M07-04",
+          "title": "Resource Profiles & Budget Configuration",
+          "priority": "P0",
+          "owner": "Core",
+          "issueType": "Feature",
+          "requirements": "Validate persistent profiles, reservations, ceilings and authorized overrides.",
+          "dependencies": [
+            "M07-01",
+            "M07-02",
+            "M07-03"
+          ],
+          "acceptanceCriteria": [
+            {
+              "id": "M07-04-AC01",
+              "description": "Switch profile and preserve defaults",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M07-04-AC02",
+              "description": "Reject out-of-range or unsafe settings",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M07-04-AC03",
+              "description": "Do not kill jobs on admission threshold change",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M07-05",
+          "title": "Adaptive Model & Thinking Selection",
+          "priority": "P0",
+          "owner": "Orchestration",
+          "issueType": "Feature",
+          "requirements": "Adaptive model/effort within approved capabilities, costs and quality.",
+          "dependencies": [
+            "M07-02",
+            "M07-04",
+            "M04-03"
+          ],
+          "acceptanceCriteria": [
+            {
+              "id": "M07-05-AC01",
+              "description": "Resolve supported selection dynamically",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M07-05-AC02",
+              "description": "Block unavailable setting or exhausted budget",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M07-05-AC03",
+              "description": "Preserve quality and no paid switch",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M07-06",
+          "title": "Adaptive Admission & Reservation Control",
+          "priority": "P0",
+          "owner": "Orchestration",
+          "issueType": "Feature",
+          "requirements": "Deterministic adaptive admission and resource reservation.",
+          "dependencies": [
+            "M07-02",
+            "M07-03",
+            "M07-04",
+            "M07-05",
+            "M05-10"
+          ],
+          "acceptanceCriteria": [
+            {
+              "id": "M07-06-AC01",
+              "description": "Reserve within ceiling and quota reserve",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M07-06-AC02",
+              "description": "Prevent concurrent overbooking",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M07-06-AC03",
+              "description": "Release after verified terminal state",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M07-07",
+          "title": "Error Classification & Recovery Policy",
+          "priority": "P0",
+          "owner": "Quality & Recovery",
+          "issueType": "Feature",
+          "requirements": "Classify transient, quota, process, implementation, state conflict, security and critical errors.",
+          "dependencies": [
+            "M07-01"
+          ],
+          "acceptanceCriteria": [
+            {
+              "id": "M07-07-AC01",
+              "description": "Map known error to policy",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M07-07-AC02",
+              "description": "Escalate unknown/critical safely",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M07-07-AC03",
+              "description": "Distinguish uncertain effects from retryable failure",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M07-08",
+          "title": "Persistent Execution Checkpoints",
+          "priority": "P0",
+          "owner": "Core",
+          "issueType": "Feature",
+          "requirements": "Persist seven checkpoints with revision, approval, evidence and counters.",
+          "dependencies": [
+            "M07-01",
+            "M07-07",
+            "M06-08"
+          ],
+          "acceptanceCriteria": [
+            {
+              "id": "M07-08-AC01",
+              "description": "Persist each checkpoint atomically",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M07-08-AC02",
+              "description": "Reject invalid transitions",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M07-08-AC03",
+              "description": "Do not claim exact inference recovery",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M07-09",
+          "title": "Controlled Retry & Resume Manager",
+          "priority": "P0",
+          "owner": "Quality & Recovery",
+          "issueType": "Feature",
+          "requirements": "Bounded retry/backoff/jitter and resume with verify-before-retry.",
+          "dependencies": [
+            "M07-06",
+            "M07-07",
+            "M07-08",
+            "M05-12",
+            "M06-09"
+          ],
+          "acceptanceCriteria": [
+            {
+              "id": "M07-09-AC01",
+              "description": "Resume safe transient within limits",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M07-09-AC02",
+              "description": "Stop exhausted/ambiguous retry across restart",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M07-09-AC03",
+              "description": "Respect reset/backoff and preserve worktree",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M07-10",
+          "title": "Startup Recovery & State Reconciliation",
+          "priority": "P0",
+          "owner": "Quality & Recovery",
+          "issueType": "Feature",
+          "requirements": "Startup reconciliation of processes, worktrees, approval and external effects.",
+          "dependencies": [
+            "M07-08",
+            "M07-09",
+            "M02-11"
+          ],
+          "acceptanceCriteria": [
+            {
+              "id": "M07-10-AC01",
+              "description": "Recover controlled interruption without duplicate",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M07-10-AC02",
+              "description": "Flag stale result or uncertain mutation",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M07-10-AC03",
+              "description": "Respect persisted stop and preserve uncommitted files",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M07-11",
+          "title": "Backup & Disaster Recovery Foundation",
+          "priority": "P0",
+          "owner": "Core",
+          "issueType": "Infrastructure",
+          "requirements": "Consistent backups, verified restore, protected retention and separate credentials.",
+          "dependencies": [
+            "M07-01",
+            "M07-08",
+            "M01-04"
+          ],
+          "acceptanceCriteria": [
+            {
+              "id": "M07-11-AC01",
+              "description": "Verify representative restore",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M07-11-AC02",
+              "description": "Protect last verified backup despite pressure",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M07-11-AC03",
+              "description": "Block migration without mandatory backup",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M07-12",
+          "title": "Resource & Recovery Workspace UI",
+          "priority": "P0",
+          "owner": "Frontend",
+          "issueType": "Feature",
+          "requirements": "Resource/recovery workspace with actual quotas, checkpoints and controls.",
+          "dependencies": [
+            "M07-02",
+            "M07-03",
+            "M07-04",
+            "M07-06",
+            "M07-07",
+            "M07-08",
+            "M07-09",
+            "M07-10",
+            "M07-11"
+          ],
+          "acceptanceCriteria": [
+            {
+              "id": "M07-12-AC01",
+              "description": "Show real/stale/unknown metrics",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M07-12-AC02",
+              "description": "Show recovery decisions and explicit interventions",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M07-12-AC03",
+              "description": "Verify UI cannot reset budgets or stop state without authorization",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M07-13",
+          "title": "Resource & Quota Regression Suite",
+          "priority": "P0",
+          "owner": "Quality & Recovery",
+          "issueType": "Testing",
+          "requirements": "Resource/quota regression with contention and unknown readings.",
+          "dependencies": [
+            "M07-02",
+            "M07-03",
+            "M07-04",
+            "M07-05",
+            "M07-06",
+            "M07-12"
+          ],
+          "acceptanceCriteria": [
+            {
+              "id": "M07-13-AC01",
+              "description": "Simulate quota and admission limits",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M07-13-AC02",
+              "description": "Measure hardware sampling and permitted real metadata",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M07-14",
+          "title": "Recovery & Failure Injection Suite",
+          "priority": "P0",
+          "owner": "Quality & Recovery",
+          "issueType": "Testing",
+          "requirements": "Failure injection for checkpoint, recovery, counter and backup handling.",
+          "dependencies": [
+            "M07-07",
+            "M07-08",
+            "M07-09",
+            "M07-10",
+            "M07-11",
+            "M07-12"
+          ],
+          "acceptanceCriteria": [
+            {
+              "id": "M07-14-AC01",
+              "description": "Inject core/worker failure and verify preserved state",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M07-14-AC02",
+              "description": "Restore backup and avoid blind replay",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M07-15",
+          "title": "Resource & Recovery Acceptance",
+          "priority": "P0",
+          "owner": "Quality & Recovery",
+          "issueType": "Testing",
+          "requirements": "Accept recovery/resource foundation with bounded guarantees.",
+          "dependencies": [
+            "M07-01",
+            "M07-02",
+            "M07-03",
+            "M07-04",
+            "M07-05",
+            "M07-06",
+            "M07-07",
+            "M07-08",
+            "M07-09",
+            "M07-10",
+            "M07-11",
+            "M07-12",
+            "M07-13",
+            "M07-14"
+          ],
+          "acceptanceCriteria": [
+            {
+              "id": "M07-15-AC01",
+              "description": "Verify required regressions and fault injection",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M07-15-AC02",
+              "description": "Record acceptance and unresolved automatic recovery cases",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        }
+      ]
+    },
+    {
+      "id": "M08",
+      "name": "Linear Integration",
+      "plannedChecks": 42,
+      "notes": [
+        "Existing Linear owns agreed synchronized fields; ADM owns internal run/gate/evidence. New projects off; imported initially read-only until approval; off/import/export/bidirectional. No auto deletes or chat upload.",
+        "60s active/5min idle polling proposed; 2 technical retries, verify ambiguous effects, no inference for sync. T12 in-memory evidence only, no atomic or exactly-once guarantee (K12). Public OAuth M11 gate; isolated synthetic test workspace."
+      ],
+      "packages": [
+        {
+          "id": "M08-01",
+          "title": "Integration Domain & Sync Architecture",
+          "priority": "P0",
+          "owner": "Integrations",
+          "issueType": "Feature",
+          "requirements": "Canonical integration model, adapter contracts and separate sync state.",
+          "dependencies": [
+            "M03-12",
+            "M01-05"
+          ],
+          "acceptanceCriteria": [
+            {
+              "id": "M08-01-AC01",
+              "description": "Round-trip canonical record",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M08-01-AC02",
+              "description": "Reject invalid mapping/adapter",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M08-01-AC03",
+              "description": "External Done cannot waive gates",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M08-02",
+          "title": "Linear Authentication & Connection Manager",
+          "priority": "P0",
+          "owner": "Integrations",
+          "issueType": "Security",
+          "requirements": "Linear connection manager, OAuth feasibility, personal key alternative, explicit workspace/team and credential protection.",
+          "dependencies": [
+            "M08-01",
+            "M02-04"
+          ],
+          "acceptanceCriteria": [
+            {
+              "id": "M08-02-AC01",
+              "description": "Connect authorized test workspace",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M08-02-AC02",
+              "description": "Reject wrong scope/revoked credential",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M08-02-AC03",
+              "description": "Verify tokens absent from logs/context",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M08-03",
+          "title": "Linear GraphQL Adapter",
+          "priority": "P0",
+          "owner": "Integrations",
+          "issueType": "Feature",
+          "requirements": "Typed Linear GraphQL adapter for discovery, issue/status/comments and pagination.",
+          "dependencies": [
+            "M08-01",
+            "M08-02"
+          ],
+          "acceptanceCriteria": [
+            {
+              "id": "M08-03-AC01",
+              "description": "Read/create/update synthetic issue",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M08-03-AC02",
+              "description": "Handle pagination and rate limit",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M08-03-AC03",
+              "description": "No blind retry or secret exposure",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M08-04",
+          "title": "External Project Discovery & Import",
+          "priority": "P0",
+          "owner": "Integrations",
+          "issueType": "Feature",
+          "requirements": "External discovery and read-only project import preview with explicit confirmation.",
+          "dependencies": [
+            "M08-03",
+            "M03-03"
+          ],
+          "acceptanceCriteria": [
+            {
+              "id": "M08-04-AC01",
+              "description": "Preview without writes",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M08-04-AC02",
+              "description": "Import only after authorization",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M08-04-AC03",
+              "description": "Reject unsupported fields/wrong workspace",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M08-05",
+          "title": "Persistent External ID & Field Mapping",
+          "priority": "P0",
+          "owner": "Integrations",
+          "issueType": "Feature",
+          "requirements": "Persistent unique scoped external ID and field mappings.",
+          "dependencies": [
+            "M08-01",
+            "M08-04"
+          ],
+          "acceptanceCriteria": [
+            {
+              "id": "M08-05-AC01",
+              "description": "Repeated UUID resolves same task",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M08-05-AC02",
+              "description": "Reject duplicate/foreign mapping",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M08-05-AC03",
+              "description": "Restore mapping after restart",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M08-06",
+          "title": "Synchronization Policy & Ownership",
+          "priority": "P0",
+          "owner": "Integrations",
+          "issueType": "Feature",
+          "requirements": "Per-field authority and configurable sync direction with no automatic deletes.",
+          "dependencies": [
+            "M08-01",
+            "M08-05"
+          ],
+          "acceptanceCriteria": [
+            {
+              "id": "M08-06-AC01",
+              "description": "Test all four directions",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M08-06-AC02",
+              "description": "Reject external Done bypass",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M08-06-AC03",
+              "description": "Require approval for policy changes",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M08-07",
+          "title": "Persistent Outbox & Idempotent Operations",
+          "priority": "P0",
+          "owner": "Integrations",
+          "issueType": "Feature",
+          "requirements": "Durable outbox, operation IDs and pre/post verification.",
+          "dependencies": [
+            "M08-03",
+            "M08-05",
+            "M08-06",
+            "M07-08"
+          ],
+          "acceptanceCriteria": [
+            {
+              "id": "M08-07-AC01",
+              "description": "Persist pending operation through restart",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M08-07-AC02",
+              "description": "Reconcile unconfirmed create without duplicate",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M08-07-AC03",
+              "description": "Block ambiguous effects without exactly-once claim",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M08-08",
+          "title": "Incremental Bidirectional Synchronization",
+          "priority": "P0",
+          "owner": "Integrations",
+          "issueType": "Feature",
+          "requirements": "Incremental bidirectional sync with cursors, polling and bounded retries.",
+          "dependencies": [
+            "M08-06",
+            "M08-07"
+          ],
+          "acceptanceCriteria": [
+            {
+              "id": "M08-08-AC01",
+              "description": "Sync authorized changes both ways",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M08-08-AC02",
+              "description": "Resume interrupted cursor without duplicate",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M08-08-AC03",
+              "description": "No inference or disabled writes",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M08-09",
+          "title": "Three-Way Conflict Detection & Resolution",
+          "priority": "P0",
+          "owner": "Integrations",
+          "issueType": "Feature",
+          "requirements": "Three-way conflict detection and explicit manual resolution with residual race caveat.",
+          "dependencies": [
+            "M08-06",
+            "M08-07",
+            "M08-08"
+          ],
+          "acceptanceCriteria": [
+            {
+              "id": "M08-09-AC01",
+              "description": "Test divergent/unchanged cases",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M08-09-AC02",
+              "description": "Block stale write and verify after",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M08-09-AC03",
+              "description": "Retain conflict evidence and require resolution",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M08-10",
+          "title": "Automated Progress & Quality Reporting",
+          "priority": "P0",
+          "owner": "Integrations",
+          "issueType": "Feature",
+          "requirements": "Append verified progress and quality evidence to existing issue history.",
+          "dependencies": [
+            "M08-06",
+            "M08-07",
+            "M08-08",
+            "M06-12"
+          ],
+          "acceptanceCriteria": [
+            {
+              "id": "M08-10-AC01",
+              "description": "Append without replacing prior comments",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M08-10-AC02",
+              "description": "Reconcile duplicate operation token",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M08-10-AC03",
+              "description": "Reject secret or premature Done",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M08-11",
+          "title": "Offline Sync & Recovery Integration",
+          "priority": "P0",
+          "owner": "Integrations",
+          "issueType": "Feature",
+          "requirements": "Offline queue and restart reconciliation.",
+          "dependencies": [
+            "M08-07",
+            "M08-08",
+            "M08-09",
+            "M08-10",
+            "M07-10"
+          ],
+          "acceptanceCriteria": [
+            {
+              "id": "M08-11-AC01",
+              "description": "Queue approved offline effect and resume",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M08-11-AC02",
+              "description": "Verify uncertain mutation before retry",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M08-11-AC03",
+              "description": "Show pending/error/conflict without claiming success",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M08-12",
+          "title": "Integration & Synchronization Workspace UI",
+          "priority": "P0",
+          "owner": "Frontend",
+          "issueType": "Feature",
+          "requirements": "Integration GUI for connection, mappings, policy, queue and conflicts.",
+          "dependencies": [
+            "M08-02",
+            "M08-04",
+            "M08-06",
+            "M08-08",
+            "M08-09",
+            "M08-10",
+            "M08-11"
+          ],
+          "acceptanceCriteria": [
+            {
+              "id": "M08-12-AC01",
+              "description": "Connect/preview/configure through GUI",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M08-12-AC02",
+              "description": "Show actual queue and conflict",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M08-12-AC03",
+              "description": "Resolve authorized conflict preserving history",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M08-13",
+          "title": "Linear Sync & Conflict Regression Suite",
+          "priority": "P0",
+          "owner": "Quality & Recovery",
+          "issueType": "Testing",
+          "requirements": "Isolated real Linear regression and durable outbox/concurrency fault tests.",
+          "dependencies": [
+            "M08-01",
+            "M08-02",
+            "M08-03",
+            "M08-04",
+            "M08-05",
+            "M08-06",
+            "M08-07",
+            "M08-08",
+            "M08-09",
+            "M08-10",
+            "M08-11",
+            "M08-12"
+          ],
+          "acceptanceCriteria": [
+            {
+              "id": "M08-13-AC01",
+              "description": "Run synthetic issues and comments",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M08-13-AC02",
+              "description": "Test duplicate/stale/concurrent cases",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M08-13-AC03",
+              "description": "Verify restart, redaction and history",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M08-14",
+          "title": "Connected Workflow Acceptance",
+          "priority": "P0",
+          "owner": "Quality & Recovery",
+          "issueType": "Testing",
+          "requirements": "Accept connected workflow with explicit non-atomic external race limitations.",
+          "dependencies": [
+            "M08-13"
+          ],
+          "acceptanceCriteria": [
+            {
+              "id": "M08-14-AC01",
+              "description": "Verify mapped issues and sync evidence",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M08-14-AC02",
+              "description": "Ensure external state cannot bypass gates",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M08-14-AC03",
+              "description": "Record acceptance and open public auth gate",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        }
+      ]
+    },
+    {
+      "id": "M09",
+      "name": "Workspace Experience",
+      "plannedChecks": 42,
+      "notes": [
+        "English default/German equivalent; separate chat/docs language. Standard default, Expert same rights/data; critical warnings visible. Normal MVP workflows GUI, command palette, tray and global stop.",
+        "Candidates shadcn/ui, Lucide, React Router, Zustand, TanStack Query, React Flow, i18next, Vitest/Testing Library/Playwright plus native tests; validate compatibility. Provisional combined idle RAM <250MB/CPU <1% excluding WSL/Codex/build; view <200ms, project <500ms, event <250ms; 10k tasks/messages,100k logs; no extra inference."
+      ],
+      "packages": [
+        {
+          "id": "M09-01",
+          "title": "Unified Design System",
+          "priority": "P0",
+          "owner": "Frontend",
+          "issueType": "Feature",
+          "requirements": "Unified accessible design system, dark/light and component tokens.",
+          "dependencies": [
+            "M01-12"
+          ],
+          "acceptanceCriteria": [
+            {
+              "id": "M09-01-AC01",
+              "description": "Render both themes consistently",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M09-01-AC02",
+              "description": "Test keyboard focus/contrast",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M09-01-AC03",
+              "description": "Preserve critical warnings",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M09-02",
+          "title": "Application Shell & Global Navigation",
+          "priority": "P0",
+          "owner": "Frontend",
+          "issueType": "Feature",
+          "requirements": "Application shell, global navigation and scoped project switch.",
+          "dependencies": [
+            "M09-01",
+            "M03-11"
+          ],
+          "acceptanceCriteria": [
+            {
+              "id": "M09-02-AC01",
+              "description": "Navigate required views",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M09-02-AC02",
+              "description": "Switch project without stale data",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M09-02-AC03",
+              "description": "Restore layout state",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M09-03",
+          "title": "Unified Frontend State & IPC Integration",
+          "priority": "P0",
+          "owner": "Frontend",
+          "issueType": "Feature",
+          "requirements": "Unified frontend state, typed IPC and live event cache; no direct DB.",
+          "dependencies": [
+            "M09-02",
+            "M01-07"
+          ],
+          "acceptanceCriteria": [
+            {
+              "id": "M09-03-AC01",
+              "description": "Reconcile events after reconnect",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M09-03-AC02",
+              "description": "Reject malformed/foreign/stale event",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M09-03-AC03",
+              "description": "Verify no direct SQLite",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M09-04",
+          "title": "Global & Project Dashboard",
+          "priority": "P0",
+          "owner": "Frontend",
+          "issueType": "Feature",
+          "requirements": "Global/project dashboards using verified status and unknown metrics.",
+          "dependencies": [
+            "M09-03",
+            "M07-12",
+            "M08-12"
+          ],
+          "acceptanceCriteria": [
+            {
+              "id": "M09-04-AC01",
+              "description": "Display actual status/counts",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M09-04-AC02",
+              "description": "Isolate project switch",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M09-04-AC03",
+              "description": "No extra inference",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M09-05",
+          "title": "Unified Planner & Project Workspace",
+          "priority": "P0",
+          "owner": "Frontend",
+          "issueType": "Feature",
+          "requirements": "Unified planner, roadmap and task workspace.",
+          "dependencies": [
+            "M09-03",
+            "M05-14",
+            "M03-11"
+          ],
+          "acceptanceCriteria": [
+            {
+              "id": "M09-05-AC01",
+              "description": "Review/approve plan and inspect DAG",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M09-05-AC02",
+              "description": "Separate task/run state",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M09-05-AC03",
+              "description": "Reject unauthorized revision",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M09-06",
+          "title": "Unified Agent & Development Workspace",
+          "priority": "P0",
+          "owner": "Frontend",
+          "issueType": "Feature",
+          "requirements": "Unified agent/chat/run/repository/memory/quality workspace.",
+          "dependencies": [
+            "M09-03",
+            "M04-12",
+            "M06-13"
+          ],
+          "acceptanceCriteria": [
+            {
+              "id": "M09-06-AC01",
+              "description": "Navigate identity/session/evidence",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M09-06-AC02",
+              "description": "Protect scope and secrets",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M09-06-AC03",
+              "description": "Show cancellation and failures",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M09-07",
+          "title": "Global Attention & Approval Center",
+          "priority": "P0",
+          "owner": "Frontend",
+          "issueType": "Feature",
+          "requirements": "Global attention and approval center.",
+          "dependencies": [
+            "M09-03",
+            "M06-11",
+            "M05-13"
+          ],
+          "acceptanceCriteria": [
+            {
+              "id": "M09-07-AC01",
+              "description": "Surface pending decisions from all views",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M09-07-AC02",
+              "description": "Reject stale candidate approval",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M09-07-AC03",
+              "description": "Rejected approval blocks action",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M09-08",
+          "title": "Standard & Expert Mode",
+          "priority": "P0",
+          "owner": "Frontend",
+          "issueType": "Feature",
+          "requirements": "Standard/Expert modes with shared core/security.",
+          "dependencies": [
+            "M09-01",
+            "M09-02",
+            "M09-03",
+            "M09-07"
+          ],
+          "acceptanceCriteria": [
+            {
+              "id": "M09-08-AC01",
+              "description": "Switch without changed rights/data",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M09-08-AC02",
+              "description": "Critical warnings visible in both",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M09-08-AC03",
+              "description": "Expert cannot bypass gates",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M09-09",
+          "title": "Global Settings & Integration Management",
+          "priority": "P0",
+          "owner": "Frontend",
+          "issueType": "Feature",
+          "requirements": "Unified settings, integrations and security controls.",
+          "dependencies": [
+            "M09-03",
+            "M07-12",
+            "M08-12"
+          ],
+          "acceptanceCriteria": [
+            {
+              "id": "M09-09-AC01",
+              "description": "Update valid setting/connect authorized integration",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M09-09-AC02",
+              "description": "Reject invalid/unauthorized change",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M09-09-AC03",
+              "description": "Mask sensitive values",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M09-10",
+          "title": "System Tray, Notifications & Keyboard Navigation",
+          "priority": "P0",
+          "owner": "Frontend",
+          "issueType": "Feature",
+          "requirements": "Tray, notification, keyboard command palette and persistent stop.",
+          "dependencies": [
+            "M09-02",
+            "M09-07",
+            "M02-11"
+          ],
+          "acceptanceCriteria": [
+            {
+              "id": "M09-10-AC01",
+              "description": "Close/reopen UI without stopping core",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M09-10-AC02",
+              "description": "Operate keyboard/notification actions",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M09-10-AC03",
+              "description": "Distinguish stop/cancel/termination",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M09-11",
+          "title": "Localization & Accessibility",
+          "priority": "P0",
+          "owner": "Frontend",
+          "issueType": "Feature",
+          "requirements": "English/German translations and accessibility.",
+          "dependencies": [
+            "M09-01",
+            "M09-02",
+            "M09-08",
+            "M09-09",
+            "M09-10"
+          ],
+          "acceptanceCriteria": [
+            {
+              "id": "M09-11-AC01",
+              "description": "Switch locale without rewriting documents",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M09-11-AC02",
+              "description": "Test keyboard/assistive labels",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M09-11-AC03",
+              "description": "Check fallback and warnings",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M09-12",
+          "title": "Frontend Performance & Large Workspace Optimization",
+          "priority": "P0",
+          "owner": "Frontend",
+          "issueType": "Testing",
+          "requirements": "Optimize large task/message/log workspace and measure targets.",
+          "dependencies": [
+            "M09-03",
+            "M09-04",
+            "M09-05",
+            "M09-06",
+            "M09-07",
+            "M09-08",
+            "M09-09",
+            "M09-10",
+            "M09-11"
+          ],
+          "acceptanceCriteria": [
+            {
+              "id": "M09-12-AC01",
+              "description": "Exercise 10k tasks/messages and 100k logs",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M09-12-AC02",
+              "description": "Measure idle and latency targets",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M09-12-AC03",
+              "description": "No extra inference or stale cross-project data",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M09-13",
+          "title": "Workspace Regression & Usability Suite",
+          "priority": "P0",
+          "owner": "Quality & Recovery",
+          "issueType": "Testing",
+          "requirements": "Browser/component and native desktop regression, usability/accessibility.",
+          "dependencies": [
+            "M09-01",
+            "M09-02",
+            "M09-03",
+            "M09-04",
+            "M09-05",
+            "M09-06",
+            "M09-07",
+            "M09-08",
+            "M09-09",
+            "M09-10",
+            "M09-11",
+            "M09-12"
+          ],
+          "acceptanceCriteria": [
+            {
+              "id": "M09-13-AC01",
+              "description": "Run normal MVP GUI workflows",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M09-13-AC02",
+              "description": "Test theme/locale/keyboard/reconnect/large datasets",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M09-13-AC03",
+              "description": "Verify approval paths in both modes",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M09-14",
+          "title": "Unified Workspace Acceptance",
+          "priority": "P0",
+          "owner": "Quality & Recovery",
+          "issueType": "Testing",
+          "requirements": "Accept unified native GUI workspace and record measurements.",
+          "dependencies": [
+            "M09-13"
+          ],
+          "acceptanceCriteria": [
+            {
+              "id": "M09-14-AC01",
+              "description": "Verify no terminal needed for normal workflows",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M09-14-AC02",
+              "description": "Review performance/accessibility evidence",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M09-14-AC03",
+              "description": "Record acceptance or blockers",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        }
+      ]
+    }
+  ]
+}

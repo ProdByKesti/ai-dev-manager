@@ -8,6 +8,7 @@ This repository is in the foundation phase. Approved decisions are versioned her
 - [Consolidation amendments](architecture/consolidation.md)
 - [Technical feasibility evidence (T01–T12)](feasibility/README.md)
 - [Master roadmap overview](roadmap/overview.md)
+- [Detailed roadmap reconstruction — pending owner review](roadmap/reconstruction-review.md)
 - [Agent instructions](../AGENTS.md)
 - [Development workflow](developer-guide/git-workflow.md)
 - [Development rules](developer-guide/development-rules.md)

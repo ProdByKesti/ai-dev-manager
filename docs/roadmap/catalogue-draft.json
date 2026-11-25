@@ -1,0 +1,2142 @@
+{
+  "schemaVersion": 1,
+  "status": "historical-index-superseded-for-import",
+  "provenance": "Package names and scope reconstructed from retained approved planning summaries; milestone totals checked against merged overview. Original detailed definitions, dependency list and individual acceptance checks were not retrieved. Do not represent unknown fields as approved. Retained as reconstruction baseline only. Review reconstructed requirements in reconstruction-manifest.json; not a source for import.",
+  "milestones": [
+    {
+      "id": "M00",
+      "name": "Project Foundation",
+      "plannedChecks": null,
+      "packages": [
+        {
+          "id": "M00-01",
+          "title": "Repository Foundation",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M00-02",
+          "title": "Product Specification",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M00-03",
+          "title": "Technical Architecture Documentation",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M00-04",
+          "title": "Feasibility Test Documentation",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M00-05",
+          "title": "Development Environment Validation",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M00-06",
+          "title": "Development Rules & AGENTS.md",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M00-07",
+          "title": "Linear Project Setup",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M00-08",
+          "title": "Quality & CI Foundation",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M00-09",
+          "title": "Codex Workspace Setup",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M00-10",
+          "title": "Foundation Acceptance",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        }
+      ]
+    },
+    {
+      "id": "M01",
+      "name": "Application Foundation",
+      "plannedChecks": 24,
+      "packages": [
+        {
+          "id": "M01-01",
+          "title": "Rust Workspace Foundation",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M01-02",
+          "title": "Desktop Application Foundation",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M01-03",
+          "title": "Domain Model Foundation",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M01-04",
+          "title": "Persistent Storage Foundation",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M01-05",
+          "title": "Persistent Event Bus & Outbox",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M01-06",
+          "title": "Independent Core Process",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M01-07",
+          "title": "Secure Local IPC",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M01-08",
+          "title": "Configuration & Application Settings",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M01-09",
+          "title": "Desktop-Core Lifecycle Integration",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M01-10",
+          "title": "Logging & Diagnostics Foundation",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M01-11",
+          "title": "Initial Dashboard & System Status",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M01-12",
+          "title": "Application Foundation Acceptance",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        }
+      ]
+    },
+    {
+      "id": "M02",
+      "name": "Execution & Security",
+      "plannedChecks": 40,
+      "packages": [
+        {
+          "id": "M02-01",
+          "title": "Threat Model & Security Specification",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M02-02",
+          "title": "Provider & Execution Adapter Interfaces",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M02-03",
+          "title": "WSL2 Environment Manager",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M02-04",
+          "title": "Credential Store & Authentication Boundary",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M02-05",
+          "title": "Codex App Server Transport",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M02-06",
+          "title": "Codex Authentication & Capability Discovery",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M02-07",
+          "title": "Dynamic Permission Engine",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M02-08",
+          "title": "Linux Sandbox Runtime",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M02-09",
+          "title": "Git & Worktree Manager",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M02-10",
+          "title": "Controlled Windows Execution Broker",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M02-11",
+          "title": "Process Supervision & Cancellation",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M02-12",
+          "title": "Single Agent Execution Pipeline",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M02-13",
+          "title": "Authenticated Linux Inference Validation",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M02-14",
+          "title": "Execution & Security Regression Suite",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M02-15",
+          "title": "Execution & Security Acceptance",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        }
+      ]
+    },
+    {
+      "id": "M03",
+      "name": "Project & Task Management",
+      "plannedChecks": 30,
+      "packages": [
+        {
+          "id": "M03-01",
+          "title": "Project Domain & Persistence",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M03-02",
+          "title": "Repository & Workspace Association",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M03-03",
+          "title": "Existing Project Import",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M03-04",
+          "title": "Project Templates & Creation Wizard",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M03-05",
+          "title": "Roadmap & Milestone Management",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M03-06",
+          "title": "Task & Work Package Management",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M03-07",
+          "title": "Task State Machine",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M03-08",
+          "title": "Dependency Graph Engine",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M03-09",
+          "title": "Project Priority & Configuration Management",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M03-10",
+          "title": "Local Search, Filtering & Activity History",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M03-11",
+          "title": "Project Management Workspace UI",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M03-12",
+          "title": "Project & Task Management Acceptance",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        }
+      ]
+    },
+    {
+      "id": "M04",
+      "name": "Agent Management",
+      "plannedChecks": 36,
+      "packages": [
+        {
+          "id": "M04-01",
+          "title": "Agent Role & Capability Model",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M04-02",
+          "title": "Persistent Agent Identity",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M04-03",
+          "title": "Provider Session Management",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M04-04",
+          "title": "Direct Agent Chat & Intervention",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M04-05",
+          "title": "Hierarchical Memory Storage",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M04-06",
+          "title": "Deterministic Context Selection",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M04-07",
+          "title": "Validated Session Handover",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M04-08",
+          "title": "Automatic Session Rotation",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M04-09",
+          "title": "Persistent Agent Message Bus",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M04-10",
+          "title": "Controlled Agent-to-Agent Communication",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M04-11",
+          "title": "Temporary Specialist Lifecycle",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M04-12",
+          "title": "Agent Management Workspace UI",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M04-13",
+          "title": "Agent & Context Regression Suite",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M04-14",
+          "title": "Agent Management Acceptance",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        }
+      ]
+    },
+    {
+      "id": "M05",
+      "name": "Orchestration Engine",
+      "plannedChecks": 42,
+      "packages": [
+        {
+          "id": "M05-01",
+          "title": "Orchestration Domain & Execution Plan",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M05-02",
+          "title": "AI Project Manager",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M05-03",
+          "title": "Structured Plan Generation & Validation",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M05-04",
+          "title": "Plan Approval & Revision Management",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M05-05",
+          "title": "Deterministic DAG Scheduler",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M05-06",
+          "title": "Agent Assignment Engine",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M05-07",
+          "title": "Work Package Prompt Builder",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M05-08",
+          "title": "Execution Dispatch & Run Tracking",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M05-09",
+          "title": "Parallel Execution & Workspace Reservations",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M05-10",
+          "title": "Basic Resource & Quota Guard",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M05-11",
+          "title": "Dependency Handover & Result Processing",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M05-12",
+          "title": "Blocker, Retry & Escalation Management",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M05-13",
+          "title": "Dynamic Plan Change & User Intervention",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M05-14",
+          "title": "Planner & Orchestration Workspace UI",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M05-15",
+          "title": "Orchestration Regression & End-to-End Suite",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M05-16",
+          "title": "Orchestration Engine Acceptance",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        }
+      ]
+    },
+    {
+      "id": "M06",
+      "name": "Quality Engine",
+      "plannedChecks": 42,
+      "packages": [
+        {
+          "id": "M06-01",
+          "title": "Quality Policy & Gate Configuration",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M06-02",
+          "title": "Persistent Quality Evidence Store",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M06-03",
+          "title": "Modular Test Adapter Framework",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M06-04",
+          "title": "Protected Test & Acceptance Baseline",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M06-05",
+          "title": "Requirements & Artifact Validation",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M06-06",
+          "title": "Automated Validation & Regression Engine",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M06-07",
+          "title": "Independent Review Engine",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M06-08",
+          "title": "Quality Gate State Machine",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M06-09",
+          "title": "Bounded Automatic Repair Loop",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M06-10",
+          "title": "Integration Candidate & Conflict Validation",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M06-11",
+          "title": "Human Acceptance & Approval Center",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M06-12",
+          "title": "Controlled Git Integration & Task Finalization",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M06-13",
+          "title": "Quality Workspace UI",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M06-14",
+          "title": "Quality & Integration Regression Suite",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M06-15",
+          "title": "Quality Engine & Autonomous Workflow Acceptance",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        }
+      ]
+    },
+    {
+      "id": "M07",
+      "name": "Resource & Recovery",
+      "plannedChecks": 42,
+      "packages": [
+        {
+          "id": "M07-01",
+          "title": "Resource & Recovery Domain Foundation",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M07-02",
+          "title": "Provider Quota Monitoring",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M07-03",
+          "title": "Hardware & Process Monitoring",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M07-04",
+          "title": "Resource Profiles & Budget Configuration",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M07-05",
+          "title": "Adaptive Model & Thinking Selection",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M07-06",
+          "title": "Adaptive Admission & Reservation Control",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M07-07",
+          "title": "Error Classification & Recovery Policy",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M07-08",
+          "title": "Persistent Execution Checkpoints",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M07-09",
+          "title": "Controlled Retry & Resume Manager",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M07-10",
+          "title": "Startup Recovery & State Reconciliation",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M07-11",
+          "title": "Backup & Disaster Recovery Foundation",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M07-12",
+          "title": "Resource & Recovery Workspace UI",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M07-13",
+          "title": "Resource & Quota Regression Suite",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M07-14",
+          "title": "Recovery & Failure Injection Suite",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M07-15",
+          "title": "Resource & Recovery Acceptance",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        }
+      ]
+    },
+    {
+      "id": "M08",
+      "name": "Linear Integration",
+      "plannedChecks": 42,
+      "packages": [
+        {
+          "id": "M08-01",
+          "title": "Integration Domain & Sync Architecture",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M08-02",
+          "title": "Linear Authentication & Connection Manager",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M08-03",
+          "title": "Linear GraphQL Adapter",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M08-04",
+          "title": "External Project Discovery & Import",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M08-05",
+          "title": "Persistent External ID & Field Mapping",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M08-06",
+          "title": "Synchronization Policy & Ownership",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M08-07",
+          "title": "Persistent Outbox & Idempotent Operations",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M08-08",
+          "title": "Incremental Bidirectional Synchronization",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M08-09",
+          "title": "Three-Way Conflict Detection & Resolution",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M08-10",
+          "title": "Automated Progress & Quality Reporting",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M08-11",
+          "title": "Offline Sync & Recovery Integration",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M08-12",
+          "title": "Integration & Synchronization Workspace UI",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M08-13",
+          "title": "Linear Sync & Conflict Regression Suite",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M08-14",
+          "title": "Connected Workflow Acceptance",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        }
+      ]
+    },
+    {
+      "id": "M09",
+      "name": "Workspace Experience",
+      "plannedChecks": 42,
+      "packages": [
+        {
+          "id": "M09-01",
+          "title": "Unified Design System",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M09-02",
+          "title": "Application Shell & Global Navigation",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M09-03",
+          "title": "Unified Frontend State & IPC Integration",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M09-04",
+          "title": "Global & Project Dashboard",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M09-05",
+          "title": "Unified Planner & Project Workspace",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M09-06",
+          "title": "Unified Agent & Development Workspace",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M09-07",
+          "title": "Global Attention & Approval Center",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M09-08",
+          "title": "Standard & Expert Mode",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M09-09",
+          "title": "Global Settings & Integration Management",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M09-10",
+          "title": "System Tray, Notifications & Keyboard Navigation",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M09-11",
+          "title": "Localization & Accessibility",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M09-12",
+          "title": "Frontend Performance & Large Workspace Optimization",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M09-13",
+          "title": "Workspace Regression & Usability Suite",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M09-14",
+          "title": "Unified Workspace Acceptance",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        }
+      ]
+    },
+    {
+      "id": "M10",
+      "name": "Internal Alpha",
+      "plannedChecks": 48,
+      "packages": [
+        {
+          "id": "M10-01",
+          "title": "Alpha Test Strategy & Environment",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M10-02",
+          "title": "Full System Regression",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M10-03",
+          "title": "Synthetic End-to-End Development Workflow",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M10-04",
+          "title": "Real Greenfield Project Pilot",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M10-05",
+          "title": "Existing Project Import Pilot",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M10-06",
+          "title": "Dogfooding & Internal Development Evaluation",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M10-07",
+          "title": "Parallel Execution & Long-running Stability",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M10-08",
+          "title": "Resource Efficiency & Workflow Benchmark",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M10-09",
+          "title": "Security & Adversarial Regression",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M10-10",
+          "title": "Recovery & Integration Stress Testing",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M10-11",
+          "title": "Usability & Onboarding Evaluation",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M10-12",
+          "title": "Alpha Bug Fixing & Optimization",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M10-13",
+          "title": "Final Alpha Regression & Evidence Review",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M10-14",
+          "title": "Internal Alpha Acceptance",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        }
+      ]
+    },
+    {
+      "id": "M11",
+      "name": "Public MVP",
+      "plannedChecks": 48,
+      "packages": [
+        {
+          "id": "M11-01",
+          "title": "Release Strategy & Distribution Requirements",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M11-02",
+          "title": "Public Provider Authentication",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M11-03",
+          "title": "Dependency, License & Supply Chain Audit",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M11-04",
+          "title": "Production Build & CI/CD Pipeline",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M11-05",
+          "title": "Windows Installer & Uninstaller",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M11-06",
+          "title": "First Launch & Setup Wizard",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M11-07",
+          "title": "WSL2 & Runtime Provisioning",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M11-08",
+          "title": "Signed Updates & Release Channels",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M11-09",
+          "title": "Upgrade, Migration & Rollback Safety",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M11-10",
+          "title": "Public Documentation & User Guides",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M11-11",
+          "title": "Privacy, Security Reporting & Community Foundation",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M11-12",
+          "title": "Clean Windows Installation & Compatibility Suite",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M11-13",
+          "title": "Public Beta Release",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M11-14",
+          "title": "Beta Feedback & Release Stabilization",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M11-15",
+          "title": "Portfolio, Release Presentation & Public Assets",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M11-16",
+          "title": "Public MVP Acceptance & Release",
+          "priority": "P0",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        }
+      ]
+    },
+    {
+      "id": "M12",
+      "name": "Extended Platform",
+      "plannedChecks": 42,
+      "packages": [
+        {
+          "id": "M12-01",
+          "title": "Extension Architecture & Compatibility Foundation",
+          "priority": "P1",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M12-02",
+          "title": "GitHub Authentication & Repository Integration",
+          "priority": "P1",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M12-03",
+          "title": "GitHub Development Workflow Automation",
+          "priority": "P1",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M12-04",
+          "title": "MCP Server Management & Discovery",
+          "priority": "P1",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M12-05",
+          "title": "Secure MCP Tool Broker",
+          "priority": "P1",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M12-06",
+          "title": "Advanced Automated Recovery",
+          "priority": "P1",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M12-07",
+          "title": "Extended Multi-Provider Architecture",
+          "priority": "P2",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M12-08",
+          "title": "Additional Cloud AI Providers",
+          "priority": "P2",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M12-09",
+          "title": "Optional Local AI Runtime",
+          "priority": "P2",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M12-10",
+          "title": "Semantic Memory & Embedding Infrastructure",
+          "priority": "P2",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M12-11",
+          "title": "Hybrid Context Retrieval & Optimization",
+          "priority": "P2",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M12-12",
+          "title": "Advanced Autonomous Planning",
+          "priority": "P2",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M12-13",
+          "title": "Additional Project Management & Test Adapters",
+          "priority": "P2",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M12-14",
+          "title": "Customizable Workspace & Developer Tools",
+          "priority": "P2",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M12-15",
+          "title": "Extension Regression & Security Validation",
+          "priority": "release-dependent P1/P2",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M12-16",
+          "title": "Extended Platform Release Acceptance",
+          "priority": "release-dependent P1/P2",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        }
+      ]
+    },
+    {
+      "id": "M13",
+      "name": "Community Ecosystem",
+      "plannedChecks": 48,
+      "packages": [
+        {
+          "id": "M13-01",
+          "title": "Cross-platform Architecture Foundation",
+          "priority": "P2",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M13-02",
+          "title": "Native Linux Support",
+          "priority": "P2",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M13-03",
+          "title": "Native macOS Support",
+          "priority": "P2",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M13-04",
+          "title": "Cross-platform Compatibility & Release Matrix",
+          "priority": "P2",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M13-05",
+          "title": "Public Plugin SDK & Extension Contract",
+          "priority": "P3",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M13-06",
+          "title": "Isolated Plugin Runtime & Security Broker",
+          "priority": "P3",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M13-07",
+          "title": "Plugin Developer Tooling & Documentation",
+          "priority": "P3",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M13-08",
+          "title": "Community Plugin Registry & Discovery",
+          "priority": "P3",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M13-09",
+          "title": "Secure Plugin Distribution & Update Lifecycle",
+          "priority": "P3",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M13-10",
+          "title": "Community Templates & Workflow Sharing",
+          "priority": "P3",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M13-11",
+          "title": "Remote Worker Protocol & Device Trust",
+          "priority": "P3",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M13-12",
+          "title": "Remote Worker Runtime & Resource Management",
+          "priority": "P3",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M13-13",
+          "title": "Distributed Orchestration & Job Scheduling",
+          "priority": "P3",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M13-14",
+          "title": "Collaborative Team Workspace Architecture",
+          "priority": "P3",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M13-15",
+          "title": "Shared Context & Collaborative Synchronization",
+          "priority": "P3",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M13-16",
+          "title": "Optional Hosted Services & Sustainability Evaluation",
+          "priority": "P3",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M13-17",
+          "title": "Ecosystem Security, Compatibility & Regression",
+          "priority": "release-dependent P2/P3",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        },
+        {
+          "id": "M13-18",
+          "title": "Community Ecosystem Release & Governance",
+          "priority": "release-dependent P2/P3",
+          "owner": null,
+          "requirements": null,
+          "acceptanceCriteria": null,
+          "dependencies": null,
+          "linearIssueId": null
+        }
+      ]
+    }
+  ],
+  "dependencyGraph": {
+    "status": "incomplete",
+    "edges": [
+      {
+        "prerequisite": "M05-10",
+        "dependent": "M05-09",
+        "basis": "K04 explicitly requires this package-level edge."
+      },
+      {
+        "prerequisite": "M02-13",
+        "dependent": "M02-15",
+        "basis": "K02: authenticated Linux inference is mandatory for execution/security acceptance."
+      },
+      {
+        "prerequisite": "M02-14",
+        "dependent": "M02-15",
+        "basis": "Derived minimum gate: regression before execution/security acceptance; confirm against original package detail."
+      }
+    ],
+    "gateNotes": [
+      "M00 acceptance and explicit implementation authorization precede M01+ work.",
+      "M02 authenticated Linux execution and isolation gate before live agent development proceeds.",
+      "K03 central inference guard from M02; M05-10 precedes M05-09.",
+      "All mandatory quality gates and authorized integration before task completion.",
+      "Release-scoped extension acceptance depends on actually selected extension scope; do not impose all optional packages as mandatory."
+    ]
+  }
+}
