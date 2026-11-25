@@ -1,0 +1,2432 @@
+{
+  "schemaVersion": 1,
+  "status": "imported-and-read-back-awaiting-foundation-package-acceptance",
+  "sourceRevision": "c97ee800affffc3ae224866b18f189e779995a85",
+  "acceptedRevision": "9a761c53910a9eebf8865db2c77b652492e6b6ea",
+  "sourcePR": 5,
+  "linearProject": "P-ADM-2",
+  "snapshot": "2026-11-25 import verification",
+  "scope": "Public package IDs and Linear issue identifiers only; no account identifiers, workspace credentials, private issue content or internal UUIDs. Status values are a historical snapshot, not live status.",
+  "counts": {
+    "packages": 201,
+    "hardDependenciesVerified": 614,
+    "conditionalDependenciesVerifiedInDescriptions": 31,
+    "plannedAcceptanceDefinitions": 526,
+    "foundationCriteria": 22,
+    "initialStatuses": {
+      "Done": 5,
+      "Backlog": 195,
+      "In Progress": 1
+    }
+  },
+  "mapping": [
+    {
+      "packageId": "M00-01",
+      "linearIdentifier": "ADM-1",
+      "title": "M00-01 – Repository Foundation",
+      "initialStatus": "Done",
+      "milestone": "M00",
+      "labels": [
+        "Infrastructure",
+        "DevOps & Release",
+        "P0 – MVP Required"
+      ]
+    },
+    {
+      "packageId": "M00-02",
+      "linearIdentifier": "ADM-2",
+      "title": "M00-02 – Product Specification",
+      "initialStatus": "Done",
+      "milestone": "M00",
+      "labels": [
+        "Documentation",
+        "Orchestration",
+        "P0 – MVP Required"
+      ]
+    },
+    {
+      "packageId": "M00-03",
+      "linearIdentifier": "ADM-3",
+      "title": "M00-03 – Technical Architecture Documentation",
+      "initialStatus": "Done",
+      "milestone": "M00",
+      "labels": [
+        "Documentation",
+        "Core",
+        "P0 – MVP Required"
+      ]
+    },
+    {
+      "packageId": "M00-04",
+      "linearIdentifier": "ADM-4",
+      "title": "M00-04 – Feasibility Test Documentation",
+      "initialStatus": "Done",
+      "milestone": "M00",
+      "labels": [
+        "Documentation",
+        "Quality & Recovery",
+        "P0 – MVP Required"
+      ]
+    },
+    {
+      "packageId": "M00-05",
+      "linearIdentifier": "ADM-5",
+      "title": "M00-05 – Development Environment Validation",
+      "initialStatus": "Backlog",
+      "milestone": "M00",
+      "labels": [
+        "Research",
+        "DevOps & Release",
+        "P0 – MVP Required"
+      ]
+    },
+    {
+      "packageId": "M00-06",
+      "linearIdentifier": "ADM-6",
+      "title": "M00-06 – Development Rules & AGENTS.md",
+      "initialStatus": "Done",
+      "milestone": "M00",
+      "labels": [
+        "Documentation",
+        "DevOps & Release",
+        "P0 – MVP Required"
+      ]
+    },
+    {
+      "packageId": "M00-07",
+      "linearIdentifier": "ADM-7",
+      "title": "M00-07 – Linear Project Setup",
+      "initialStatus": "In Progress",
+      "milestone": "M00",
+      "labels": [
+        "Infrastructure",
+        "Integrations",
+        "P0 – MVP Required"
+      ]
+    },
+    {
+      "packageId": "M00-08",
+      "linearIdentifier": "ADM-8",
+      "title": "M00-08 – Quality & CI Foundation",
+      "initialStatus": "Backlog",
+      "milestone": "M00",
+      "labels": [
+        "Infrastructure",
+        "DevOps & Release",
+        "P0 – MVP Required"
+      ]
+    },
+    {
+      "packageId": "M00-09",
+      "linearIdentifier": "ADM-9",
+      "title": "M00-09 – Codex Workspace Setup",
+      "initialStatus": "Backlog",
+      "milestone": "M00",
+      "labels": [
+        "Infrastructure",
+        "DevOps & Release",
+        "P0 – MVP Required"
+      ]
+    },
+    {
+      "packageId": "M00-10",
+      "linearIdentifier": "ADM-10",
+      "title": "M00-10 – Foundation Acceptance",
+      "initialStatus": "Backlog",
+      "milestone": "M00",
+      "labels": [
+        "Testing",
+        "Quality & Recovery",
+        "P0 – MVP Required"
+      ]
+    },
+    {
+      "packageId": "M01-01",
+      "linearIdentifier": "ADM-11",
+      "title": "M01-01 – Rust Workspace Foundation",
+      "initialStatus": "Backlog",
+      "milestone": "M01",
+      "labels": [
+        "Infrastructure",
+        "Core",
+        "P0 – MVP Required"
+      ]
+    },
+    {
+      "packageId": "M01-02",
+      "linearIdentifier": "ADM-12",
+      "title": "M01-02 – Desktop Application Foundation",
+      "initialStatus": "Backlog",
+      "milestone": "M01",
+      "labels": [
+        "Frontend",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M01-03",
+      "linearIdentifier": "ADM-13",
+      "title": "M01-03 – Domain Model Foundation",
+      "initialStatus": "Backlog",
+      "milestone": "M01",
+      "labels": [
+        "Core",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M01-04",
+      "linearIdentifier": "ADM-14",
+      "title": "M01-04 – Persistent Storage Foundation",
+      "initialStatus": "Backlog",
+      "milestone": "M01",
+      "labels": [
+        "Core",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M01-05",
+      "linearIdentifier": "ADM-15",
+      "title": "M01-05 – Persistent Event Bus & Outbox",
+      "initialStatus": "Backlog",
+      "milestone": "M01",
+      "labels": [
+        "Core",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M01-06",
+      "linearIdentifier": "ADM-16",
+      "title": "M01-06 – Independent Core Process",
+      "initialStatus": "Backlog",
+      "milestone": "M01",
+      "labels": [
+        "Core",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M01-07",
+      "linearIdentifier": "ADM-17",
+      "title": "M01-07 – Secure Local IPC",
+      "initialStatus": "Backlog",
+      "milestone": "M01",
+      "labels": [
+        "Security",
+        "Execution & Security",
+        "P0 – MVP Required"
+      ]
+    },
+    {
+      "packageId": "M01-08",
+      "linearIdentifier": "ADM-18",
+      "title": "M01-08 – Configuration & Application Settings",
+      "initialStatus": "Backlog",
+      "milestone": "M01",
+      "labels": [
+        "Core",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M01-09",
+      "linearIdentifier": "ADM-19",
+      "title": "M01-09 – Desktop-Core Lifecycle Integration",
+      "initialStatus": "Backlog",
+      "milestone": "M01",
+      "labels": [
+        "Frontend",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M01-10",
+      "linearIdentifier": "ADM-20",
+      "title": "M01-10 – Logging & Diagnostics Foundation",
+      "initialStatus": "Backlog",
+      "milestone": "M01",
+      "labels": [
+        "Core",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M01-11",
+      "linearIdentifier": "ADM-21",
+      "title": "M01-11 – Initial Dashboard & System Status",
+      "initialStatus": "Backlog",
+      "milestone": "M01",
+      "labels": [
+        "Frontend",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M01-12",
+      "linearIdentifier": "ADM-22",
+      "title": "M01-12 – Application Foundation Acceptance",
+      "initialStatus": "Backlog",
+      "milestone": "M01",
+      "labels": [
+        "Testing",
+        "Quality & Recovery",
+        "P0 – MVP Required"
+      ]
+    },
+    {
+      "packageId": "M02-01",
+      "linearIdentifier": "ADM-23",
+      "title": "M02-01 – Threat Model & Security Specification",
+      "initialStatus": "Backlog",
+      "milestone": "M02",
+      "labels": [
+        "Security",
+        "Execution & Security",
+        "P0 – MVP Required"
+      ]
+    },
+    {
+      "packageId": "M02-02",
+      "linearIdentifier": "ADM-24",
+      "title": "M02-02 – Provider & Execution Adapter Interfaces",
+      "initialStatus": "Backlog",
+      "milestone": "M02",
+      "labels": [
+        "Execution & Security",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M02-03",
+      "linearIdentifier": "ADM-25",
+      "title": "M02-03 – WSL2 Environment Manager",
+      "initialStatus": "Backlog",
+      "milestone": "M02",
+      "labels": [
+        "Infrastructure",
+        "Execution & Security",
+        "P0 – MVP Required"
+      ]
+    },
+    {
+      "packageId": "M02-04",
+      "linearIdentifier": "ADM-26",
+      "title": "M02-04 – Credential Store & Authentication Boundary",
+      "initialStatus": "Backlog",
+      "milestone": "M02",
+      "labels": [
+        "Security",
+        "Execution & Security",
+        "P0 – MVP Required"
+      ]
+    },
+    {
+      "packageId": "M02-05",
+      "linearIdentifier": "ADM-27",
+      "title": "M02-05 – Codex App Server Transport",
+      "initialStatus": "Backlog",
+      "milestone": "M02",
+      "labels": [
+        "Execution & Security",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M02-06",
+      "linearIdentifier": "ADM-28",
+      "title": "M02-06 – Codex Authentication & Capability Discovery",
+      "initialStatus": "Backlog",
+      "milestone": "M02",
+      "labels": [
+        "Security",
+        "Execution & Security",
+        "P0 – MVP Required"
+      ]
+    },
+    {
+      "packageId": "M02-07",
+      "linearIdentifier": "ADM-29",
+      "title": "M02-07 – Dynamic Permission Engine",
+      "initialStatus": "Backlog",
+      "milestone": "M02",
+      "labels": [
+        "Security",
+        "Execution & Security",
+        "P0 – MVP Required"
+      ]
+    },
+    {
+      "packageId": "M02-08",
+      "linearIdentifier": "ADM-30",
+      "title": "M02-08 – Linux Sandbox Runtime",
+      "initialStatus": "Backlog",
+      "milestone": "M02",
+      "labels": [
+        "Security",
+        "Execution & Security",
+        "P0 – MVP Required"
+      ]
+    },
+    {
+      "packageId": "M02-09",
+      "linearIdentifier": "ADM-31",
+      "title": "M02-09 – Git & Worktree Manager",
+      "initialStatus": "Backlog",
+      "milestone": "M02",
+      "labels": [
+        "Security",
+        "Integrations",
+        "P0 – MVP Required"
+      ]
+    },
+    {
+      "packageId": "M02-10",
+      "linearIdentifier": "ADM-32",
+      "title": "M02-10 – Controlled Windows Execution Broker",
+      "initialStatus": "Backlog",
+      "milestone": "M02",
+      "labels": [
+        "Security",
+        "Execution & Security",
+        "P0 – MVP Required"
+      ]
+    },
+    {
+      "packageId": "M02-11",
+      "linearIdentifier": "ADM-33",
+      "title": "M02-11 – Process Supervision & Cancellation",
+      "initialStatus": "Backlog",
+      "milestone": "M02",
+      "labels": [
+        "Execution & Security",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M02-12",
+      "linearIdentifier": "ADM-34",
+      "title": "M02-12 – Single Agent Execution Pipeline",
+      "initialStatus": "Backlog",
+      "milestone": "M02",
+      "labels": [
+        "Execution & Security",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M02-13",
+      "linearIdentifier": "ADM-35",
+      "title": "M02-13 – Authenticated Linux Inference Validation",
+      "initialStatus": "Backlog",
+      "milestone": "M02",
+      "labels": [
+        "Testing",
+        "Execution & Security",
+        "P0 – MVP Required"
+      ]
+    },
+    {
+      "packageId": "M02-14",
+      "linearIdentifier": "ADM-36",
+      "title": "M02-14 – Execution & Security Regression Suite",
+      "initialStatus": "Backlog",
+      "milestone": "M02",
+      "labels": [
+        "Testing",
+        "Quality & Recovery",
+        "P0 – MVP Required"
+      ]
+    },
+    {
+      "packageId": "M02-15",
+      "linearIdentifier": "ADM-37",
+      "title": "M02-15 – Execution & Security Acceptance",
+      "initialStatus": "Backlog",
+      "milestone": "M02",
+      "labels": [
+        "Testing",
+        "Quality & Recovery",
+        "P0 – MVP Required"
+      ]
+    },
+    {
+      "packageId": "M03-01",
+      "linearIdentifier": "ADM-38",
+      "title": "M03-01 – Project Domain & Persistence",
+      "initialStatus": "Backlog",
+      "milestone": "M03",
+      "labels": [
+        "Core",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M03-02",
+      "linearIdentifier": "ADM-39",
+      "title": "M03-02 – Repository & Workspace Association",
+      "initialStatus": "Backlog",
+      "milestone": "M03",
+      "labels": [
+        "Integrations",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M03-03",
+      "linearIdentifier": "ADM-40",
+      "title": "M03-03 – Existing Project Import",
+      "initialStatus": "Backlog",
+      "milestone": "M03",
+      "labels": [
+        "Orchestration",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M03-04",
+      "linearIdentifier": "ADM-41",
+      "title": "M03-04 – Project Templates & Creation Wizard",
+      "initialStatus": "Backlog",
+      "milestone": "M03",
+      "labels": [
+        "Frontend",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M03-05",
+      "linearIdentifier": "ADM-42",
+      "title": "M03-05 – Roadmap & Milestone Management",
+      "initialStatus": "Backlog",
+      "milestone": "M03",
+      "labels": [
+        "Orchestration",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M03-06",
+      "linearIdentifier": "ADM-43",
+      "title": "M03-06 – Task & Work Package Management",
+      "initialStatus": "Backlog",
+      "milestone": "M03",
+      "labels": [
+        "Core",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M03-07",
+      "linearIdentifier": "ADM-44",
+      "title": "M03-07 – Task State Machine",
+      "initialStatus": "Backlog",
+      "milestone": "M03",
+      "labels": [
+        "Core",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M03-08",
+      "linearIdentifier": "ADM-45",
+      "title": "M03-08 – Dependency Graph Engine",
+      "initialStatus": "Backlog",
+      "milestone": "M03",
+      "labels": [
+        "Orchestration",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M03-09",
+      "linearIdentifier": "ADM-46",
+      "title": "M03-09 – Project Priority & Configuration Management",
+      "initialStatus": "Backlog",
+      "milestone": "M03",
+      "labels": [
+        "Core",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M03-10",
+      "linearIdentifier": "ADM-47",
+      "title": "M03-10 – Local Search, Filtering & Activity History",
+      "initialStatus": "Backlog",
+      "milestone": "M03",
+      "labels": [
+        "Core",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M03-11",
+      "linearIdentifier": "ADM-48",
+      "title": "M03-11 – Project Management Workspace UI",
+      "initialStatus": "Backlog",
+      "milestone": "M03",
+      "labels": [
+        "Frontend",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M03-12",
+      "linearIdentifier": "ADM-49",
+      "title": "M03-12 – Project & Task Management Acceptance",
+      "initialStatus": "Backlog",
+      "milestone": "M03",
+      "labels": [
+        "Testing",
+        "Quality & Recovery",
+        "P0 – MVP Required"
+      ]
+    },
+    {
+      "packageId": "M04-01",
+      "linearIdentifier": "ADM-50",
+      "title": "M04-01 – Agent Role & Capability Model",
+      "initialStatus": "Backlog",
+      "milestone": "M04",
+      "labels": [
+        "Orchestration",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M04-02",
+      "linearIdentifier": "ADM-51",
+      "title": "M04-02 – Persistent Agent Identity",
+      "initialStatus": "Backlog",
+      "milestone": "M04",
+      "labels": [
+        "Orchestration",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M04-03",
+      "linearIdentifier": "ADM-52",
+      "title": "M04-03 – Provider Session Management",
+      "initialStatus": "Backlog",
+      "milestone": "M04",
+      "labels": [
+        "Orchestration",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M04-04",
+      "linearIdentifier": "ADM-53",
+      "title": "M04-04 – Direct Agent Chat & Intervention",
+      "initialStatus": "Backlog",
+      "milestone": "M04",
+      "labels": [
+        "Frontend",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M04-05",
+      "linearIdentifier": "ADM-54",
+      "title": "M04-05 – Hierarchical Memory Storage",
+      "initialStatus": "Backlog",
+      "milestone": "M04",
+      "labels": [
+        "Core",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M04-06",
+      "linearIdentifier": "ADM-55",
+      "title": "M04-06 – Deterministic Context Selection",
+      "initialStatus": "Backlog",
+      "milestone": "M04",
+      "labels": [
+        "Orchestration",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M04-07",
+      "linearIdentifier": "ADM-56",
+      "title": "M04-07 – Validated Session Handover",
+      "initialStatus": "Backlog",
+      "milestone": "M04",
+      "labels": [
+        "Orchestration",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M04-08",
+      "linearIdentifier": "ADM-57",
+      "title": "M04-08 – Automatic Session Rotation",
+      "initialStatus": "Backlog",
+      "milestone": "M04",
+      "labels": [
+        "Orchestration",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M04-09",
+      "linearIdentifier": "ADM-58",
+      "title": "M04-09 – Persistent Agent Message Bus",
+      "initialStatus": "Backlog",
+      "milestone": "M04",
+      "labels": [
+        "Core",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M04-10",
+      "linearIdentifier": "ADM-59",
+      "title": "M04-10 – Controlled Agent-to-Agent Communication",
+      "initialStatus": "Backlog",
+      "milestone": "M04",
+      "labels": [
+        "Security",
+        "Orchestration",
+        "P0 – MVP Required"
+      ]
+    },
+    {
+      "packageId": "M04-11",
+      "linearIdentifier": "ADM-60",
+      "title": "M04-11 – Temporary Specialist Lifecycle",
+      "initialStatus": "Backlog",
+      "milestone": "M04",
+      "labels": [
+        "Orchestration",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M04-12",
+      "linearIdentifier": "ADM-61",
+      "title": "M04-12 – Agent Management Workspace UI",
+      "initialStatus": "Backlog",
+      "milestone": "M04",
+      "labels": [
+        "Frontend",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M04-13",
+      "linearIdentifier": "ADM-62",
+      "title": "M04-13 – Agent & Context Regression Suite",
+      "initialStatus": "Backlog",
+      "milestone": "M04",
+      "labels": [
+        "Testing",
+        "Quality & Recovery",
+        "P0 – MVP Required"
+      ]
+    },
+    {
+      "packageId": "M04-14",
+      "linearIdentifier": "ADM-63",
+      "title": "M04-14 – Agent Management Acceptance",
+      "initialStatus": "Backlog",
+      "milestone": "M04",
+      "labels": [
+        "Testing",
+        "Quality & Recovery",
+        "P0 – MVP Required"
+      ]
+    },
+    {
+      "packageId": "M05-01",
+      "linearIdentifier": "ADM-64",
+      "title": "M05-01 – Orchestration Domain & Execution Plan",
+      "initialStatus": "Backlog",
+      "milestone": "M05",
+      "labels": [
+        "Orchestration",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M05-02",
+      "linearIdentifier": "ADM-65",
+      "title": "M05-02 – AI Project Manager",
+      "initialStatus": "Backlog",
+      "milestone": "M05",
+      "labels": [
+        "Orchestration",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M05-03",
+      "linearIdentifier": "ADM-66",
+      "title": "M05-03 – Structured Plan Generation & Validation",
+      "initialStatus": "Backlog",
+      "milestone": "M05",
+      "labels": [
+        "Orchestration",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M05-04",
+      "linearIdentifier": "ADM-67",
+      "title": "M05-04 – Plan Approval & Revision Management",
+      "initialStatus": "Backlog",
+      "milestone": "M05",
+      "labels": [
+        "Orchestration",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M05-05",
+      "linearIdentifier": "ADM-68",
+      "title": "M05-05 – Deterministic DAG Scheduler",
+      "initialStatus": "Backlog",
+      "milestone": "M05",
+      "labels": [
+        "Orchestration",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M05-06",
+      "linearIdentifier": "ADM-69",
+      "title": "M05-06 – Agent Assignment Engine",
+      "initialStatus": "Backlog",
+      "milestone": "M05",
+      "labels": [
+        "Orchestration",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M05-07",
+      "linearIdentifier": "ADM-70",
+      "title": "M05-07 – Work Package Prompt Builder",
+      "initialStatus": "Backlog",
+      "milestone": "M05",
+      "labels": [
+        "Orchestration",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M05-08",
+      "linearIdentifier": "ADM-71",
+      "title": "M05-08 – Execution Dispatch & Run Tracking",
+      "initialStatus": "Backlog",
+      "milestone": "M05",
+      "labels": [
+        "Orchestration",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M05-09",
+      "linearIdentifier": "ADM-72",
+      "title": "M05-09 – Parallel Execution & Workspace Reservations",
+      "initialStatus": "Backlog",
+      "milestone": "M05",
+      "labels": [
+        "Orchestration",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M05-10",
+      "linearIdentifier": "ADM-73",
+      "title": "M05-10 – Basic Resource & Quota Guard",
+      "initialStatus": "Backlog",
+      "milestone": "M05",
+      "labels": [
+        "Security",
+        "Orchestration",
+        "P0 – MVP Required"
+      ]
+    },
+    {
+      "packageId": "M05-11",
+      "linearIdentifier": "ADM-74",
+      "title": "M05-11 – Dependency Handover & Result Processing",
+      "initialStatus": "Backlog",
+      "milestone": "M05",
+      "labels": [
+        "Orchestration",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M05-12",
+      "linearIdentifier": "ADM-75",
+      "title": "M05-12 – Blocker, Retry & Escalation Management",
+      "initialStatus": "Backlog",
+      "milestone": "M05",
+      "labels": [
+        "Orchestration",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M05-13",
+      "linearIdentifier": "ADM-76",
+      "title": "M05-13 – Dynamic Plan Change & User Intervention",
+      "initialStatus": "Backlog",
+      "milestone": "M05",
+      "labels": [
+        "Orchestration",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M05-14",
+      "linearIdentifier": "ADM-77",
+      "title": "M05-14 – Planner & Orchestration Workspace UI",
+      "initialStatus": "Backlog",
+      "milestone": "M05",
+      "labels": [
+        "Frontend",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M05-15",
+      "linearIdentifier": "ADM-78",
+      "title": "M05-15 – Orchestration Regression & End-to-End Suite",
+      "initialStatus": "Backlog",
+      "milestone": "M05",
+      "labels": [
+        "Testing",
+        "Quality & Recovery",
+        "P0 – MVP Required"
+      ]
+    },
+    {
+      "packageId": "M05-16",
+      "linearIdentifier": "ADM-79",
+      "title": "M05-16 – Orchestration Engine Acceptance",
+      "initialStatus": "Backlog",
+      "milestone": "M05",
+      "labels": [
+        "Testing",
+        "Quality & Recovery",
+        "P0 – MVP Required"
+      ]
+    },
+    {
+      "packageId": "M06-01",
+      "linearIdentifier": "ADM-80",
+      "title": "M06-01 – Quality Policy & Gate Configuration",
+      "initialStatus": "Backlog",
+      "milestone": "M06",
+      "labels": [
+        "Quality & Recovery",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M06-02",
+      "linearIdentifier": "ADM-81",
+      "title": "M06-02 – Persistent Quality Evidence Store",
+      "initialStatus": "Backlog",
+      "milestone": "M06",
+      "labels": [
+        "Core",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M06-03",
+      "linearIdentifier": "ADM-82",
+      "title": "M06-03 – Modular Test Adapter Framework",
+      "initialStatus": "Backlog",
+      "milestone": "M06",
+      "labels": [
+        "Quality & Recovery",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M06-04",
+      "linearIdentifier": "ADM-83",
+      "title": "M06-04 – Protected Test & Acceptance Baseline",
+      "initialStatus": "Backlog",
+      "milestone": "M06",
+      "labels": [
+        "Security",
+        "Quality & Recovery",
+        "P0 – MVP Required"
+      ]
+    },
+    {
+      "packageId": "M06-05",
+      "linearIdentifier": "ADM-84",
+      "title": "M06-05 – Requirements & Artifact Validation",
+      "initialStatus": "Backlog",
+      "milestone": "M06",
+      "labels": [
+        "Quality & Recovery",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M06-06",
+      "linearIdentifier": "ADM-85",
+      "title": "M06-06 – Automated Validation & Regression Engine",
+      "initialStatus": "Backlog",
+      "milestone": "M06",
+      "labels": [
+        "Testing",
+        "Quality & Recovery",
+        "P0 – MVP Required"
+      ]
+    },
+    {
+      "packageId": "M06-07",
+      "linearIdentifier": "ADM-86",
+      "title": "M06-07 – Independent Review Engine",
+      "initialStatus": "Backlog",
+      "milestone": "M06",
+      "labels": [
+        "Quality & Recovery",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M06-08",
+      "linearIdentifier": "ADM-87",
+      "title": "M06-08 – Quality Gate State Machine",
+      "initialStatus": "Backlog",
+      "milestone": "M06",
+      "labels": [
+        "Quality & Recovery",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M06-09",
+      "linearIdentifier": "ADM-88",
+      "title": "M06-09 – Bounded Automatic Repair Loop",
+      "initialStatus": "Backlog",
+      "milestone": "M06",
+      "labels": [
+        "Orchestration",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M06-10",
+      "linearIdentifier": "ADM-89",
+      "title": "M06-10 – Integration Candidate & Conflict Validation",
+      "initialStatus": "Backlog",
+      "milestone": "M06",
+      "labels": [
+        "Security",
+        "Integrations",
+        "P0 – MVP Required"
+      ]
+    },
+    {
+      "packageId": "M06-11",
+      "linearIdentifier": "ADM-90",
+      "title": "M06-11 – Human Acceptance & Approval Center",
+      "initialStatus": "Backlog",
+      "milestone": "M06",
+      "labels": [
+        "Frontend",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M06-12",
+      "linearIdentifier": "ADM-91",
+      "title": "M06-12 – Controlled Git Integration & Task Finalization",
+      "initialStatus": "Backlog",
+      "milestone": "M06",
+      "labels": [
+        "Security",
+        "Integrations",
+        "P0 – MVP Required"
+      ]
+    },
+    {
+      "packageId": "M06-13",
+      "linearIdentifier": "ADM-92",
+      "title": "M06-13 – Quality Workspace UI",
+      "initialStatus": "Backlog",
+      "milestone": "M06",
+      "labels": [
+        "Frontend",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M06-14",
+      "linearIdentifier": "ADM-93",
+      "title": "M06-14 – Quality & Integration Regression Suite",
+      "initialStatus": "Backlog",
+      "milestone": "M06",
+      "labels": [
+        "Testing",
+        "Quality & Recovery",
+        "P0 – MVP Required"
+      ]
+    },
+    {
+      "packageId": "M06-15",
+      "linearIdentifier": "ADM-94",
+      "title": "M06-15 – Quality Engine & Autonomous Workflow Acceptance",
+      "initialStatus": "Backlog",
+      "milestone": "M06",
+      "labels": [
+        "Testing",
+        "Quality & Recovery",
+        "P0 – MVP Required"
+      ]
+    },
+    {
+      "packageId": "M07-01",
+      "linearIdentifier": "ADM-95",
+      "title": "M07-01 – Resource & Recovery Domain Foundation",
+      "initialStatus": "Backlog",
+      "milestone": "M07",
+      "labels": [
+        "Core",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M07-02",
+      "linearIdentifier": "ADM-96",
+      "title": "M07-02 – Provider Quota Monitoring",
+      "initialStatus": "Backlog",
+      "milestone": "M07",
+      "labels": [
+        "Execution & Security",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M07-03",
+      "linearIdentifier": "ADM-97",
+      "title": "M07-03 – Hardware & Process Monitoring",
+      "initialStatus": "Backlog",
+      "milestone": "M07",
+      "labels": [
+        "Core",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M07-04",
+      "linearIdentifier": "ADM-98",
+      "title": "M07-04 – Resource Profiles & Budget Configuration",
+      "initialStatus": "Backlog",
+      "milestone": "M07",
+      "labels": [
+        "Core",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M07-05",
+      "linearIdentifier": "ADM-99",
+      "title": "M07-05 – Adaptive Model & Thinking Selection",
+      "initialStatus": "Backlog",
+      "milestone": "M07",
+      "labels": [
+        "Orchestration",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M07-06",
+      "linearIdentifier": "ADM-100",
+      "title": "M07-06 – Adaptive Admission & Reservation Control",
+      "initialStatus": "Backlog",
+      "milestone": "M07",
+      "labels": [
+        "Orchestration",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M07-07",
+      "linearIdentifier": "ADM-101",
+      "title": "M07-07 – Error Classification & Recovery Policy",
+      "initialStatus": "Backlog",
+      "milestone": "M07",
+      "labels": [
+        "Quality & Recovery",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M07-08",
+      "linearIdentifier": "ADM-102",
+      "title": "M07-08 – Persistent Execution Checkpoints",
+      "initialStatus": "Backlog",
+      "milestone": "M07",
+      "labels": [
+        "Core",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M07-09",
+      "linearIdentifier": "ADM-103",
+      "title": "M07-09 – Controlled Retry & Resume Manager",
+      "initialStatus": "Backlog",
+      "milestone": "M07",
+      "labels": [
+        "Quality & Recovery",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M07-10",
+      "linearIdentifier": "ADM-104",
+      "title": "M07-10 – Startup Recovery & State Reconciliation",
+      "initialStatus": "Backlog",
+      "milestone": "M07",
+      "labels": [
+        "Quality & Recovery",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M07-11",
+      "linearIdentifier": "ADM-105",
+      "title": "M07-11 – Backup & Disaster Recovery Foundation",
+      "initialStatus": "Backlog",
+      "milestone": "M07",
+      "labels": [
+        "Infrastructure",
+        "Core",
+        "P0 – MVP Required"
+      ]
+    },
+    {
+      "packageId": "M07-12",
+      "linearIdentifier": "ADM-106",
+      "title": "M07-12 – Resource & Recovery Workspace UI",
+      "initialStatus": "Backlog",
+      "milestone": "M07",
+      "labels": [
+        "Frontend",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M07-13",
+      "linearIdentifier": "ADM-107",
+      "title": "M07-13 – Resource & Quota Regression Suite",
+      "initialStatus": "Backlog",
+      "milestone": "M07",
+      "labels": [
+        "Testing",
+        "Quality & Recovery",
+        "P0 – MVP Required"
+      ]
+    },
+    {
+      "packageId": "M07-14",
+      "linearIdentifier": "ADM-108",
+      "title": "M07-14 – Recovery & Failure Injection Suite",
+      "initialStatus": "Backlog",
+      "milestone": "M07",
+      "labels": [
+        "Testing",
+        "Quality & Recovery",
+        "P0 – MVP Required"
+      ]
+    },
+    {
+      "packageId": "M07-15",
+      "linearIdentifier": "ADM-109",
+      "title": "M07-15 – Resource & Recovery Acceptance",
+      "initialStatus": "Backlog",
+      "milestone": "M07",
+      "labels": [
+        "Testing",
+        "Quality & Recovery",
+        "P0 – MVP Required"
+      ]
+    },
+    {
+      "packageId": "M08-01",
+      "linearIdentifier": "ADM-110",
+      "title": "M08-01 – Integration Domain & Sync Architecture",
+      "initialStatus": "Backlog",
+      "milestone": "M08",
+      "labels": [
+        "Integrations",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M08-02",
+      "linearIdentifier": "ADM-111",
+      "title": "M08-02 – Linear Authentication & Connection Manager",
+      "initialStatus": "Backlog",
+      "milestone": "M08",
+      "labels": [
+        "Security",
+        "Integrations",
+        "P0 – MVP Required"
+      ]
+    },
+    {
+      "packageId": "M08-03",
+      "linearIdentifier": "ADM-112",
+      "title": "M08-03 – Linear GraphQL Adapter",
+      "initialStatus": "Backlog",
+      "milestone": "M08",
+      "labels": [
+        "Integrations",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M08-04",
+      "linearIdentifier": "ADM-113",
+      "title": "M08-04 – External Project Discovery & Import",
+      "initialStatus": "Backlog",
+      "milestone": "M08",
+      "labels": [
+        "Integrations",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M08-05",
+      "linearIdentifier": "ADM-114",
+      "title": "M08-05 – Persistent External ID & Field Mapping",
+      "initialStatus": "Backlog",
+      "milestone": "M08",
+      "labels": [
+        "Integrations",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M08-06",
+      "linearIdentifier": "ADM-115",
+      "title": "M08-06 – Synchronization Policy & Ownership",
+      "initialStatus": "Backlog",
+      "milestone": "M08",
+      "labels": [
+        "Integrations",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M08-07",
+      "linearIdentifier": "ADM-116",
+      "title": "M08-07 – Persistent Outbox & Idempotent Operations",
+      "initialStatus": "Backlog",
+      "milestone": "M08",
+      "labels": [
+        "Integrations",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M08-08",
+      "linearIdentifier": "ADM-117",
+      "title": "M08-08 – Incremental Bidirectional Synchronization",
+      "initialStatus": "Backlog",
+      "milestone": "M08",
+      "labels": [
+        "Integrations",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M08-09",
+      "linearIdentifier": "ADM-118",
+      "title": "M08-09 – Three-Way Conflict Detection & Resolution",
+      "initialStatus": "Backlog",
+      "milestone": "M08",
+      "labels": [
+        "Integrations",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M08-10",
+      "linearIdentifier": "ADM-119",
+      "title": "M08-10 – Automated Progress & Quality Reporting",
+      "initialStatus": "Backlog",
+      "milestone": "M08",
+      "labels": [
+        "Integrations",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M08-11",
+      "linearIdentifier": "ADM-120",
+      "title": "M08-11 – Offline Sync & Recovery Integration",
+      "initialStatus": "Backlog",
+      "milestone": "M08",
+      "labels": [
+        "Integrations",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M08-12",
+      "linearIdentifier": "ADM-121",
+      "title": "M08-12 – Integration & Synchronization Workspace UI",
+      "initialStatus": "Backlog",
+      "milestone": "M08",
+      "labels": [
+        "Frontend",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M08-13",
+      "linearIdentifier": "ADM-122",
+      "title": "M08-13 – Linear Sync & Conflict Regression Suite",
+      "initialStatus": "Backlog",
+      "milestone": "M08",
+      "labels": [
+        "Testing",
+        "Quality & Recovery",
+        "P0 – MVP Required"
+      ]
+    },
+    {
+      "packageId": "M08-14",
+      "linearIdentifier": "ADM-123",
+      "title": "M08-14 – Connected Workflow Acceptance",
+      "initialStatus": "Backlog",
+      "milestone": "M08",
+      "labels": [
+        "Testing",
+        "Quality & Recovery",
+        "P0 – MVP Required"
+      ]
+    },
+    {
+      "packageId": "M09-01",
+      "linearIdentifier": "ADM-124",
+      "title": "M09-01 – Unified Design System",
+      "initialStatus": "Backlog",
+      "milestone": "M09",
+      "labels": [
+        "Frontend",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M09-02",
+      "linearIdentifier": "ADM-125",
+      "title": "M09-02 – Application Shell & Global Navigation",
+      "initialStatus": "Backlog",
+      "milestone": "M09",
+      "labels": [
+        "Frontend",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M09-03",
+      "linearIdentifier": "ADM-126",
+      "title": "M09-03 – Unified Frontend State & IPC Integration",
+      "initialStatus": "Backlog",
+      "milestone": "M09",
+      "labels": [
+        "Frontend",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M09-04",
+      "linearIdentifier": "ADM-127",
+      "title": "M09-04 – Global & Project Dashboard",
+      "initialStatus": "Backlog",
+      "milestone": "M09",
+      "labels": [
+        "Frontend",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M09-05",
+      "linearIdentifier": "ADM-128",
+      "title": "M09-05 – Unified Planner & Project Workspace",
+      "initialStatus": "Backlog",
+      "milestone": "M09",
+      "labels": [
+        "Frontend",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M09-06",
+      "linearIdentifier": "ADM-129",
+      "title": "M09-06 – Unified Agent & Development Workspace",
+      "initialStatus": "Backlog",
+      "milestone": "M09",
+      "labels": [
+        "Frontend",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M09-07",
+      "linearIdentifier": "ADM-130",
+      "title": "M09-07 – Global Attention & Approval Center",
+      "initialStatus": "Backlog",
+      "milestone": "M09",
+      "labels": [
+        "Frontend",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M09-08",
+      "linearIdentifier": "ADM-131",
+      "title": "M09-08 – Standard & Expert Mode",
+      "initialStatus": "Backlog",
+      "milestone": "M09",
+      "labels": [
+        "Frontend",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M09-09",
+      "linearIdentifier": "ADM-132",
+      "title": "M09-09 – Global Settings & Integration Management",
+      "initialStatus": "Backlog",
+      "milestone": "M09",
+      "labels": [
+        "Frontend",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M09-10",
+      "linearIdentifier": "ADM-133",
+      "title": "M09-10 – System Tray, Notifications & Keyboard Navigation",
+      "initialStatus": "Backlog",
+      "milestone": "M09",
+      "labels": [
+        "Frontend",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M09-11",
+      "linearIdentifier": "ADM-134",
+      "title": "M09-11 – Localization & Accessibility",
+      "initialStatus": "Backlog",
+      "milestone": "M09",
+      "labels": [
+        "Frontend",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M09-12",
+      "linearIdentifier": "ADM-135",
+      "title": "M09-12 – Frontend Performance & Large Workspace Optimization",
+      "initialStatus": "Backlog",
+      "milestone": "M09",
+      "labels": [
+        "Testing",
+        "Frontend",
+        "P0 – MVP Required"
+      ]
+    },
+    {
+      "packageId": "M09-13",
+      "linearIdentifier": "ADM-136",
+      "title": "M09-13 – Workspace Regression & Usability Suite",
+      "initialStatus": "Backlog",
+      "milestone": "M09",
+      "labels": [
+        "Testing",
+        "Quality & Recovery",
+        "P0 – MVP Required"
+      ]
+    },
+    {
+      "packageId": "M09-14",
+      "linearIdentifier": "ADM-137",
+      "title": "M09-14 – Unified Workspace Acceptance",
+      "initialStatus": "Backlog",
+      "milestone": "M09",
+      "labels": [
+        "Testing",
+        "Quality & Recovery",
+        "P0 – MVP Required"
+      ]
+    },
+    {
+      "packageId": "M10-01",
+      "linearIdentifier": "ADM-138",
+      "title": "M10-01 – Alpha Test Strategy & Environment",
+      "initialStatus": "Backlog",
+      "milestone": "M10",
+      "labels": [
+        "Testing",
+        "Quality & Recovery",
+        "P0 – MVP Required"
+      ]
+    },
+    {
+      "packageId": "M10-02",
+      "linearIdentifier": "ADM-139",
+      "title": "M10-02 – Full System Regression",
+      "initialStatus": "Backlog",
+      "milestone": "M10",
+      "labels": [
+        "Testing",
+        "Quality & Recovery",
+        "P0 – MVP Required"
+      ]
+    },
+    {
+      "packageId": "M10-03",
+      "linearIdentifier": "ADM-140",
+      "title": "M10-03 – Synthetic End-to-End Development Workflow",
+      "initialStatus": "Backlog",
+      "milestone": "M10",
+      "labels": [
+        "Testing",
+        "Quality & Recovery",
+        "P0 – MVP Required"
+      ]
+    },
+    {
+      "packageId": "M10-04",
+      "linearIdentifier": "ADM-141",
+      "title": "M10-04 – Real Greenfield Project Pilot",
+      "initialStatus": "Backlog",
+      "milestone": "M10",
+      "labels": [
+        "Testing",
+        "Orchestration",
+        "P0 – MVP Required"
+      ]
+    },
+    {
+      "packageId": "M10-05",
+      "linearIdentifier": "ADM-142",
+      "title": "M10-05 – Existing Project Import Pilot",
+      "initialStatus": "Backlog",
+      "milestone": "M10",
+      "labels": [
+        "Testing",
+        "Integrations",
+        "P0 – MVP Required"
+      ]
+    },
+    {
+      "packageId": "M10-06",
+      "linearIdentifier": "ADM-143",
+      "title": "M10-06 – Dogfooding & Internal Development Evaluation",
+      "initialStatus": "Backlog",
+      "milestone": "M10",
+      "labels": [
+        "Testing",
+        "Quality & Recovery",
+        "P0 – MVP Required"
+      ]
+    },
+    {
+      "packageId": "M10-07",
+      "linearIdentifier": "ADM-144",
+      "title": "M10-07 – Parallel Execution & Long-running Stability",
+      "initialStatus": "Backlog",
+      "milestone": "M10",
+      "labels": [
+        "Testing",
+        "Quality & Recovery",
+        "P0 – MVP Required"
+      ]
+    },
+    {
+      "packageId": "M10-08",
+      "linearIdentifier": "ADM-145",
+      "title": "M10-08 – Resource Efficiency & Workflow Benchmark",
+      "initialStatus": "Backlog",
+      "milestone": "M10",
+      "labels": [
+        "Testing",
+        "Quality & Recovery",
+        "P0 – MVP Required"
+      ]
+    },
+    {
+      "packageId": "M10-09",
+      "linearIdentifier": "ADM-146",
+      "title": "M10-09 – Security & Adversarial Regression",
+      "initialStatus": "Backlog",
+      "milestone": "M10",
+      "labels": [
+        "Security",
+        "Execution & Security",
+        "P0 – MVP Required"
+      ]
+    },
+    {
+      "packageId": "M10-10",
+      "linearIdentifier": "ADM-147",
+      "title": "M10-10 – Recovery & Integration Stress Testing",
+      "initialStatus": "Backlog",
+      "milestone": "M10",
+      "labels": [
+        "Testing",
+        "Quality & Recovery",
+        "P0 – MVP Required"
+      ]
+    },
+    {
+      "packageId": "M10-11",
+      "linearIdentifier": "ADM-148",
+      "title": "M10-11 – Usability & Onboarding Evaluation",
+      "initialStatus": "Backlog",
+      "milestone": "M10",
+      "labels": [
+        "Testing",
+        "Frontend",
+        "P0 – MVP Required"
+      ]
+    },
+    {
+      "packageId": "M10-12",
+      "linearIdentifier": "ADM-149",
+      "title": "M10-12 – Alpha Bug Fixing & Optimization",
+      "initialStatus": "Backlog",
+      "milestone": "M10",
+      "labels": [
+        "Testing",
+        "Quality & Recovery",
+        "P0 – MVP Required"
+      ]
+    },
+    {
+      "packageId": "M10-13",
+      "linearIdentifier": "ADM-150",
+      "title": "M10-13 – Final Alpha Regression & Evidence Review",
+      "initialStatus": "Backlog",
+      "milestone": "M10",
+      "labels": [
+        "Testing",
+        "Quality & Recovery",
+        "P0 – MVP Required"
+      ]
+    },
+    {
+      "packageId": "M10-14",
+      "linearIdentifier": "ADM-151",
+      "title": "M10-14 – Internal Alpha Acceptance",
+      "initialStatus": "Backlog",
+      "milestone": "M10",
+      "labels": [
+        "Testing",
+        "Quality & Recovery",
+        "P0 – MVP Required"
+      ]
+    },
+    {
+      "packageId": "M11-01",
+      "linearIdentifier": "ADM-152",
+      "title": "M11-01 – Release Strategy & Distribution Requirements",
+      "initialStatus": "Backlog",
+      "milestone": "M11",
+      "labels": [
+        "Documentation",
+        "DevOps & Release",
+        "P0 – MVP Required"
+      ]
+    },
+    {
+      "packageId": "M11-02",
+      "linearIdentifier": "ADM-153",
+      "title": "M11-02 – Public Provider Authentication",
+      "initialStatus": "Backlog",
+      "milestone": "M11",
+      "labels": [
+        "Security",
+        "Execution & Security",
+        "P0 – MVP Required"
+      ]
+    },
+    {
+      "packageId": "M11-03",
+      "linearIdentifier": "ADM-154",
+      "title": "M11-03 – Dependency, License & Supply Chain Audit",
+      "initialStatus": "Backlog",
+      "milestone": "M11",
+      "labels": [
+        "Security",
+        "DevOps & Release",
+        "P0 – MVP Required"
+      ]
+    },
+    {
+      "packageId": "M11-04",
+      "linearIdentifier": "ADM-155",
+      "title": "M11-04 – Production Build & CI/CD Pipeline",
+      "initialStatus": "Backlog",
+      "milestone": "M11",
+      "labels": [
+        "Infrastructure",
+        "DevOps & Release",
+        "P0 – MVP Required"
+      ]
+    },
+    {
+      "packageId": "M11-05",
+      "linearIdentifier": "ADM-156",
+      "title": "M11-05 – Windows Installer & Uninstaller",
+      "initialStatus": "Backlog",
+      "milestone": "M11",
+      "labels": [
+        "DevOps & Release",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M11-06",
+      "linearIdentifier": "ADM-157",
+      "title": "M11-06 – First Launch & Setup Wizard",
+      "initialStatus": "Backlog",
+      "milestone": "M11",
+      "labels": [
+        "Frontend",
+        "P0 – MVP Required",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M11-07",
+      "linearIdentifier": "ADM-158",
+      "title": "M11-07 – WSL2 & Runtime Provisioning",
+      "initialStatus": "Backlog",
+      "milestone": "M11",
+      "labels": [
+        "Infrastructure",
+        "Execution & Security",
+        "P0 – MVP Required"
+      ]
+    },
+    {
+      "packageId": "M11-08",
+      "linearIdentifier": "ADM-159",
+      "title": "M11-08 – Signed Updates & Release Channels",
+      "initialStatus": "Backlog",
+      "milestone": "M11",
+      "labels": [
+        "Security",
+        "DevOps & Release",
+        "P0 – MVP Required"
+      ]
+    },
+    {
+      "packageId": "M11-09",
+      "linearIdentifier": "ADM-160",
+      "title": "M11-09 – Upgrade, Migration & Rollback Safety",
+      "initialStatus": "Backlog",
+      "milestone": "M11",
+      "labels": [
+        "Testing",
+        "Quality & Recovery",
+        "P0 – MVP Required"
+      ]
+    },
+    {
+      "packageId": "M11-10",
+      "linearIdentifier": "ADM-161",
+      "title": "M11-10 – Public Documentation & User Guides",
+      "initialStatus": "Backlog",
+      "milestone": "M11",
+      "labels": [
+        "Documentation",
+        "DevOps & Release",
+        "P0 – MVP Required"
+      ]
+    },
+    {
+      "packageId": "M11-11",
+      "linearIdentifier": "ADM-162",
+      "title": "M11-11 – Privacy, Security Reporting & Community Foundation",
+      "initialStatus": "Backlog",
+      "milestone": "M11",
+      "labels": [
+        "Documentation",
+        "DevOps & Release",
+        "P0 – MVP Required"
+      ]
+    },
+    {
+      "packageId": "M11-12",
+      "linearIdentifier": "ADM-163",
+      "title": "M11-12 – Clean Windows Installation & Compatibility Suite",
+      "initialStatus": "Backlog",
+      "milestone": "M11",
+      "labels": [
+        "Testing",
+        "Quality & Recovery",
+        "P0 – MVP Required"
+      ]
+    },
+    {
+      "packageId": "M11-13",
+      "linearIdentifier": "ADM-164",
+      "title": "M11-13 – Public Beta Release",
+      "initialStatus": "Backlog",
+      "milestone": "M11",
+      "labels": [
+        "Infrastructure",
+        "DevOps & Release",
+        "P0 – MVP Required"
+      ]
+    },
+    {
+      "packageId": "M11-14",
+      "linearIdentifier": "ADM-165",
+      "title": "M11-14 – Beta Feedback & Release Stabilization",
+      "initialStatus": "Backlog",
+      "milestone": "M11",
+      "labels": [
+        "Testing",
+        "Quality & Recovery",
+        "P0 – MVP Required"
+      ]
+    },
+    {
+      "packageId": "M11-15",
+      "linearIdentifier": "ADM-166",
+      "title": "M11-15 – Portfolio, Release Presentation & Public Assets",
+      "initialStatus": "Backlog",
+      "milestone": "M11",
+      "labels": [
+        "Documentation",
+        "DevOps & Release",
+        "P0 – MVP Required"
+      ]
+    },
+    {
+      "packageId": "M11-16",
+      "linearIdentifier": "ADM-167",
+      "title": "M11-16 – Public MVP Acceptance & Release",
+      "initialStatus": "Backlog",
+      "milestone": "M11",
+      "labels": [
+        "Infrastructure",
+        "DevOps & Release",
+        "P0 – MVP Required"
+      ]
+    },
+    {
+      "packageId": "M12-01",
+      "linearIdentifier": "ADM-168",
+      "title": "M12-01 – Extension Architecture & Compatibility Foundation",
+      "initialStatus": "Backlog",
+      "milestone": "M12",
+      "labels": [
+        "Core",
+        "P1 – Extension",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M12-02",
+      "linearIdentifier": "ADM-169",
+      "title": "M12-02 – GitHub Authentication & Repository Integration",
+      "initialStatus": "Backlog",
+      "milestone": "M12",
+      "labels": [
+        "Security",
+        "Integrations",
+        "P1 – Extension"
+      ]
+    },
+    {
+      "packageId": "M12-03",
+      "linearIdentifier": "ADM-170",
+      "title": "M12-03 – GitHub Development Workflow Automation",
+      "initialStatus": "Backlog",
+      "milestone": "M12",
+      "labels": [
+        "Integrations",
+        "P1 – Extension",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M12-04",
+      "linearIdentifier": "ADM-171",
+      "title": "M12-04 – MCP Server Management & Discovery",
+      "initialStatus": "Backlog",
+      "milestone": "M12",
+      "labels": [
+        "Integrations",
+        "P1 – Extension",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M12-05",
+      "linearIdentifier": "ADM-172",
+      "title": "M12-05 – Secure MCP Tool Broker",
+      "initialStatus": "Backlog",
+      "milestone": "M12",
+      "labels": [
+        "Security",
+        "Execution & Security",
+        "P1 – Extension"
+      ]
+    },
+    {
+      "packageId": "M12-06",
+      "linearIdentifier": "ADM-173",
+      "title": "M12-06 – Advanced Automated Recovery",
+      "initialStatus": "Backlog",
+      "milestone": "M12",
+      "labels": [
+        "Quality & Recovery",
+        "P1 – Extension",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M12-07",
+      "linearIdentifier": "ADM-174",
+      "title": "M12-07 – Extended Multi-Provider Architecture",
+      "initialStatus": "Backlog",
+      "milestone": "M12",
+      "labels": [
+        "Execution & Security",
+        "P2 – Post-MVP",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M12-08",
+      "linearIdentifier": "ADM-175",
+      "title": "M12-08 – Additional Cloud AI Providers",
+      "initialStatus": "Backlog",
+      "milestone": "M12",
+      "labels": [
+        "Execution & Security",
+        "P2 – Post-MVP",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M12-09",
+      "linearIdentifier": "ADM-176",
+      "title": "M12-09 – Optional Local AI Runtime",
+      "initialStatus": "Backlog",
+      "milestone": "M12",
+      "labels": [
+        "Execution & Security",
+        "P2 – Post-MVP",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M12-10",
+      "linearIdentifier": "ADM-177",
+      "title": "M12-10 – Semantic Memory & Embedding Infrastructure",
+      "initialStatus": "Backlog",
+      "milestone": "M12",
+      "labels": [
+        "Security",
+        "Core",
+        "P2 – Post-MVP"
+      ]
+    },
+    {
+      "packageId": "M12-11",
+      "linearIdentifier": "ADM-178",
+      "title": "M12-11 – Hybrid Context Retrieval & Optimization",
+      "initialStatus": "Backlog",
+      "milestone": "M12",
+      "labels": [
+        "Orchestration",
+        "P2 – Post-MVP",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M12-12",
+      "linearIdentifier": "ADM-179",
+      "title": "M12-12 – Advanced Autonomous Planning",
+      "initialStatus": "Backlog",
+      "milestone": "M12",
+      "labels": [
+        "Orchestration",
+        "P2 – Post-MVP",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M12-13",
+      "linearIdentifier": "ADM-180",
+      "title": "M12-13 – Additional Project Management & Test Adapters",
+      "initialStatus": "Backlog",
+      "milestone": "M12",
+      "labels": [
+        "Integrations",
+        "P2 – Post-MVP",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M12-14",
+      "linearIdentifier": "ADM-181",
+      "title": "M12-14 – Customizable Workspace & Developer Tools",
+      "initialStatus": "Backlog",
+      "milestone": "M12",
+      "labels": [
+        "Frontend",
+        "P2 – Post-MVP",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M12-15",
+      "linearIdentifier": "ADM-182",
+      "title": "M12-15 – Extension Regression & Security Validation",
+      "initialStatus": "Backlog",
+      "milestone": "M12",
+      "labels": [
+        "Testing",
+        "Quality & Recovery"
+      ]
+    },
+    {
+      "packageId": "M12-16",
+      "linearIdentifier": "ADM-183",
+      "title": "M12-16 – Extended Platform Release Acceptance",
+      "initialStatus": "Backlog",
+      "milestone": "M12",
+      "labels": [
+        "Infrastructure",
+        "DevOps & Release"
+      ]
+    },
+    {
+      "packageId": "M13-01",
+      "linearIdentifier": "ADM-184",
+      "title": "M13-01 – Cross-platform Architecture Foundation",
+      "initialStatus": "Backlog",
+      "milestone": "M13",
+      "labels": [
+        "Core",
+        "P2 – Post-MVP",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M13-02",
+      "linearIdentifier": "ADM-185",
+      "title": "M13-02 – Native Linux Support",
+      "initialStatus": "Backlog",
+      "milestone": "M13",
+      "labels": [
+        "DevOps & Release",
+        "P2 – Post-MVP",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M13-03",
+      "linearIdentifier": "ADM-186",
+      "title": "M13-03 – Native macOS Support",
+      "initialStatus": "Backlog",
+      "milestone": "M13",
+      "labels": [
+        "DevOps & Release",
+        "P2 – Post-MVP",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M13-04",
+      "linearIdentifier": "ADM-187",
+      "title": "M13-04 – Cross-platform Compatibility & Release Matrix",
+      "initialStatus": "Backlog",
+      "milestone": "M13",
+      "labels": [
+        "Testing",
+        "Quality & Recovery",
+        "P2 – Post-MVP"
+      ]
+    },
+    {
+      "packageId": "M13-05",
+      "linearIdentifier": "ADM-188",
+      "title": "M13-05 – Public Plugin SDK & Extension Contract",
+      "initialStatus": "Backlog",
+      "milestone": "M13",
+      "labels": [
+        "Core",
+        "P3 – Long-term",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M13-06",
+      "linearIdentifier": "ADM-189",
+      "title": "M13-06 – Isolated Plugin Runtime & Security Broker",
+      "initialStatus": "Backlog",
+      "milestone": "M13",
+      "labels": [
+        "Security",
+        "Execution & Security",
+        "P3 – Long-term"
+      ]
+    },
+    {
+      "packageId": "M13-07",
+      "linearIdentifier": "ADM-190",
+      "title": "M13-07 – Plugin Developer Tooling & Documentation",
+      "initialStatus": "Backlog",
+      "milestone": "M13",
+      "labels": [
+        "Documentation",
+        "DevOps & Release",
+        "P3 – Long-term"
+      ]
+    },
+    {
+      "packageId": "M13-08",
+      "linearIdentifier": "ADM-191",
+      "title": "M13-08 – Community Plugin Registry & Discovery",
+      "initialStatus": "Backlog",
+      "milestone": "M13",
+      "labels": [
+        "Integrations",
+        "P3 – Long-term",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M13-09",
+      "linearIdentifier": "ADM-192",
+      "title": "M13-09 – Secure Plugin Distribution & Update Lifecycle",
+      "initialStatus": "Backlog",
+      "milestone": "M13",
+      "labels": [
+        "Security",
+        "DevOps & Release",
+        "P3 – Long-term"
+      ]
+    },
+    {
+      "packageId": "M13-10",
+      "linearIdentifier": "ADM-193",
+      "title": "M13-10 – Community Templates & Workflow Sharing",
+      "initialStatus": "Backlog",
+      "milestone": "M13",
+      "labels": [
+        "Frontend",
+        "P3 – Long-term",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M13-11",
+      "linearIdentifier": "ADM-194",
+      "title": "M13-11 – Remote Worker Protocol & Device Trust",
+      "initialStatus": "Backlog",
+      "milestone": "M13",
+      "labels": [
+        "Security",
+        "Execution & Security",
+        "P3 – Long-term"
+      ]
+    },
+    {
+      "packageId": "M13-12",
+      "linearIdentifier": "ADM-195",
+      "title": "M13-12 – Remote Worker Runtime & Resource Management",
+      "initialStatus": "Backlog",
+      "milestone": "M13",
+      "labels": [
+        "Execution & Security",
+        "P3 – Long-term",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M13-13",
+      "linearIdentifier": "ADM-196",
+      "title": "M13-13 – Distributed Orchestration & Job Scheduling",
+      "initialStatus": "Backlog",
+      "milestone": "M13",
+      "labels": [
+        "Orchestration",
+        "P3 – Long-term",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M13-14",
+      "linearIdentifier": "ADM-197",
+      "title": "M13-14 – Collaborative Team Workspace Architecture",
+      "initialStatus": "Backlog",
+      "milestone": "M13",
+      "labels": [
+        "Security",
+        "Core",
+        "P3 – Long-term"
+      ]
+    },
+    {
+      "packageId": "M13-15",
+      "linearIdentifier": "ADM-198",
+      "title": "M13-15 – Shared Context & Collaborative Synchronization",
+      "initialStatus": "Backlog",
+      "milestone": "M13",
+      "labels": [
+        "Integrations",
+        "P3 – Long-term",
+        "Feature"
+      ]
+    },
+    {
+      "packageId": "M13-16",
+      "linearIdentifier": "ADM-199",
+      "title": "M13-16 – Optional Hosted Services & Sustainability Evaluation",
+      "initialStatus": "Backlog",
+      "milestone": "M13",
+      "labels": [
+        "Research",
+        "DevOps & Release",
+        "P3 – Long-term"
+      ]
+    },
+    {
+      "packageId": "M13-17",
+      "linearIdentifier": "ADM-200",
+      "title": "M13-17 – Ecosystem Security, Compatibility & Regression",
+      "initialStatus": "Backlog",
+      "milestone": "M13",
+      "labels": [
+        "Testing",
+        "Quality & Recovery"
+      ]
+    },
+    {
+      "packageId": "M13-18",
+      "linearIdentifier": "ADM-201",
+      "title": "M13-18 – Community Ecosystem Release & Governance",
+      "initialStatus": "Backlog",
+      "milestone": "M13",
+      "labels": [
+        "Infrastructure",
+        "DevOps & Release"
+      ]
+    }
+  ]
+}
