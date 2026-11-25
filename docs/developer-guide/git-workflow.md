@@ -1,6 +1,6 @@
 # Git and development workflow
 
-Status: initial repository policy (M00-01). Detailed development and security instructions will be consolidated in AGENTS.md during M00-06.
+Status: repository policy established in M00-01; read together with [AGENTS.md](../../AGENTS.md), [development rules](development-rules.md) and [quality evidence](quality-evidence.md).
 
 ## Branches and workspaces
 
