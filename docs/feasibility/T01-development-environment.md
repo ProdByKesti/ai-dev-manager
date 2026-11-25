@@ -18,7 +18,7 @@ Record tool versions and use explicit Windows command launchers when required; d
 
 ## Limitations and required validation
 
-Rust/Cargo, Windows build tools, WebView2, Tauri builds, supported OS matrix and reproducible installation remain unverified.
+This historical report describes the earlier investigation only. Subsequent M00-05 checks of Rust/Cargo and the minimal Windows MSVC build are recorded separately in [M00-05 environment and K01 evidence](M00-05-environment-k01-evidence.md). WebView2 behavior, a complete Tauri build, the supported OS matrix and reproducible installation remain unverified.
 
 Roadmap ownership: M00-05, M01-01, M01-02.
 
