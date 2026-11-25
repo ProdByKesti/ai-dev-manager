@@ -1,0 +1,2398 @@
+{
+  "schemaVersion": 2,
+  "status": "reconstructed-review-draft",
+  "provenance": "Stable IDs/titles/scope retained; owner, type, requirements, individual checks and dependency assignments reconstructed for review. Notes retain earlier constraints; targets provisional.",
+  "milestones": [
+    {
+      "id": "M10",
+      "name": "Internal Alpha",
+      "plannedChecks": 48,
+      "notes": [
+        "Alpha synthetic 15–25 tasks, real greenfield useful desktop app 15–25 tasks, existing separate copy Cudy or comparable 5–10 tasks (not preauthorized); optional dogfood 3–5 tasks. Evaluation mandatory, practical dogfood optional. No production projects modified without authorization.",
+        "Proposed stress matrix: 24/72h synthetic, 5 projects, 10k tasks, 100 simulated agents, 2–4 real concurrent runs subject to quota/approval, 1000 simulated runs, 20 core restarts/worker crashes, 100 project switches, 100k logs, 1000 simulated syncs. 50% active human coordination reduction hypothesis, not release gate. S0 critical/S1 high both block; S2 case-by-case, S3 low, S4 enhancement.",
+        "Produce sanitized ALPHA_TEST_REPORT.md, SECURITY_VALIDATION.md, PERFORMANCE_BENCHMARK.md, WORKFLOW_COMPARISON.md, CASE_STUDY.md, KNOWN_ISSUES.md, ALPHA_ACCEPTANCE.md. External tester optional; no invented feedback."
+      ],
+      "packages": [
+        {
+          "id": "M10-01",
+          "title": "Alpha Test Strategy & Environment",
+          "priority": "P0",
+          "owner": "Quality & Recovery",
+          "issueType": "Testing",
+          "requirements": "Define alpha strategy, isolated fixtures, exact candidate and approved live-test boundaries, severity and measurement methods.",
+          "dependencies": [
+            "M02-15",
+            "M03-12",
+            "M04-14",
+            "M05-16",
+            "M06-15",
+            "M07-15",
+            "M08-14",
+            "M09-14"
+          ],
+          "conditionalDependencies": [],
+          "acceptanceCriteria": [
+            {
+              "id": "M10-01-AC01",
+              "description": "Verify test inventory against MVP requirements",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M10-01-AC02",
+              "description": "Verify isolated synthetic and real pilot approval boundaries",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M10-01-AC03",
+              "description": "Define S0–S4 severity and stop rules",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M10-01-AC04",
+              "description": "Record environment, scope and protected evidence baseline",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M10-02",
+          "title": "Full System Regression",
+          "priority": "P0",
+          "owner": "Quality & Recovery",
+          "issueType": "Testing",
+          "requirements": "Run full system regression across core, security, agent, orchestration, quality, recovery, sync and GUI.",
+          "dependencies": [
+            "M10-01"
+          ],
+          "conditionalDependencies": [],
+          "acceptanceCriteria": [
+            {
+              "id": "M10-02-AC01",
+              "description": "Execute mandatory suite with real counts and exit codes",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M10-02-AC02",
+              "description": "Run negative boundary and failure cases",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M10-02-AC03",
+              "description": "Bind results to candidate",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M10-02-AC04",
+              "description": "Report open S0/S1 without waiver",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M10-03",
+          "title": "Synthetic End-to-End Development Workflow",
+          "priority": "P0",
+          "owner": "Quality & Recovery",
+          "issueType": "Testing",
+          "requirements": "Exercise synthetic end-to-end 15–25 task project with fake providers and controlled failure scenarios.",
+          "dependencies": [
+            "M10-01",
+            "M10-02"
+          ],
+          "conditionalDependencies": [],
+          "acceptanceCriteria": [
+            {
+              "id": "M10-03-AC01",
+              "description": "Verify approved plan to dependency-ready dispatch",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M10-03-AC02",
+              "description": "Exercise failed gate and bounded repair",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M10-03-AC03",
+              "description": "Verify actual integration and optional sync",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M10-03-AC04",
+              "description": "Validate stop and no unauthorized side effects",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M10-04",
+          "title": "Real Greenfield Project Pilot",
+          "priority": "P0",
+          "owner": "Orchestration",
+          "issueType": "Testing",
+          "requirements": "Pilot real useful greenfield desktop project under approved human-in-loop workflow and budget.",
+          "dependencies": [
+            "M10-02",
+            "M10-03"
+          ],
+          "conditionalDependencies": [],
+          "acceptanceCriteria": [
+            {
+              "id": "M10-04-AC01",
+              "description": "Approve scope and 15–25 task plan",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M10-04-AC02",
+              "description": "Produce runnable candidate and independent validation",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M10-04-AC03",
+              "description": "Measure real coordination, inference and evidence",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M10-04-AC04",
+              "description": "Record user acceptance or unresolved defects",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M10-05",
+          "title": "Existing Project Import Pilot",
+          "priority": "P0",
+          "owner": "Integrations",
+          "issueType": "Testing",
+          "requirements": "Pilot existing project import using separately authorized isolated copy, preserve source and external history.",
+          "dependencies": [
+            "M10-02",
+            "M10-03"
+          ],
+          "conditionalDependencies": [],
+          "acceptanceCriteria": [
+            {
+              "id": "M10-05-AC01",
+              "description": "Verify read-only preview and explicit import",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M10-05-AC02",
+              "description": "Execute 5–10 scoped tasks on copy",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M10-05-AC03",
+              "description": "Validate Git/Linear mapping and history",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M10-05-AC04",
+              "description": "Verify original unchanged and report actual outcomes",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M10-06",
+          "title": "Dogfooding & Internal Development Evaluation",
+          "priority": "P0",
+          "owner": "Quality & Recovery",
+          "issueType": "Testing",
+          "requirements": "Evaluate low-risk ADM dogfooding; practical 3–5 task pilot optional, separately authorized copy only.",
+          "dependencies": [
+            "M10-03"
+          ],
+          "conditionalDependencies": [],
+          "acceptanceCriteria": [
+            {
+              "id": "M10-06-AC01",
+              "description": "Document suitability and risks even if no pilot",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M10-06-AC02",
+              "description": "If authorized, validate low-risk scoped work and independent acceptance",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M10-06-AC03",
+              "description": "If not run, record not executed and no claim of success",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M10-06-AC04",
+              "description": "Prove no self-overwrite or security changes in any pilot",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M10-07",
+          "title": "Parallel Execution & Long-running Stability",
+          "priority": "P0",
+          "owner": "Quality & Recovery",
+          "issueType": "Testing",
+          "requirements": "Run long-duration and parallel stability matrix with simulated loads and approved real concurrency.",
+          "dependencies": [
+            "M10-02",
+            "M10-03"
+          ],
+          "conditionalDependencies": [],
+          "acceptanceCriteria": [
+            {
+              "id": "M10-07-AC01",
+              "description": "Run 24/72h synthetic scenarios with traceable results",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M10-07-AC02",
+              "description": "Verify resource limits and 2–4 real runs only if authorized",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M10-07-AC03",
+              "description": "Detect process/memory/reservation leaks and preserve stop state",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M10-08",
+          "title": "Resource Efficiency & Workflow Benchmark",
+          "priority": "P0",
+          "owner": "Quality & Recovery",
+          "issueType": "Testing",
+          "requirements": "Benchmark resources and active human coordination versus documented baseline, not unverified speed claims.",
+          "dependencies": [
+            "M10-02",
+            "M10-03",
+            "M10-04",
+            "M10-05"
+          ],
+          "conditionalDependencies": [],
+          "acceptanceCriteria": [
+            {
+              "id": "M10-08-AC01",
+              "description": "Measure hardware usage and responsiveness under defined workload",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M10-08-AC02",
+              "description": "Compare human coordination time with reproducible method",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M10-08-AC03",
+              "description": "Report 50% hypothesis outcome without converting it into release gate",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M10-09",
+          "title": "Security & Adversarial Regression",
+          "priority": "P0",
+          "owner": "Execution & Security",
+          "issueType": "Security",
+          "requirements": "Run adversarial security regression across actual agent path, IPC, credentials, context, Git, evidence and broker.",
+          "dependencies": [
+            "M10-02",
+            "M10-03"
+          ],
+          "conditionalDependencies": [],
+          "acceptanceCriteria": [
+            {
+              "id": "M10-09-AC01",
+              "description": "Exercise unauthorized read/write/tool/interop paths",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M10-09-AC02",
+              "description": "Test stale approval and manipulated evidence",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M10-09-AC03",
+              "description": "Document residual risk and block open S0/S1",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M10-10",
+          "title": "Recovery & Integration Stress Testing",
+          "priority": "P0",
+          "owner": "Quality & Recovery",
+          "issueType": "Testing",
+          "requirements": "Stress recovery and sync with restart, crash, ambiguous mutation, conflict and retention scenarios.",
+          "dependencies": [
+            "M10-02",
+            "M10-03",
+            "M07-15",
+            "M08-14"
+          ],
+          "conditionalDependencies": [],
+          "acceptanceCriteria": [
+            {
+              "id": "M10-10-AC01",
+              "description": "Inject 20 planned failure events and verify state/work preservation",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M10-10-AC02",
+              "description": "Exercise 1000 simulated syncs and reconciliation",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M10-10-AC03",
+              "description": "Verify restore and no blind duplicate side effect",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M10-11",
+          "title": "Usability & Onboarding Evaluation",
+          "priority": "P0",
+          "owner": "Frontend",
+          "issueType": "Testing",
+          "requirements": "Evaluate onboarding, normal workflows, accessibility and error communication, with external tester optional.",
+          "dependencies": [
+            "M10-02",
+            "M10-03",
+            "M10-04",
+            "M10-05"
+          ],
+          "conditionalDependencies": [],
+          "acceptanceCriteria": [
+            {
+              "id": "M10-11-AC01",
+              "description": "Perform documented onboarding and GUI tasks",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M10-11-AC02",
+              "description": "Record usability findings without invented feedback",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M10-11-AC03",
+              "description": "Verify critical warnings and accessibility behavior",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M10-12",
+          "title": "Alpha Bug Fixing & Optimization",
+          "priority": "P0",
+          "owner": "Quality & Recovery",
+          "issueType": "Testing",
+          "requirements": "Triage alpha defects and coordinate scoped fixes with independent regression, preserve severity history.",
+          "dependencies": [
+            "M10-04",
+            "M10-05",
+            "M10-06",
+            "M10-07",
+            "M10-08",
+            "M10-09",
+            "M10-10",
+            "M10-11"
+          ],
+          "conditionalDependencies": [],
+          "acceptanceCriteria": [
+            {
+              "id": "M10-12-AC01",
+              "description": "Prioritize S0/S1 and resolve before release",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M10-12-AC02",
+              "description": "Validate fixed candidates against affected baseline",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M10-12-AC03",
+              "description": "Record residual S2–S4 and approved dispositions",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M10-13",
+          "title": "Final Alpha Regression & Evidence Review",
+          "priority": "P0",
+          "owner": "Quality & Recovery",
+          "issueType": "Testing",
+          "requirements": "Run final alpha regression and audit evidence/report completeness on exact integrated candidate.",
+          "dependencies": [
+            "M10-12"
+          ],
+          "conditionalDependencies": [],
+          "acceptanceCriteria": [
+            {
+              "id": "M10-13-AC01",
+              "description": "Repeat mandatory regression on final commit",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M10-13-AC02",
+              "description": "Verify reports, counts and limitations",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M10-13-AC03",
+              "description": "Confirm no open S0/S1 and no invalid evidence",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M10-14",
+          "title": "Internal Alpha Acceptance",
+          "priority": "P0",
+          "owner": "Quality & Recovery",
+          "issueType": "Testing",
+          "requirements": "Obtain internal alpha acceptance, authorize transition to release preparation only if gates satisfied.",
+          "dependencies": [
+            "M10-13"
+          ],
+          "conditionalDependencies": [],
+          "acceptanceCriteria": [
+            {
+              "id": "M10-14-AC01",
+              "description": "Verify mandatory pilots, evaluation and evidence",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M10-14-AC02",
+              "description": "Confirm security/recovery and quality gates",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M10-14-AC03",
+              "description": "Record maintainer acceptance and residual issues",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        }
+      ]
+    },
+    {
+      "id": "M11",
+      "name": "Public MVP",
+      "plannedChecks": 48,
+      "notes": [
+        "Public beta proposed v0.1.0-beta.1 then v0.1.0; optional 3–10 external testers, no invented participation. Local-only use without account, no paid fallback, no mandatory hosting. K01/K13 provider terms/public auth, costs, Windows signing and supported OS/test environment require evidence.",
+        "Signed updater trust separate from Windows Authenticode; key rotation/revocation and anti-downgrade; no silent WSL/admin changes, preserve data on uninstall, no update during active tasks, verified backup before migration/update. No publishing without separate authorization."
+      ],
+      "packages": [
+        {
+          "id": "M11-01",
+          "title": "Release Strategy & Distribution Requirements",
+          "priority": "P0",
+          "owner": "DevOps & Release",
+          "issueType": "Documentation",
+          "requirements": "Define release scope, channels, supported platforms, provider/distribution constraints, cost and acceptance gates.",
+          "dependencies": [
+            "M10-14"
+          ],
+          "conditionalDependencies": [],
+          "acceptanceCriteria": [
+            {
+              "id": "M11-01-AC01",
+              "description": "Record approved release requirements and exclusions",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M11-01-AC02",
+              "description": "Verify support and cost assumptions with evidence",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M11-01-AC03",
+              "description": "Identify blockers requiring maintainer decision",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M11-02",
+          "title": "Public Provider Authentication",
+          "priority": "P0",
+          "owner": "Execution & Security",
+          "issueType": "Security",
+          "requirements": "Validate permitted public provider authentication for Codex and Linear OAuth, scope/revocation and no unauthorized billing.",
+          "dependencies": [
+            "M11-01",
+            "M02-06",
+            "M08-02"
+          ],
+          "conditionalDependencies": [],
+          "acceptanceCriteria": [
+            {
+              "id": "M11-02-AC01",
+              "description": "Verify official permitted public integration paths and authorization",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M11-02-AC02",
+              "description": "Test clean authorized account connection/revocation",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M11-02-AC03",
+              "description": "Block unsupported authentication or paid fallback",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M11-03",
+          "title": "Dependency, License & Supply Chain Audit",
+          "priority": "P0",
+          "owner": "DevOps & Release",
+          "issueType": "Security",
+          "requirements": "Audit dependency licenses, SBOM/supply chain, vulnerabilities and source provenance.",
+          "dependencies": [
+            "M11-01"
+          ],
+          "conditionalDependencies": [],
+          "acceptanceCriteria": [
+            {
+              "id": "M11-03-AC01",
+              "description": "Generate and inspect dependency/license inventory",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M11-03-AC02",
+              "description": "Review critical/high vulnerabilities and license conflicts",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M11-03-AC03",
+              "description": "Verify lockfile and artifact provenance",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M11-04",
+          "title": "Production Build & CI/CD Pipeline",
+          "priority": "P0",
+          "owner": "DevOps & Release",
+          "issueType": "Infrastructure",
+          "requirements": "Build reproducible Windows CI/CD production pipeline with verified artifacts and least-privilege credentials.",
+          "dependencies": [
+            "M11-01",
+            "M11-03",
+            "M00-08"
+          ],
+          "conditionalDependencies": [],
+          "acceptanceCriteria": [
+            {
+              "id": "M11-04-AC01",
+              "description": "Build pinned source with recorded toolchain",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M11-04-AC02",
+              "description": "Verify checksums and provenance",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M11-04-AC03",
+              "description": "Prove PR cannot access release secrets or publish unapproved release",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M11-05",
+          "title": "Windows Installer & Uninstaller",
+          "priority": "P0",
+          "owner": "DevOps & Release",
+          "issueType": "Feature",
+          "requirements": "Implement guided Windows installer/uninstaller, evaluate code signing separately from updater signature and preserve user data.",
+          "dependencies": [
+            "M11-04"
+          ],
+          "conditionalDependencies": [],
+          "acceptanceCriteria": [
+            {
+              "id": "M11-05-AC01",
+              "description": "Install/uninstall on approved clean Windows",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M11-05-AC02",
+              "description": "Verify retained data and no unexpected admin effects",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M11-05-AC03",
+              "description": "Document signing status and user warnings",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M11-06",
+          "title": "First Launch & Setup Wizard",
+          "priority": "P0",
+          "owner": "Frontend",
+          "issueType": "Feature",
+          "requirements": "First-launch setup wizard with local-only mode and explicit opt-in account/runtime checks.",
+          "dependencies": [
+            "M11-05",
+            "M11-02"
+          ],
+          "conditionalDependencies": [],
+          "acceptanceCriteria": [
+            {
+              "id": "M11-06-AC01",
+              "description": "Complete local-only onboarding",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M11-06-AC02",
+              "description": "Verify optional account connection and explicit consent",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M11-06-AC03",
+              "description": "Show missing prerequisite without hidden installation",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M11-07",
+          "title": "WSL2 & Runtime Provisioning",
+          "priority": "P0",
+          "owner": "Execution & Security",
+          "issueType": "Infrastructure",
+          "requirements": "Guide WSL2/runtime provisioning with validated version and explicit permission; no silent privileged changes.",
+          "dependencies": [
+            "M11-05",
+            "M11-06",
+            "M02-03"
+          ],
+          "conditionalDependencies": [],
+          "acceptanceCriteria": [
+            {
+              "id": "M11-07-AC01",
+              "description": "Detect supported/missing runtime",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M11-07-AC02",
+              "description": "Provision only after consent and validate isolation",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M11-07-AC03",
+              "description": "Handle failed/aborted setup without insecure fallback",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M11-08",
+          "title": "Signed Updates & Release Channels",
+          "priority": "P0",
+          "owner": "DevOps & Release",
+          "issueType": "Security",
+          "requirements": "Implement verified signed updates and channel selection, version binding, key lifecycle and downgrade protection.",
+          "dependencies": [
+            "M11-04",
+            "M11-05"
+          ],
+          "conditionalDependencies": [],
+          "acceptanceCriteria": [
+            {
+              "id": "M11-08-AC01",
+              "description": "Verify authentic update and reject tampered signature",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M11-08-AC02",
+              "description": "Reject disallowed downgrade/revoked key per policy",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M11-08-AC03",
+              "description": "Test channel switch and distinguish Windows signing",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M11-09",
+          "title": "Upgrade, Migration & Rollback Safety",
+          "priority": "P0",
+          "owner": "Quality & Recovery",
+          "issueType": "Testing",
+          "requirements": "Validate safe update/migration/rollback, active-task protection and verified backup retention.",
+          "dependencies": [
+            "M11-08",
+            "M07-11"
+          ],
+          "conditionalDependencies": [],
+          "acceptanceCriteria": [
+            {
+              "id": "M11-09-AC01",
+              "description": "Block update while active or backup unavailable",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M11-09-AC02",
+              "description": "Migrate and restore supported schema versions",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M11-09-AC03",
+              "description": "Reject unsafe rollback/downgrade and preserve data",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M11-10",
+          "title": "Public Documentation & User Guides",
+          "priority": "P0",
+          "owner": "DevOps & Release",
+          "issueType": "Documentation",
+          "requirements": "Create tested public install, setup, usage, troubleshooting and limitations guides in English/German scope.",
+          "dependencies": [
+            "M11-05",
+            "M11-06",
+            "M11-07",
+            "M11-08",
+            "M11-09"
+          ],
+          "conditionalDependencies": [],
+          "acceptanceCriteria": [
+            {
+              "id": "M11-10-AC01",
+              "description": "Follow guide on clean system",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M11-10-AC02",
+              "description": "Verify actual screenshots/commands and optional account paths",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M11-10-AC03",
+              "description": "Document known limitations and security/cost boundaries",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M11-11",
+          "title": "Privacy, Security Reporting & Community Foundation",
+          "priority": "P0",
+          "owner": "DevOps & Release",
+          "issueType": "Documentation",
+          "requirements": "Establish privacy, security reporting, contribution and community policy; telemetry off by default.",
+          "dependencies": [
+            "M11-01",
+            "M11-02",
+            "M11-03"
+          ],
+          "conditionalDependencies": [],
+          "acceptanceCriteria": [
+            {
+              "id": "M11-11-AC01",
+              "description": "Verify default no telemetry and voluntary opt-in",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M11-11-AC02",
+              "description": "Publish approved security/contribution guidance",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M11-11-AC03",
+              "description": "Review public assets for private data and license compliance",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M11-12",
+          "title": "Clean Windows Installation & Compatibility Suite",
+          "priority": "P0",
+          "owner": "Quality & Recovery",
+          "issueType": "Testing",
+          "requirements": "Run clean Windows install/compatibility suite on supported environments, validate upgrade/uninstall and no-account mode.",
+          "dependencies": [
+            "M11-02",
+            "M11-04",
+            "M11-05",
+            "M11-06",
+            "M11-07",
+            "M11-08",
+            "M11-09",
+            "M11-10",
+            "M11-11"
+          ],
+          "conditionalDependencies": [],
+          "acceptanceCriteria": [
+            {
+              "id": "M11-12-AC01",
+              "description": "Execute supported clean-install matrix",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M11-12-AC02",
+              "description": "Verify update/restore/uninstall and local-only workflows",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M11-12-AC03",
+              "description": "Record unsupported systems, signing and remaining blockers",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M11-13",
+          "title": "Public Beta Release",
+          "priority": "P0",
+          "owner": "DevOps & Release",
+          "issueType": "Infrastructure",
+          "requirements": "Prepare and publish separately authorized public beta only after gates, signed artifacts and honest release notes.",
+          "dependencies": [
+            "M11-12"
+          ],
+          "conditionalDependencies": [],
+          "acceptanceCriteria": [
+            {
+              "id": "M11-13-AC01",
+              "description": "Verify beta candidate and release authorization",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M11-13-AC02",
+              "description": "Validate artifact hashes, install and release notes",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M11-13-AC03",
+              "description": "Record actual publication or block, not speculative release",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M11-14",
+          "title": "Beta Feedback & Release Stabilization",
+          "priority": "P0",
+          "owner": "Quality & Recovery",
+          "issueType": "Testing",
+          "requirements": "Collect actual beta findings if available, fix and stabilize with regression; optional external testers.",
+          "dependencies": [
+            "M11-13"
+          ],
+          "conditionalDependencies": [],
+          "acceptanceCriteria": [
+            {
+              "id": "M11-14-AC01",
+              "description": "Record real feedback or explicitly none",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M11-14-AC02",
+              "description": "Triage and fix release blockers",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M11-14-AC03",
+              "description": "Revalidate final candidate and retained evidence",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M11-15",
+          "title": "Portfolio, Release Presentation & Public Assets",
+          "priority": "P0",
+          "owner": "DevOps & Release",
+          "issueType": "Documentation",
+          "requirements": "Prepare truthful portfolio case study, demo and public release presentation assets using verified capabilities.",
+          "dependencies": [
+            "M11-12",
+            "M11-14"
+          ],
+          "conditionalDependencies": [],
+          "acceptanceCriteria": [
+            {
+              "id": "M11-15-AC01",
+              "description": "Verify demo against actual release candidate",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M11-15-AC02",
+              "description": "Sanitize logs/assets and distinguish measured vs planned",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M11-15-AC03",
+              "description": "Review licensing and publication approval",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M11-16",
+          "title": "Public MVP Acceptance & Release",
+          "priority": "P0",
+          "owner": "DevOps & Release",
+          "issueType": "Infrastructure",
+          "requirements": "Complete public MVP release acceptance and publish v0.1.0 only with independent evidence and explicit authorization.",
+          "dependencies": [
+            "M11-14",
+            "M11-15"
+          ],
+          "conditionalDependencies": [],
+          "acceptanceCriteria": [
+            {
+              "id": "M11-16-AC01",
+              "description": "Confirm all required gates and no S0/S1",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M11-16-AC02",
+              "description": "Verify signed artifacts and approved release decision",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M11-16-AC03",
+              "description": "Verify actual release and post-release documentation",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        }
+      ]
+    },
+    {
+      "id": "M12",
+      "name": "Extended Platform",
+      "plannedChecks": 42,
+      "notes": [
+        "Six proposed independent extension release scopes 0.2–0.7; no dates, actual versions and scope require approval. P1 packages 01–06, P2 07–14, 15/16 per selected release. Native GitHub/Linear sync distinct from MCP tool integration. Optional providers only permitted auth, no automatic switch; optional paid use requires explicit separate consent.",
+        "Autonomous planning off by default; proposed cycle max 5 new tasks, 2 revisions, 5 planning calls, 60 min review; no rights/cost escalation or public release; cumulative budgets. Full safe recovery >=90% of defined scenarios is hypothesis, not universal claim. Local hardware test required.",
+        "Release-specific prerequisites for M12-15 are conditional on selected scope; M12-16 follows its validation, not every extension at once."
+      ],
+      "packages": [
+        {
+          "id": "M12-01",
+          "title": "Extension Architecture & Compatibility Foundation",
+          "priority": "P1",
+          "owner": "Core",
+          "issueType": "Feature",
+          "requirements": "Establish versioned extension adapter contracts, compatibility, isolation and migrations without mandatory services.",
+          "dependencies": [
+            "M11-16"
+          ],
+          "conditionalDependencies": [],
+          "acceptanceCriteria": [
+            {
+              "id": "M12-01-AC01",
+              "description": "Load compatible internal adapter",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M12-01-AC02",
+              "description": "Reject incompatible version or permission request",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M12-01-AC03",
+              "description": "Verify core remains local-only without extensions",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M12-02",
+          "title": "GitHub Authentication & Repository Integration",
+          "priority": "P1",
+          "owner": "Integrations",
+          "issueType": "Security",
+          "requirements": "GitHub auth/connection and repository discovery with permitted scopes and protected credentials.",
+          "dependencies": [
+            "M12-01",
+            "M08-02"
+          ],
+          "conditionalDependencies": [],
+          "acceptanceCriteria": [
+            {
+              "id": "M12-02-AC01",
+              "description": "Connect authorized synthetic repo",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M12-02-AC02",
+              "description": "Reject wrong scope/revoked token",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M12-02-AC03",
+              "description": "Verify no secret in logs/context",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M12-03",
+          "title": "GitHub Development Workflow Automation",
+          "priority": "P1",
+          "owner": "Integrations",
+          "issueType": "Feature",
+          "requirements": "Automate approved GitHub PR workflows with per-field authority, verified revisions and no sync loops (K14).",
+          "dependencies": [
+            "M12-02",
+            "M06-12",
+            "M08-06"
+          ],
+          "conditionalDependencies": [],
+          "acceptanceCriteria": [
+            {
+              "id": "M12-03-AC01",
+              "description": "Create/reconcile approved synthetic PR",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M12-03-AC02",
+              "description": "Block stale approval/unauthorized merge",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M12-03-AC03",
+              "description": "Verify GitHub/Linear ownership and no loop",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M12-04",
+          "title": "MCP Server Management & Discovery",
+          "priority": "P1",
+          "owner": "Integrations",
+          "issueType": "Feature",
+          "requirements": "MCP server configuration and tool discovery with explicit user enablement and scoped metadata.",
+          "dependencies": [
+            "M12-01"
+          ],
+          "conditionalDependencies": [],
+          "acceptanceCriteria": [
+            {
+              "id": "M12-04-AC01",
+              "description": "Discover approved server/tools",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M12-04-AC02",
+              "description": "Reject invalid manifest/version",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M12-04-AC03",
+              "description": "Verify disabled server has no access",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M12-05",
+          "title": "Secure MCP Tool Broker",
+          "priority": "P1",
+          "owner": "Execution & Security",
+          "issueType": "Security",
+          "requirements": "Isolate MCP server processes and enforce secure tool/data broker, deny unknown tools/transfers (K15).",
+          "dependencies": [
+            "M12-04",
+            "M02-07"
+          ],
+          "conditionalDependencies": [],
+          "acceptanceCriteria": [
+            {
+              "id": "M12-05-AC01",
+              "description": "Invoke authorized tool within scope",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M12-05-AC02",
+              "description": "Deny unknown tool or cross-project transfer",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M12-05-AC03",
+              "description": "Verify server process isolation and cancellation",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M12-06",
+          "title": "Advanced Automated Recovery",
+          "priority": "P1",
+          "owner": "Quality & Recovery",
+          "issueType": "Feature",
+          "requirements": "Extend automatic recovery only for defined safe scenarios with verified state and bounded budgets.",
+          "dependencies": [
+            "M12-01",
+            "M07-15"
+          ],
+          "conditionalDependencies": [],
+          "acceptanceCriteria": [
+            {
+              "id": "M12-06-AC01",
+              "description": "Recover defined safe failure set and report rate",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M12-06-AC02",
+              "description": "Reject ambiguous/destructive recovery",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M12-06-AC03",
+              "description": "Measure proposed >=90% hypothesis on explicit cases",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M12-07",
+          "title": "Extended Multi-Provider Architecture",
+          "priority": "P2",
+          "owner": "Execution & Security",
+          "issueType": "Feature",
+          "requirements": "Generalize provider interfaces, capability discovery and error/usage mapping across providers.",
+          "dependencies": [
+            "M12-01",
+            "M02-02"
+          ],
+          "conditionalDependencies": [],
+          "acceptanceCriteria": [
+            {
+              "id": "M12-07-AC01",
+              "description": "Run fake multi-provider contract suite",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M12-07-AC02",
+              "description": "Reject unsupported capability and no automatic switch",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M12-07-AC03",
+              "description": "Preserve shared budgets/security",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M12-08",
+          "title": "Additional Cloud AI Providers",
+          "priority": "P2",
+          "owner": "Execution & Security",
+          "issueType": "Feature",
+          "requirements": "Add optional approved cloud providers with explicit account/cost authorization and protected auth.",
+          "dependencies": [
+            "M12-07"
+          ],
+          "conditionalDependencies": [],
+          "acceptanceCriteria": [
+            {
+              "id": "M12-08-AC01",
+              "description": "Connect one permitted provider in isolated test",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M12-08-AC02",
+              "description": "Reject unavailable/unauthorized billing",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M12-08-AC03",
+              "description": "Keep default Codex and no automatic fallback",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M12-09",
+          "title": "Optional Local AI Runtime",
+          "priority": "P2",
+          "owner": "Execution & Security",
+          "issueType": "Feature",
+          "requirements": "Add optional local inference runtime adapter with hardware capability checks and offline mode where supported.",
+          "dependencies": [
+            "M12-07"
+          ],
+          "conditionalDependencies": [],
+          "acceptanceCriteria": [
+            {
+              "id": "M12-09-AC01",
+              "description": "Run supported local model on measured hardware",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M12-09-AC02",
+              "description": "Report unavailable resources without fallback",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M12-09-AC03",
+              "description": "Verify scope and model/effort capabilities",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M12-10",
+          "title": "Semantic Memory & Embedding Infrastructure",
+          "priority": "P2",
+          "owner": "Core",
+          "issueType": "Security",
+          "requirements": "Build optional semantic memory embedding index with scoped ingestion/deletion/model version and transfer controls (K16).",
+          "dependencies": [
+            "M12-01",
+            "M04-05"
+          ],
+          "conditionalDependencies": [],
+          "acceptanceCriteria": [
+            {
+              "id": "M12-10-AC01",
+              "description": "Index and query authorized records",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M12-10-AC02",
+              "description": "Delete/reindex scoped data correctly",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M12-10-AC03",
+              "description": "Deny cross-project index and unapproved external transfer",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M12-11",
+          "title": "Hybrid Context Retrieval & Optimization",
+          "priority": "P2",
+          "owner": "Orchestration",
+          "issueType": "Feature",
+          "requirements": "Hybrid deterministic/semantic retrieval with provenance, filters and measured relevance/cost.",
+          "dependencies": [
+            "M12-10",
+            "M04-06"
+          ],
+          "conditionalDependencies": [],
+          "acceptanceCriteria": [
+            {
+              "id": "M12-11-AC01",
+              "description": "Compare retrieval on scoped fixture",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M12-11-AC02",
+              "description": "Exclude stale/unauthorized candidates and respect budget",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M12-12",
+          "title": "Advanced Autonomous Planning",
+          "priority": "P2",
+          "owner": "Orchestration",
+          "issueType": "Feature",
+          "requirements": "Opt-in bounded autonomous planning cycle with human review and cumulative budgets.",
+          "dependencies": [
+            "M12-01",
+            "M05-16",
+            "M06-15",
+            "M07-15"
+          ],
+          "conditionalDependencies": [],
+          "acceptanceCriteria": [
+            {
+              "id": "M12-12-AC01",
+              "description": "Enforce cycle/task/revision/inference/review ceilings",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M12-12-AC02",
+              "description": "Block rights, cost and public release escalation",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M12-13",
+          "title": "Additional Project Management & Test Adapters",
+          "priority": "P2",
+          "owner": "Integrations",
+          "issueType": "Feature",
+          "requirements": "Additional project-management and test adapters with explicit ownership, typed contract and scoped access.",
+          "dependencies": [
+            "M12-01",
+            "M08-14"
+          ],
+          "conditionalDependencies": [],
+          "acceptanceCriteria": [
+            {
+              "id": "M12-13-AC01",
+              "description": "Validate selected adapter against synthetic contract",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M12-13-AC02",
+              "description": "Reject conflicting field ownership and unsupported operations",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M12-14",
+          "title": "Customizable Workspace & Developer Tools",
+          "priority": "P2",
+          "owner": "Frontend",
+          "issueType": "Feature",
+          "requirements": "Customizable workspace/developer tools preserving common policy and accessibility.",
+          "dependencies": [
+            "M12-01",
+            "M09-14"
+          ],
+          "conditionalDependencies": [],
+          "acceptanceCriteria": [
+            {
+              "id": "M12-14-AC01",
+              "description": "Persist approved layout/tool customization",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M12-14-AC02",
+              "description": "Verify no change to security or mandatory warnings",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M12-15",
+          "title": "Extension Regression & Security Validation",
+          "priority": "release-dependent P1/P2",
+          "owner": "Quality & Recovery",
+          "issueType": "Testing",
+          "requirements": "Run selected extension release regression, compatibility and security gates; selected packages are conditional prerequisites.",
+          "dependencies": [
+            "M12-01"
+          ],
+          "conditionalDependencies": [
+            {
+              "id": "M12-02",
+              "condition": "Package included in selected release scope"
+            },
+            {
+              "id": "M12-03",
+              "condition": "Package included in selected release scope"
+            },
+            {
+              "id": "M12-04",
+              "condition": "Package included in selected release scope"
+            },
+            {
+              "id": "M12-05",
+              "condition": "Package included in selected release scope"
+            },
+            {
+              "id": "M12-06",
+              "condition": "Package included in selected release scope"
+            },
+            {
+              "id": "M12-07",
+              "condition": "Package included in selected release scope"
+            },
+            {
+              "id": "M12-08",
+              "condition": "Package included in selected release scope"
+            },
+            {
+              "id": "M12-09",
+              "condition": "Package included in selected release scope"
+            },
+            {
+              "id": "M12-10",
+              "condition": "Package included in selected release scope"
+            },
+            {
+              "id": "M12-11",
+              "condition": "Package included in selected release scope"
+            },
+            {
+              "id": "M12-12",
+              "condition": "Package included in selected release scope"
+            },
+            {
+              "id": "M12-13",
+              "condition": "Package included in selected release scope"
+            },
+            {
+              "id": "M12-14",
+              "condition": "Package included in selected release scope"
+            }
+          ],
+          "acceptanceCriteria": [
+            {
+              "id": "M12-15-AC01",
+              "description": "Run affected base and selected feature suites",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M12-15-AC02",
+              "description": "Block unverified selected scope or new S0/S1",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M12-16",
+          "title": "Extended Platform Release Acceptance",
+          "priority": "release-dependent P1/P2",
+          "owner": "DevOps & Release",
+          "issueType": "Infrastructure",
+          "requirements": "Accept and publish independently scoped extension release only with verified evidence and approval.",
+          "dependencies": [
+            "M12-15"
+          ],
+          "conditionalDependencies": [],
+          "acceptanceCriteria": [
+            {
+              "id": "M12-16-AC01",
+              "description": "Verify selected scope and conditional prerequisites",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M12-16-AC02",
+              "description": "Record explicit acceptance and actual authorized release",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        }
+      ]
+    },
+    {
+      "id": "M13",
+      "name": "Community Ecosystem",
+      "plannedChecks": 48,
+      "notes": [
+        "P2 01–04, P3 05–16, 17/18 per selected scope. Linux first candidate, macOS hardware/signing cost open; no unapproved paid services. Repo-based registry initially, no mandatory server.",
+        "Plugin isolation, explicit rights, signature is not trust; remote authenticated device, leases/fencing, scoped credentials/shared quota and safe cancellation; collaboration roles/controlled sync, no network SQLite. Hosting only separate feasibility and approval. K17/K18 pre-release scoped platform-specific validation. No promised dates or versions."
+      ],
+      "packages": [
+        {
+          "id": "M13-01",
+          "title": "Cross-platform Architecture Foundation",
+          "priority": "P2",
+          "owner": "Core",
+          "issueType": "Feature",
+          "requirements": "Extract platform abstractions for runtime, IPC, storage, paths and distribution, keep Windows behavior.",
+          "dependencies": [
+            "M11-16"
+          ],
+          "conditionalDependencies": [],
+          "acceptanceCriteria": [
+            {
+              "id": "M13-01-AC01",
+              "description": "Run platform contract on fake/Windows implementations",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M13-01-AC02",
+              "description": "Verify platform-specific capabilities detected",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M13-01-AC03",
+              "description": "Reject unsupported runtime without downgrade",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M13-02",
+          "title": "Native Linux Support",
+          "priority": "P2",
+          "owner": "DevOps & Release",
+          "issueType": "Feature",
+          "requirements": "Implement native Linux desktop and core support with verified execution boundary and installer candidate.",
+          "dependencies": [
+            "M13-01"
+          ],
+          "conditionalDependencies": [],
+          "acceptanceCriteria": [
+            {
+              "id": "M13-02-AC01",
+              "description": "Build/run on approved Linux environment",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M13-02-AC02",
+              "description": "Verify local IPC and sandbox boundary",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M13-02-AC03",
+              "description": "Record platform-specific limitations",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M13-03",
+          "title": "Native macOS Support",
+          "priority": "P2",
+          "owner": "DevOps & Release",
+          "issueType": "Feature",
+          "requirements": "Implement native macOS support only with approved hardware/signing feasibility and verified boundary.",
+          "dependencies": [
+            "M13-01"
+          ],
+          "conditionalDependencies": [],
+          "acceptanceCriteria": [
+            {
+              "id": "M13-03-AC01",
+              "description": "Build/run on approved macOS environment or mark blocked",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M13-03-AC02",
+              "description": "Verify platform IPC/runtime restrictions",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M13-03-AC03",
+              "description": "Record signing and cost feasibility",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M13-04",
+          "title": "Cross-platform Compatibility & Release Matrix",
+          "priority": "P2",
+          "owner": "Quality & Recovery",
+          "issueType": "Testing",
+          "requirements": "Build cross-platform compatibility/release matrix for selected supported targets, not all platforms by default.",
+          "dependencies": [
+            "M13-01"
+          ],
+          "conditionalDependencies": [
+            {
+              "id": "M13-02",
+              "condition": "Linux included in selected release scope"
+            },
+            {
+              "id": "M13-03",
+              "condition": "macOS included in selected release scope"
+            }
+          ],
+          "acceptanceCriteria": [
+            {
+              "id": "M13-04-AC01",
+              "description": "Run regression on selected target OS versions",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M13-04-AC02",
+              "description": "Verify platform-specific security tests",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M13-04-AC03",
+              "description": "Record unavailable platform as unsupported/not released",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M13-05",
+          "title": "Public Plugin SDK & Extension Contract",
+          "priority": "P3",
+          "owner": "Core",
+          "issueType": "Feature",
+          "requirements": "Define public plugin SDK and versioned compatibility/capability contract.",
+          "dependencies": [
+            "M12-01"
+          ],
+          "conditionalDependencies": [],
+          "acceptanceCriteria": [
+            {
+              "id": "M13-05-AC01",
+              "description": "Build sample plugin against contract",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M13-05-AC02",
+              "description": "Reject incompatible version/capability",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M13-05-AC03",
+              "description": "Verify explicit grant required",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M13-06",
+          "title": "Isolated Plugin Runtime & Security Broker",
+          "priority": "P3",
+          "owner": "Execution & Security",
+          "issueType": "Security",
+          "requirements": "Implement isolated plugin runtime and security broker for process, tools, data and resource limits.",
+          "dependencies": [
+            "M13-05",
+            "M02-07"
+          ],
+          "conditionalDependencies": [],
+          "acceptanceCriteria": [
+            {
+              "id": "M13-06-AC01",
+              "description": "Run authorized sample plugin isolated",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M13-06-AC02",
+              "description": "Deny unauthorized data/tool access",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M13-06-AC03",
+              "description": "Verify crash/cancel does not compromise core",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M13-07",
+          "title": "Plugin Developer Tooling & Documentation",
+          "priority": "P3",
+          "owner": "DevOps & Release",
+          "issueType": "Documentation",
+          "requirements": "Create plugin developer tools, examples and docs with safe development workflow.",
+          "dependencies": [
+            "M13-05",
+            "M13-06"
+          ],
+          "conditionalDependencies": [],
+          "acceptanceCriteria": [
+            {
+              "id": "M13-07-AC01",
+              "description": "Build sample using documented tools",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M13-07-AC02",
+              "description": "Verify manifest/permissions validation",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M13-07-AC03",
+              "description": "Test docs from clean supported environment",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M13-08",
+          "title": "Community Plugin Registry & Discovery",
+          "priority": "P3",
+          "owner": "Integrations",
+          "issueType": "Feature",
+          "requirements": "Implement repo-based community plugin registry/discovery without mandatory hosted service.",
+          "dependencies": [
+            "M13-05",
+            "M13-06"
+          ],
+          "conditionalDependencies": [],
+          "acceptanceCriteria": [
+            {
+              "id": "M13-08-AC01",
+              "description": "Discover approved registry entries",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M13-08-AC02",
+              "description": "Reject malformed/untrusted metadata",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M13-08-AC03",
+              "description": "Require explicit installation and rights consent",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M13-09",
+          "title": "Secure Plugin Distribution & Update Lifecycle",
+          "priority": "P3",
+          "owner": "DevOps & Release",
+          "issueType": "Security",
+          "requirements": "Secure plugin distribution/update lifecycle with verification, revocation and scope change review; signature not trust.",
+          "dependencies": [
+            "M13-06",
+            "M13-08"
+          ],
+          "conditionalDependencies": [],
+          "acceptanceCriteria": [
+            {
+              "id": "M13-09-AC01",
+              "description": "Reject tampered/revoked package",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M13-09-AC02",
+              "description": "Require approval for expanded rights",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M13-09-AC03",
+              "description": "Verify safe update/rollback and isolation",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M13-10",
+          "title": "Community Templates & Workflow Sharing",
+          "priority": "P3",
+          "owner": "Frontend",
+          "issueType": "Feature",
+          "requirements": "Share community templates/workflows with provenance, validation and explicit import review.",
+          "dependencies": [
+            "M13-05",
+            "M13-06"
+          ],
+          "conditionalDependencies": [],
+          "acceptanceCriteria": [
+            {
+              "id": "M13-10-AC01",
+              "description": "Import safe sample template after preview",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M13-10-AC02",
+              "description": "Reject embedded secrets/unsafe instructions",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M13-10-AC03",
+              "description": "Preserve local rights and requirements",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M13-11",
+          "title": "Remote Worker Protocol & Device Trust",
+          "priority": "P3",
+          "owner": "Execution & Security",
+          "issueType": "Security",
+          "requirements": "Define remote worker protocol with authenticated device trust, protected credentials, leases and fencing (K17).",
+          "dependencies": [
+            "M12-01",
+            "M02-07"
+          ],
+          "conditionalDependencies": [],
+          "acceptanceCriteria": [
+            {
+              "id": "M13-11-AC01",
+              "description": "Authenticate approved worker/device",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M13-11-AC02",
+              "description": "Reject revoked/stale lease and unknown device",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M13-11-AC03",
+              "description": "Verify scope and protected channel",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M13-12",
+          "title": "Remote Worker Runtime & Resource Management",
+          "priority": "P3",
+          "owner": "Execution & Security",
+          "issueType": "Feature",
+          "requirements": "Implement remote worker runtime/resource management with cancellation, shared quota and isolated workspaces.",
+          "dependencies": [
+            "M13-11",
+            "M07-06"
+          ],
+          "conditionalDependencies": [],
+          "acceptanceCriteria": [
+            {
+              "id": "M13-12-AC01",
+              "description": "Execute authorized scoped remote job",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M13-12-AC02",
+              "description": "Respect shared budgets and verify termination",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M13-12-AC03",
+              "description": "Reject stale result and preserve uncertain effects",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M13-13",
+          "title": "Distributed Orchestration & Job Scheduling",
+          "priority": "P3",
+          "owner": "Orchestration",
+          "issueType": "Feature",
+          "requirements": "Distributed scheduling with leases/fencing, dependency and resource reservations and stale result rejection.",
+          "dependencies": [
+            "M13-11",
+            "M13-12",
+            "M05-16"
+          ],
+          "conditionalDependencies": [],
+          "acceptanceCriteria": [
+            {
+              "id": "M13-13-AC01",
+              "description": "Assign compatible remote worker without double ownership",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M13-13-AC02",
+              "description": "Reject stale result/uncertain integration and reconcile",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M13-14",
+          "title": "Collaborative Team Workspace Architecture",
+          "priority": "P3",
+          "owner": "Core",
+          "issueType": "Security",
+          "requirements": "Collaborative team workspace architecture with roles, authorization, scoped identities and audit; no shared network SQLite.",
+          "dependencies": [
+            "M12-01",
+            "M03-12"
+          ],
+          "conditionalDependencies": [],
+          "acceptanceCriteria": [
+            {
+              "id": "M13-14-AC01",
+              "description": "Enforce role and project isolation for representative users",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M13-14-AC02",
+              "description": "Verify persistent audit and conflict-safe ownership",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M13-15",
+          "title": "Shared Context & Collaborative Synchronization",
+          "priority": "P3",
+          "owner": "Integrations",
+          "issueType": "Feature",
+          "requirements": "Controlled shared context and collaborative synchronization with provenance, explicit scope and deletion/conflicts.",
+          "dependencies": [
+            "M13-14",
+            "M04-05",
+            "M08-07"
+          ],
+          "conditionalDependencies": [],
+          "acceptanceCriteria": [
+            {
+              "id": "M13-15-AC01",
+              "description": "Sync authorized scoped records",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M13-15-AC02",
+              "description": "Reject cross-team leakage and reconcile concurrent edits",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M13-16",
+          "title": "Optional Hosted Services & Sustainability Evaluation",
+          "priority": "P3",
+          "owner": "DevOps & Release",
+          "issueType": "Research",
+          "requirements": "Evaluate optional hosted services, sustainability, cost, privacy and trust model before any purchase or launch.",
+          "dependencies": [
+            "M12-01"
+          ],
+          "conditionalDependencies": [],
+          "acceptanceCriteria": [
+            {
+              "id": "M13-16-AC01",
+              "description": "Document local-first alternative and cost/security tradeoff",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M13-16-AC02",
+              "description": "Require separate decision before service or spend",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M13-17",
+          "title": "Ecosystem Security, Compatibility & Regression",
+          "priority": "release-dependent P2/P3",
+          "owner": "Quality & Recovery",
+          "issueType": "Testing",
+          "requirements": "Run selected ecosystem release security, compatibility and regression suite including platform-specific plugin/worker boundaries.",
+          "dependencies": [
+            "M11-16"
+          ],
+          "conditionalDependencies": [
+            {
+              "id": "M13-01",
+              "condition": "Package included in selected release scope"
+            },
+            {
+              "id": "M13-02",
+              "condition": "Package included in selected release scope"
+            },
+            {
+              "id": "M13-03",
+              "condition": "Package included in selected release scope"
+            },
+            {
+              "id": "M13-04",
+              "condition": "Package included in selected release scope"
+            },
+            {
+              "id": "M13-05",
+              "condition": "Package included in selected release scope"
+            },
+            {
+              "id": "M13-06",
+              "condition": "Package included in selected release scope"
+            },
+            {
+              "id": "M13-07",
+              "condition": "Package included in selected release scope"
+            },
+            {
+              "id": "M13-08",
+              "condition": "Package included in selected release scope"
+            },
+            {
+              "id": "M13-09",
+              "condition": "Package included in selected release scope"
+            },
+            {
+              "id": "M13-10",
+              "condition": "Package included in selected release scope"
+            },
+            {
+              "id": "M13-11",
+              "condition": "Package included in selected release scope"
+            },
+            {
+              "id": "M13-12",
+              "condition": "Package included in selected release scope"
+            },
+            {
+              "id": "M13-13",
+              "condition": "Package included in selected release scope"
+            },
+            {
+              "id": "M13-14",
+              "condition": "Package included in selected release scope"
+            },
+            {
+              "id": "M13-15",
+              "condition": "Package included in selected release scope"
+            },
+            {
+              "id": "M13-16",
+              "condition": "Package included in selected release scope"
+            }
+          ],
+          "acceptanceCriteria": [
+            {
+              "id": "M13-17-AC01",
+              "description": "Verify all selected scope gates before publication",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M13-17-AC02",
+              "description": "Reject unsafe platform/extension and report residual risks",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        },
+        {
+          "id": "M13-18",
+          "title": "Community Ecosystem Release & Governance",
+          "priority": "release-dependent P2/P3",
+          "owner": "DevOps & Release",
+          "issueType": "Infrastructure",
+          "requirements": "Accept independently scoped ecosystem release and governance with actual authorization and verified artifacts.",
+          "dependencies": [
+            "M13-17"
+          ],
+          "conditionalDependencies": [],
+          "acceptanceCriteria": [
+            {
+              "id": "M13-18-AC01",
+              "description": "Confirm approved scope, security and contribution governance",
+              "kind": "planned",
+              "status": "not-executed"
+            },
+            {
+              "id": "M13-18-AC02",
+              "description": "Record actual authorized release or blocked state",
+              "kind": "planned",
+              "status": "not-executed"
+            }
+          ],
+          "provenance": "reconstructed-for-owner-review",
+          "linearIssueId": null
+        }
+      ]
+    }
+  ]
+}
