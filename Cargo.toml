@@ -1,0 +1,3 @@
+[workspace]
+members = ["crates/adm-core"]
+resolver = "2"
