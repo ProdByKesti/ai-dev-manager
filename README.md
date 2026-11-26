@@ -36,3 +36,6 @@ See the [development workflow](docs/developer-guide/git-workflow.md) for branch,
 ## License
 
 Apache License 2.0. See [LICENSE](LICENSE).
+
+
+Temporary M00-08 negative test — DO NOT MERGE: [intentionally missing document](m00-08-negative-test-intentionally-missing.md).
