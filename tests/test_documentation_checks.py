@@ -4,6 +4,7 @@ import subprocess
 import sys
 import tempfile
 import unittest
+from unittest import mock
 
 ROOT = Path(__file__).resolve().parents[1]
 SCRIPT = ROOT / 'scripts/check_links.py'
@@ -110,6 +111,61 @@ class DocumentationChecks(unittest.TestCase):
     def test_multiline_link_is_reported(self):
         self.write('README.md', '[label]\n(target.md)')
         self.failure('unsupported link construction')
+
+    def test_hidden_directory_checked(self):
+        self.write('.hidden/test.md', '[bad](missing)')
+        self.failure('missing target')
+
+    def test_definition_in_code_is_not_counted(self):
+        self.write('docs/architecture/system-invariants.md', '```md\n## INV-01 — example\n```\n')
+        self.failure('definition INV-01: expected 1, found 0')
+
+    def test_valid_definition_with_code_example(self):
+        p = self.root / 'docs/architecture/consolidation.md'
+        p.write_text(p.read_text(encoding='utf8') + '\n```\n## K01 — example\n```', encoding='utf8')
+        self.assertEqual(self.cli().returncode, 0)
+
+    def test_first_reference_definition_wins(self):
+        self.write('README.md', '[ref]\n\n[ref]: AGENTS.md\n[ref]: missing.md\n')
+        self.assertEqual(self.cli().returncode, 0)
+
+    def test_unsupported_reference_definition(self):
+        self.write('README.md', '[ref]: <broken\n')
+        self.failure('unsupported reference definition')
+
+    def test_multiline_label(self):
+        self.write('README.md', '[multi\nline](AGENTS.md)')
+        self.failure('unsupported link construction')
+
+    def test_walk_error(self):
+        import os
+        original = os.walk
+        def failed(root, **kwargs):
+            kwargs['onerror'](PermissionError('synthetic traversal failure'))
+            return iter(())
+        with mock.patch('os.walk', failed):
+            errors, _ = check.run(self.root)
+        self.assertTrue(any('directory traversal failed' in e for e in errors))
+
+    def test_read_error(self):
+        original = Path.read_text
+        def failed(path, *args, **kwargs):
+            if path.name == 'README.md':
+                raise PermissionError('synthetic read failure')
+            return original(path, *args, **kwargs)
+        with mock.patch.object(Path, 'read_text', failed):
+            errors, _ = check.run(self.root)
+        self.assertTrue(any('cannot read' in e for e in errors))
+
+    def test_external_symlink_source(self):
+        with tempfile.TemporaryDirectory() as outside:
+            target = Path(outside) / 'external.md'
+            target.write_text('external', encoding='utf8')
+            try:
+                (self.root / 'external.md').symlink_to(target)
+            except OSError as exc:
+                self.skipTest(f'symlink creation unavailable: {exc}')
+            self.failure('unsafe path outside repository')
 
 
 if __name__ == '__main__':

@@ -17,7 +17,7 @@ from urllib.parse import unquote, urlsplit
 
 REQUIRED = ('README.md', 'AGENTS.md', 'docs/README.md', 'docs/product/product-specification.md', 'docs/architecture/README.md', 'docs/architecture/system-invariants.md', 'docs/architecture/consolidation.md', 'docs/developer-guide/development-rules.md', 'docs/developer-guide/git-workflow.md', 'docs/developer-guide/quality-evidence.md')
 LINK = re.compile(r'!?\[([^\[\]]+)\]\((<[^>]*>|[^\s()]*(?:\([^()]*\)[^\s()]*)?)(?:\s+"[^"]*")?\)|!?\[([^\[\]]+)\]\[([^\[\]]*)\]')
-DEF = re.compile(r'^\s{0,3}\[([^\]]+)\]:\s*(<[^>]*>|\S+)(?:\s+"[^"]*")?\s*$')
+DEF = re.compile(r'^\s{0,3}\[([^\]]+)\]:\s*(<[^>]*>|[^\s<>]+)(?:\s+"[^"]*")?\s*$')
 HEADING = re.compile(r'^ {0,3}(#{1,6})\s+(.+?)\s*#*\s*$')
 
 
@@ -64,37 +64,66 @@ def run(root):
     root = root.resolve()
     errors = []
     counts = Counter()
+    def read_safe(path):
+        try:
+            if not path.resolve().is_relative_to(root):
+                errors.append(f"{path}: unsafe path outside repository")
+                return None
+            return path.read_text(encoding="utf8")
+        except (OSError, UnicodeError, RuntimeError) as exc:
+            errors.append(f"{path}: cannot read: {exc}")
+            return None
+
     for path in REQUIRED:
-        if not (root / path).is_file():
+        if not (root / path).resolve().is_relative_to(root):
+            errors.append(f"{path}: unsafe path outside repository")
+        elif not (root / path).is_file():
             errors.append(f'{path}: missing required document')
     definitions = Counter()
     for path, regex in [('docs/architecture/system-invariants.md', r'^## (INV-\d{2})\b'), ('docs/architecture/consolidation.md', r'^## (K\d{2})\b')]:
         f = root / path
         if f.is_file():
-            definitions.update(re.findall(regex, f.read_text(encoding='utf8'), re.M))
+            text = read_safe(f)
+            if text is not None:
+                definitions.update(re.findall(regex, '\n'.join(visible(text)), re.M))
     adr = root / 'docs/architecture/decisions'
     if adr.is_dir():
         for f in sorted(adr.glob('adr-*.md')):
-            definitions.update(re.findall(r'^# (ADR-\d{3})\b', f.read_text(encoding='utf8'), re.M))
+            text = read_safe(f)
+            if text is not None:
+                definitions.update(re.findall(r'^# (ADR-\d{3})\b', '\n'.join(visible(text)), re.M))
     for prefix, total, width in [('INV-', 12, 2), ('K', 18, 2), ('ADR-', 15, 3)]:
         for i in range(1, total + 1):
             key = f'{prefix}{i:0{width}d}'
             if definitions[key] != 1:
                 errors.append(f'definition {key}: expected 1, found {definitions[key]}')
-    # Exclude hidden directories such as Git internals and temporary test data.
+    # Exclude only Git metadata and the known sandbox test artifacts.
     import os
     files = []
-    for base, dirs, names in os.walk(root, followlinks=False):
-        dirs[:] = sorted(d for d in dirs if not d.startswith('.'))
+    def walk_error(exc):
+        errors.append(f"directory traversal failed: {exc}")
+
+    for base, dirs, names in os.walk(root, followlinks=False, onerror=walk_error):
+        for d in list(dirs):
+            candidate = Path(base) / d
+            if candidate.is_symlink():
+                errors.append(f"{candidate}: unsupported symlink directory")
+                dirs.remove(d)
+        dirs[:] = sorted(d for d in dirs if not (Path(base) == root and d in (".git", ".test-tmp")))
         files.extend(Path(base) / n for n in sorted(names) if n.lower().endswith('.md'))
     for file in files:
         counts['files'] += 1
-        lines = list(visible(file.read_text(encoding='utf8')))
+        text = read_safe(file)
+        if text is None:
+            continue
+        lines = list(visible(text))
         refs = {}
         for line in lines:
             m = DEF.match(line)
             if m:
-                refs[label(m.group(1))] = m.group(2)
+                refs.setdefault(label(m.group(1)), m.group(2))
+            elif re.match(r"^\s{0,3}\[[^]]+\]:", line):
+                errors.append(f"{file.relative_to(root)}:{lines.index(line) + 1}: unsupported reference definition")
         for number, line in enumerate(lines, 1):
             if DEF.match(line):
                 continue
@@ -120,7 +149,8 @@ def run(root):
             remaining = ''.join(masked)
             next_line = lines[number] if number < len(lines) else ''
             multiline_link = re.search(r'!?\[[^\n]*\]\s*$', remaining) and re.match(r'\s*[\[(]', next_line)
-            if multiline_link or re.search(r'!?\[[^\n]*\]\s*[\[(]|<\s*(?:a|img)\b', remaining, re.I):
+            open_label = re.search(r'!?\[[^]\n]*$', remaining) and re.search(r'^[^\[]*\]\s*[\[(]', next_line)
+            if open_label or multiline_link or re.search(r'!?\[[^\n]*\]\s*[\[(]|<\s*(?:a|img)\b', remaining, re.I):
                 errors.append(f'{file.relative_to(root)}:{number}: unsupported link construction')
                 counts['unsupported'] += 1
             for target in found:
@@ -136,7 +166,8 @@ def run(root):
                     errors.append(f'{file.relative_to(root)}:{number}: missing target: {target}')
                 elif parsed.fragment:
                     counts['anchors'] += 1
-                    if not dest.is_file() or dest.suffix.lower() != '.md' or unquote(parsed.fragment) not in anchors(dest.read_text(encoding='utf8')):
+                    content = read_safe(dest) if dest.is_file() and dest.suffix.lower() == '.md' else None
+                    if content is None or unquote(parsed.fragment) not in anchors(content):
                         errors.append(f'{file.relative_to(root)}:{number}: missing anchor: {target}')
     return errors, counts
 
