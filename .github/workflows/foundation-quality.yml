@@ -13,7 +13,7 @@ jobs:
   foundation-quality:
     name: foundation-quality
     runs-on: ubuntu-24.04
-    timeout-minutes: 5
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
@@ -36,3 +36,39 @@ jobs:
         run: python3 scripts/check_links.py
       - name: Run strict tests
         run: python3 scripts/run_foundation_tests.py
+      - name: Require toolchain diagnostic tests
+        run: |
+          python3 - <<'PY'
+          import unittest
+          suite = unittest.defaultTestLoader.discover('tests', pattern='test_rust_toolchain.py')
+          count = suite.countTestCases()
+          print(f'Toolchain diagnostic tests discovered: {count}')
+          if count < 8 or unittest.defaultTestLoader.errors:
+              raise SystemExit('Required toolchain diagnostic tests missing or unloadable')
+          PY
+      - name: Provision official Rust toolchain
+        run: |
+          rustup toolchain install 1.100.0 --profile minimal --component rustfmt
+      - name: Check Rust toolchain
+        run: |
+          rustup run 1.100.0 rustc --version
+          rustup run 1.100.0 cargo --version
+          rustup run 1.100.0 python3 scripts/check_rust_toolchain.py
+      - name: Check Rust formatting
+        run: rustup run 1.100.0 cargo fmt --all -- --check
+      - name: Check Rust workspace
+        run: rustup run 1.100.0 cargo check --workspace --offline --locked
+      - name: Build Rust workspace
+        run: rustup run 1.100.0 cargo build --workspace --offline --locked
+      - name: Require and run Rust tests
+        run: |
+          set -o pipefail
+          rustup run 1.100.0 cargo test -p adm-core --lib --offline --locked -- tests::baseline_message_is_stable --exact | grep -Fx 'test tests::baseline_message_is_stable ... ok'
+          rustup run 1.100.0 cargo test --workspace --offline --locked
+      - name: Build release workspace
+        run: rustup run 1.100.0 cargo build --workspace --release --offline --locked
+      - name: Run core program
+        run: |
+          output=$(./target/release/adm-core)
+          test "$output" = 'ADM core foundation'
+          printf '%s\n' "$output"
