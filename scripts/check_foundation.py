@@ -2,6 +2,7 @@
 import argparse
 from collections import Counter, defaultdict, deque
 import json
+import re
 from pathlib import Path
 import sys
 
@@ -41,7 +42,189 @@ def cyclic(nodes, edges):
     return visited != len(incoming)
 
 
-def validate(root):
+# Change these values only with an explicitly approved baseline revision, in the
+# same reviewed change as its roadmap data and test evidence (see PR policy).
+BASELINE = {"milestones": 14, "packages": 201, "p0": 167, "later": 34,
+            "mappings": 201, "nodes": 201, "hardEdges": 614,
+            "conditionalEdges": 31, "edges": 645, "plannedChecks": 526,
+            "foundationCriteria": 22}
+MILESTONE = re.compile(r"M[0-9]{2}\Z")
+PACKAGE = re.compile(r"M[0-9]{2}-[0-9]{2}\Z")
+LINEAR = re.compile(r"ADM-[1-9][0-9]*\Z")
+
+
+def require(condition, message):
+    if not condition:
+        raise ValueError(message)
+
+
+def obj(value, where):
+    require(isinstance(value, dict), f"{where}: expected object")
+    return value
+
+
+def array(value, where):
+    require(isinstance(value, list), f"{where}: expected list")
+    return value
+
+
+def string(value, where, pattern=None):
+    require(isinstance(value, str) and bool(value.strip()), f"{where}: expected nonempty string")
+    if pattern:
+        require(pattern.fullmatch(value) is not None, f"{where}: invalid identifier {value!r}")
+    return value
+
+
+def field(record, key, where):
+    obj(record, where)
+    require(key in record, f"{where}: missing required field {key}")
+    return record[key]
+
+
+def text_field(record, key, where, pattern=None):
+    return string(field(record, key, where), f"{where}.{key}", pattern)
+
+
+def number(value, where, nullable=False):
+    require((nullable and value is None) or (type(value) is int and value >= 0), f"{where}: expected nonnegative integer" + (" or null" if nullable else ""))
+    return value
+
+
+def strings(value, where, pattern=None):
+    return [string(x, where, pattern) for x in array(value, where)]
+
+
+def unique(values, where):
+    require(len(values) == len(set(values)), f"duplicate {where}")
+
+
+def schema_and_baseline(data, baseline):
+    for name in REQUIRED:
+        d = obj(data[name], name)
+        version = 1 if name in ("catalogue-draft.json", "linear-issue-mapping.json") else 2
+        require(type(field(d, "schemaVersion", name)) is int and d["schemaVersion"] == version, f"{name}: invalid schemaVersion (expected {version})")
+        text_field(d, "status", name)
+    manifest = data["reconstruction-manifest.json"]
+    require(strings(field(manifest, "sourceFiles", "manifest"), "manifest.sourceFiles") == list(RECONSTRUCTED), "manifest sourceFiles mismatch")
+    require(text_field(manifest, "historicalIndex", "manifest") == "catalogue-draft.json", "manifest historicalIndex mismatch")
+    milestones, packages, criteria = [], [], []
+    for name in RECONSTRUCTED:
+        d = data[name]
+        text_field(d, "provenance", name)
+        for m in array(field(d, "milestones", name), name + ".milestones"):
+            mid = text_field(m, "id", name + ".milestone", MILESTONE)
+            text_field(m, "name", mid)
+            strings(field(m, "notes", mid), mid + ".notes")
+            number(field(m, "plannedChecks", mid), mid + ".plannedChecks", nullable=(mid == "M00"))
+            milestones.append(m)
+            for p in array(field(m, "packages", mid), mid + ".packages"):
+                pid = text_field(p, "id", mid + ".package", PACKAGE)
+                require(pid[:3] == mid, f"package {pid}: wrong milestone {mid}")
+                for key in ("title", "priority", "owner", "issueType", "requirements", "provenance"):
+                    text_field(p, key, pid)
+                require(field(p, "linearIssueId", pid) is None or isinstance(p["linearIssueId"], str) and LINEAR.fullmatch(p["linearIssueId"]), f"{pid}.linearIssueId: invalid identifier")
+                strings(field(p, "dependencies", pid), pid + ".dependencies", PACKAGE)
+                if name == RECONSTRUCTED[2]:
+                    for c in array(field(p, "conditionalDependencies", pid), pid + ".conditionalDependencies"):
+                        text_field(c, "id", pid + ".conditionalDependency", PACKAGE)
+                        text_field(c, "condition", pid + ".conditionalDependency")
+                for c in array(field(p, "acceptanceCriteria", pid), pid + ".acceptanceCriteria"):
+                    cid = text_field(c, "id", pid + ".criterion")
+                    require(re.fullmatch(re.escape(pid) + r"-AC[0-9]{2}", cid) is not None, f"{pid}: invalid criterion ID {cid}")
+                    for key in ("description", "kind", "status"):
+                        text_field(c, key, cid)
+                    require(c["kind"] == ("foundation" if mid == "M00" else "planned"), f"{cid}: wrong criterion kind")
+                    criteria.append((mid, cid))
+                packages.append(p)
+    mids = [m["id"] for m in milestones]
+    unique(mids, "milestone ID")
+    ids = [p["id"] for p in packages]
+    unique(ids, "reconstructed package ID")
+    unique([c[1] for c in criteria], "acceptance criteria ID")
+    by_id = {p["id"]: p for p in packages}
+    historical = data["catalogue-draft.json"]
+    historical_ids = []
+    historical_mids = []
+    for m in array(field(historical, "milestones", "historical"), "historical.milestones"):
+        mid = text_field(m, "id", "historical milestone", MILESTONE)
+        historical_mids.append(mid)
+        text_field(m, "name", mid)
+        number(field(m, "plannedChecks", mid), "historical plannedChecks", nullable=(mid == "M00"))
+        for p in array(field(m, "packages", mid), "historical packages"):
+            pid = text_field(p, "id", "historical package", PACKAGE)
+            require(pid[:3] == mid, f"historical package {pid}: wrong milestone")
+            historical_ids.append(pid)
+            for key in ("title", "priority"):
+                text_field(p, key, pid)
+            for key in ("owner", "requirements", "dependencies", "acceptanceCriteria", "linearIssueId"):
+                require(field(p, key, pid) is None, f"historical {pid}.{key}: expected null")
+            require(pid in by_id and all(p[k] == by_id[pid][k] for k in ("title", "priority")), f"historical stable data mismatch: {pid}")
+    unique(historical_mids, "historical milestone ID")
+    unique(historical_ids, "historical package ID")
+    require(set(historical_mids) == set(mids) and set(historical_ids) == set(ids), "historical catalogue set mismatch")
+    graph = data["dependency-graph.json"]
+    nodes = strings(field(graph, "nodes", "graph"), "graph node", PACKAGE)
+    edges = array(field(graph, "edges", "graph"), "graph.edges")
+    for e in edges:
+        source = text_field(e, "prerequisite", "edge", PACKAGE)
+        target = text_field(e, "dependent", "edge", PACKAGE)
+        kind = text_field(e, "kind", f"edge {source} -> {target}")
+        require(kind in ("hard", "conditional"), f"unknown edge kind {kind!r}: {source} -> {target}")
+        if kind == "conditional":
+            text_field(e, "condition", f"conditional edge {source} -> {target}")
+    mapping = data["linear-issue-mapping.json"]
+    mappings = array(field(mapping, "mapping", "mapping"), "mapping.mapping")
+    for m in mappings:
+        pid = text_field(m, "packageId", "mapping", PACKAGE)
+        text_field(m, "linearIdentifier", pid + " mapping", LINEAR)
+        mid = text_field(m, "milestone", pid + " mapping", MILESTONE)
+        require(pid[:3] == mid, f"mapping {pid}: wrong milestone {mid}")
+        for key in ("title", "initialStatus"):
+            text_field(m, key, pid + " mapping")
+        strings(field(m, "labels", pid + " mapping"), pid + ".labels")
+    mm = array(field(manifest, "milestones", "manifest"), "manifest.milestones")
+    manifest_mids = [text_field(m, "id", "manifest milestone", MILESTONE) for m in mm]
+    unique(manifest_mids, "manifest milestone ID")
+    require(set(manifest_mids) == set(mids), "manifest milestone set mismatch")
+    actual_milestones = {m["id"]: m for m in milestones}
+    for m in mm:
+        mid = m["id"]
+        text_field(m, "name", "manifest " + mid)
+        text_field(m, "reviewDocument", "manifest " + mid)
+        count = number(field(m, "packageCount", mid), mid + ".packageCount")
+        checks = number(field(m, "plannedChecks", mid), mid + ".plannedChecks", nullable=(mid == "M00"))
+        actual = actual_milestones[mid]
+        require(m["name"] == actual["name"] and count == len(actual["packages"]) and checks == actual["plannedChecks"], f"manifest milestone mismatch: {mid}")
+        if mid != "M00":
+            require(checks == sum(len(p["acceptanceCriteria"]) for p in actual["packages"]), f"planned criteria mismatch: {mid}")
+    for a in array(field(manifest, "amendments", "manifest"), "manifest.amendments"):
+        aid = text_field(a, "id", "manifest amendment")
+        for ref in strings(field(a, "packages", aid), aid + ".packages", PACKAGE):
+            require(ref in by_id, f"manifest {aid}: unknown package {ref}")
+    for key, kinds in (("topologicalOrderHard", {"hard"}), ("topologicalOrderAllPotentialEdges", {"hard", "conditional"})):
+        order = strings(field(manifest, key, "manifest"), "manifest." + key, PACKAGE)
+        require(len(order) == len(nodes) and len(set(order)) == len(order) and set(order) == set(nodes), f"manifest {key}: incomplete or duplicate topological order")
+        rank = {node: i for i, node in enumerate(order)}
+        for e in edges:
+            if e["kind"] in kinds and e["prerequisite"] in rank and e["dependent"] in rank:
+                require(rank[e["prerequisite"]] < rank[e["dependent"]], f"manifest {key}: invalid topological order at {e['prerequisite']} -> {e['dependent']}")
+    actual = {"milestones": len(milestones), "packages": len(packages), "p0": sum(p["priority"] == "P0" for p in packages), "later": sum(p["priority"] != "P0" for p in packages), "mappings": len(mappings), "nodes": len(nodes), "hardEdges": sum(e["kind"] == "hard" for e in edges), "conditionalEdges": sum(e["kind"] == "conditional" for e in edges), "edges": len(edges), "plannedChecks": sum(mid != "M00" for mid, _ in criteria), "foundationCriteria": sum(mid == "M00" for mid, _ in criteria)}
+    for key, expected in baseline.items():
+        require(actual[key] == expected, f"baseline {key}: expected {expected}, actual {actual[key]}")
+    counts = obj(field(manifest, "counts", "manifest"), "manifest.counts")
+    for key in ("packages", "p0", "later", "hardEdges", "conditionalEdges", "plannedChecks", "foundationCriteria"):
+        require(number(field(counts, key, "manifest.counts"), "manifest.counts." + key) == actual[key], f"manifest counts mismatch: {key}")
+    mc = obj(field(mapping, "counts", "mapping"), "mapping.counts")
+    for key, actual_key in (("packages", "packages"), ("hardDependenciesVerified", "hardEdges"), ("conditionalDependenciesVerifiedInDescriptions", "conditionalEdges"), ("plannedAcceptanceDefinitions", "plannedChecks"), ("foundationCriteria", "foundationCriteria")):
+        require(number(field(mc, key, "mapping.counts"), "mapping.counts." + key) == actual[actual_key], f"mapping counts mismatch: {key}")
+    statuses = obj(field(mc, "initialStatuses", "mapping.counts"), "mapping.counts.initialStatuses")
+    for k, v in statuses.items():
+        string(k, "initial status")
+        number(v, "initial status count")
+    require(statuses == dict(Counter(m["initialStatus"] for m in mappings)), "mapping initialStatuses counts mismatch")
+
+
+def validate(root, baseline=BASELINE):
     directory = root / "docs" / "roadmap"
     errors = []
     data = {}
@@ -54,6 +237,7 @@ def validate(root):
     if errors:
         return errors, None
     try:
+        schema_and_baseline(data, baseline)
         milestones = [m for name in RECONSTRUCTED for m in data[name]["milestones"]]
         packages = [p for milestone in milestones for p in milestone["packages"]]
         ids = [p["id"] for p in packages]
