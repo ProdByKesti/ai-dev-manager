@@ -1,0 +1,38 @@
+name: Foundation quality
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+permissions:
+  contents: read
+concurrency:
+  group: foundation-quality-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+jobs:
+  foundation-quality:
+    name: foundation-quality
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
+      - name: Record revisions and Python version
+        env:
+          PR_HEAD: ${{ github.event.pull_request.head.sha }}
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          EVENT_SHA: ${{ github.sha }}
+        run: |
+          echo "PR head: $PR_HEAD"
+          echo "PR base: $BASE_SHA"
+          echo "Event revision: $EVENT_SHA"
+          echo "Checked out revision: $(git rev-parse HEAD)"
+          python3 --version
+          python3 -c 'import sys; assert sys.version_info >= (3, 11), "Python 3.11 or newer required"'
+      - name: Check roadmap
+        run: python3 scripts/check_foundation.py
+      - name: Check documentation
+        run: python3 scripts/check_links.py
+      - name: Run strict tests
+        run: python3 scripts/run_foundation_tests.py

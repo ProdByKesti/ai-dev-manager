@@ -36,3 +36,9 @@ Use bounded repairs and retries within the approved work order. Keep actual fail
 ## Release rules
 
 No release with open critical/high blockers (S0/S1); other issues reviewed case by case under the applicable release policy. Public release requires independent validation, verified artifacts and explicit authorization. Local historical feasibility is not release readiness. M02 requires authenticated Linux inference and real isolation evidence; K01 public provider compatibility is an early gate and is revalidated in M11. M12/M13 releases require scope-specific regression/security checks before publication. See [system invariants](../architecture/system-invariants.md), [consolidation](../architecture/consolidation.md), [feasibility matrix](../feasibility/validation-matrix.md) and [quality ADR](../architecture/decisions/adr-011-quality-gates.md).
+
+## Foundation checks
+
+Run `python3 scripts/check_foundation.py`, `python3 scripts/check_links.py`, and `python3 scripts/run_foundation_tests.py` using Python 3.11 or newer. The roadmap validator checks the approved baseline and consistency; baseline changes require explicit approval, reviewed updates to data and constants, and renewed evidence. The documentation checker validates internal links and core definitions; its module documentation describes its deliberately limited Markdown support and unsupported constructs.
+
+The strict runner fails on missing test modules, zero tests, failures, errors, skipped tests, expected failures and unexpected successes, including a missing symlink regression test. Record actual source, PR head, base and checked-out revisions: a pull request run may test a synthetic merge commit. Standard GitHub-hosted runners are free for public repositories. Independent review of protected test definitions remains required. A successful CI run is evidence, not proof that merge protection or required status checks are configured.
