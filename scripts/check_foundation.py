@@ -123,11 +123,14 @@ def schema_and_baseline(data, baseline):
                 for key in ("title", "priority", "owner", "issueType", "requirements", "provenance"):
                     text_field(p, key, pid)
                 require(field(p, "linearIssueId", pid) is None or isinstance(p["linearIssueId"], str) and LINEAR.fullmatch(p["linearIssueId"]), f"{pid}.linearIssueId: invalid identifier")
-                strings(field(p, "dependencies", pid), pid + ".dependencies", PACKAGE)
+                deps = strings(field(p, "dependencies", pid), pid + ".dependencies", PACKAGE)
+                unique(deps, pid + " hard dependency")
                 if name == RECONSTRUCTED[2]:
+                    conditional_ids = []
                     for c in array(field(p, "conditionalDependencies", pid), pid + ".conditionalDependencies"):
-                        text_field(c, "id", pid + ".conditionalDependency", PACKAGE)
+                        conditional_ids.append(text_field(c, "id", pid + ".conditionalDependency", PACKAGE))
                         text_field(c, "condition", pid + ".conditionalDependency")
+                    unique(conditional_ids, pid + " conditional dependency")
                 for c in array(field(p, "acceptanceCriteria", pid), pid + ".acceptanceCriteria"):
                     cid = text_field(c, "id", pid + ".criterion")
                     require(re.fullmatch(re.escape(pid) + r"-AC[0-9]{2}", cid) is not None, f"{pid}: invalid criterion ID {cid}")
@@ -142,6 +145,9 @@ def schema_and_baseline(data, baseline):
     unique(ids, "reconstructed package ID")
     unique([c[1] for c in criteria], "acceptance criteria ID")
     by_id = {p["id"]: p for p in packages}
+    for p in packages:
+        for c in p.get("conditionalDependencies", []):
+            require(c["id"] in by_id, f"{p['id']}: unknown conditional prerequisite {c['id']}")
     historical = data["catalogue-draft.json"]
     historical_ids = []
     historical_mids = []
@@ -172,6 +178,9 @@ def schema_and_baseline(data, baseline):
         require(kind in ("hard", "conditional"), f"unknown edge kind {kind!r}: {source} -> {target}")
         if kind == "conditional":
             text_field(e, "condition", f"conditional edge {source} -> {target}")
+    expected_conditional = {(c["id"], p["id"], c["condition"]) for p in packages for c in p.get("conditionalDependencies", [])}
+    graph_conditional = {(e["prerequisite"], e["dependent"], e["condition"]) for e in edges if e["kind"] == "conditional"}
+    require(expected_conditional == graph_conditional, f"conditional dependency mismatch: missing graph edges={sorted(expected_conditional - graph_conditional)}, extra graph edges={sorted(graph_conditional - expected_conditional)}")
     mapping = data["linear-issue-mapping.json"]
     mappings = array(field(mapping, "mapping", "mapping"), "mapping.mapping")
     for m in mappings:
@@ -182,6 +191,8 @@ def schema_and_baseline(data, baseline):
         for key in ("title", "initialStatus"):
             text_field(m, key, pid + " mapping")
         strings(field(m, "labels", pid + " mapping"), pid + ".labels")
+        if pid in by_id:
+            require(m["title"] == f"{pid} – {by_id[pid]['title']}", f"mapping title mismatch: {pid}")
     mm = array(field(manifest, "milestones", "manifest"), "manifest.milestones")
     manifest_mids = [text_field(m, "id", "manifest milestone", MILESTONE) for m in mm]
     unique(manifest_mids, "manifest milestone ID")

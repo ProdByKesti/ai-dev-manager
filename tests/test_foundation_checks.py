@@ -89,6 +89,7 @@ class FoundationChecks(unittest.TestCase):
     def test_duplicate_mapping(self):
         self.mapping["mapping"][-1]["packageId"] = self.mapping["mapping"][0]["packageId"]
         self.mapping["mapping"][-1]["milestone"] = "M00"
+        self.mapping["mapping"][-1]["title"] = self.mapping["mapping"][0]["title"]
         self.failure("duplicate mapping package ID")
 
     def test_endpoint(self):
@@ -119,7 +120,14 @@ class FoundationChecks(unittest.TestCase):
         self.assertFalse(check.cyclic(["A", "B", "C"], hard))
         self.assertTrue(check.cyclic(["A", "B", "C"], hard + [("C", "A")]))
         e = next(e for e in self.graph["edges"] if e["kind"] == "conditional")
-        e["prerequisite"], e["dependent"] = e["dependent"], e["prerequisite"]
+        old_source, old_target = e["prerequisite"], e["dependent"]
+        packages = [p for m in self.data[check.RECONSTRUCTED[2]]["milestones"] for p in m["packages"]]
+        source = next(p for p in packages if p["id"] == old_source)
+        target = next(p for p in packages if p["id"] == old_target)
+        relation = next(c for c in target["conditionalDependencies"] if c["id"] == old_source)
+        target["conditionalDependencies"].remove(relation)
+        source["conditionalDependencies"].append({"id": old_target, "condition": relation["condition"]})
+        e["prerequisite"], e["dependent"] = old_target, old_source
         self.failure("topological order")
 
     def test_unknown_kind(self):
@@ -263,7 +271,7 @@ class FoundationChecks(unittest.TestCase):
         d[check.RECONSTRUCTED[0]]["milestones"] = [milestone]
         d["catalogue-draft.json"]["milestones"] = [{"id": "M00", "name": "Example", "plannedChecks": None, "packages": [historical]}]
         d["dependency-graph.json"].update(nodes=["M00-01"], edges=[])
-        d["linear-issue-mapping.json"].update(mapping=[{"packageId": "M00-01", "linearIdentifier": "ADM-1", "milestone": "M00", "title": "Example", "initialStatus": "Backlog", "labels": []}], counts={"packages": 1, "hardDependenciesVerified": 0, "conditionalDependenciesVerifiedInDescriptions": 0, "plannedAcceptanceDefinitions": 0, "foundationCriteria": 1, "initialStatuses": {"Backlog": 1}})
+        d["linear-issue-mapping.json"].update(mapping=[{"packageId": "M00-01", "linearIdentifier": "ADM-1", "milestone": "M00", "title": "M00-01 – Example", "initialStatus": "Backlog", "labels": []}], counts={"packages": 1, "hardDependenciesVerified": 0, "conditionalDependenciesVerifiedInDescriptions": 0, "plannedAcceptanceDefinitions": 0, "foundationCriteria": 1, "initialStatuses": {"Backlog": 1}})
         d["reconstruction-manifest.json"].update(sourceFiles=list(check.RECONSTRUCTED), historicalIndex="catalogue-draft.json", milestones=[{"id": "M00", "name": "Example", "packageCount": 1, "plannedChecks": None, "reviewDocument": "M00.md"}], counts=counts, amendments=[], topologicalOrderHard=["M00-01"], topologicalOrderAllPotentialEdges=["M00-01"])
         small = {"milestones": 1, "packages": 1, "p0": 1, "later": 0, "mappings": 1, "nodes": 1, "hardEdges": 0, "conditionalEdges": 0, "edges": 0, "plannedChecks": 0, "foundationCriteria": 1}
         check.schema_and_baseline(d, small)
@@ -272,6 +280,43 @@ class FoundationChecks(unittest.TestCase):
         result = subprocess.run([sys.executable, str(SCRIPT), "--help"], capture_output=True, text=True)
         self.assertEqual(result.returncode, 0)
         self.assertNotIn("baseline", result.stdout.lower())
+
+    def conditional_package(self):
+        for m in self.data[check.RECONSTRUCTED[2]]["milestones"]:
+            for p in m["packages"]:
+                if p["conditionalDependencies"]:
+                    return p
+        self.fail("missing conditional fixture")
+
+    def test_conditional_condition_mismatch(self):
+        self.conditional_package()["conditionalDependencies"][0]["condition"] = "different"
+        self.failure("conditional dependency mismatch")
+
+    def test_conditional_missing(self):
+        self.conditional_package()["conditionalDependencies"].pop()
+        self.failure("conditional dependency mismatch")
+
+    def test_conditional_extra(self):
+        self.conditional_package()["conditionalDependencies"].append({"id": "M00-01", "condition": "extra"})
+        self.failure("conditional dependency mismatch")
+
+    def test_conditional_unknown(self):
+        self.conditional_package()["conditionalDependencies"][0]["id"] = "M99-99"
+        self.failure("unknown conditional prerequisite")
+
+    def test_conditional_duplicate(self):
+        deps = self.conditional_package()["conditionalDependencies"]
+        deps.append(copy.deepcopy(deps[0]))
+        self.failure("conditional dependency")
+
+    def test_hard_duplicate(self):
+        deps = self.catalogue["milestones"][0]["packages"][1]["dependencies"]
+        deps.append(deps[0])
+        self.failure("hard dependency")
+
+    def test_mapping_title_mismatch(self):
+        self.mapping["mapping"][0]["title"] = "wrong"
+        self.failure("mapping title mismatch")
 
 
 if __name__ == "__main__":
