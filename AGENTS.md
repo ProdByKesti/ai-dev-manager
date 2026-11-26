@@ -13,7 +13,7 @@ Foundation setup only. Do not begin application implementation (M01+) until the 
 - [System invariants](docs/architecture/system-invariants.md): INV-01–INV-12, mandatory for all packages.
 - [Consolidation amendments](docs/architecture/consolidation.md): K01–K18 override conflicting earlier detail.
 - [Feasibility evidence and limitations](docs/feasibility/README.md): historical probes, not production certification.
-- [Roadmap overview](docs/roadmap/overview.md): MVP M00–M11; later extensions M12–M13. Detailed package catalogue and Linear mapping are pending.
+- [Roadmap overview](docs/roadmap/overview.md): MVP M00–M11; later extensions M12–M13. The approved detailed package catalogue and Linear mapping are available in the versioned roadmap documents.
 - [Development rules](docs/developer-guide/development-rules.md), [Git workflow](docs/developer-guide/git-workflow.md), [quality and evidence](docs/developer-guide/quality-evidence.md), [work order and handoff](docs/developer-guide/work-order-handoff.md).
 
 Use the current Git revision for facts about files. After Linear setup, Linear is the authority for task tracking, not for overriding product decisions, safety or actual Git/evidence state. If documents, task scope or authorization conflict, stop the affected work and ask the maintainer. Do not silently rewrite decisions.
