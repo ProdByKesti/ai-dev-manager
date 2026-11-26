@@ -8,7 +8,7 @@
       "name": "Project Foundation",
       "plannedChecks": null,
       "notes": [
-        "M00 is foundation only; no application implementation until Cudy milestone and explicit maintainer authorization plus M00 acceptance. No additional paid services.",
+        "M00 is foundation only; no application implementation until M00 acceptance, verified local development environment readiness, and explicit maintainer authorization. Cudy Auto Refill may proceed in parallel and is not an ADM implementation prerequisite. No additional paid services.",
         "K01 public provider compatibility must be investigated before final foundation acceptance; architecture documentation alone is not proof.",
         "Already integrated: M00-01 PR #1; M00-02/03 PR #2 (K01 still open); M00-04 PR #3; M00-06 PR #4. M00-07 A accepted, B ongoing. Status mapping to be reverified during import.",
         "Seven specialist roles per AGENTS.md; actual local environment and Codex setup pending. M00 criteria are not part of the 526 count."
