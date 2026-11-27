@@ -242,13 +242,33 @@ jobs:
           $install = @(Native 'vswhere' $vswhere @('-latest','-products','*','-requires','Microsoft.VisualStudio.Component.VC.Tools.x86.x64','-property','installationPath'))
           if ($install.Count -ne 1 -or -not $install[0]) { throw 'Visual Studio C++ tools unavailable' }
           $devcmd = Join-Path $install[0] 'Common7/Tools/VsDevCmd.bat'
-          if (-not (Test-Path -LiteralPath $devcmd -PathType Leaf) -or $devcmd.Contains('"')) { throw 'VsDevCmd unavailable' }
-          $initialized = @(Native 'VsDevCmd' 'cmd.exe' @('/d','/s','/c',"`"`"$devcmd`" -no_logo -arch=x64 -host_arch=x64 >nul && set`""))
           $allowedEnv = @('PATH','INCLUDE','LIB','LIBPATH','VCToolsVersion','VCToolsInstallDir','VCINSTALLDIR','VSINSTALLDIR','VSCMD_ARG_TGT_ARCH','WindowsSdkDir','WindowsSDKVersion','WindowsLibPath','UniversalCRTSdkDir','UCRTVersion')
-          foreach ($line in $initialized) {
-            $parts = $line -split '=',2
-            if ($parts.Count -eq 2 -and $allowedEnv -contains $parts[0]) { [Environment]::SetEnvironmentVariable($parts[0],$parts[1],'Process') }
+          function ImportDevEnvironment([string]$Batch, [string[]]$Allowed) {
+            if ($Batch -notmatch '^[A-Za-z]:\\[A-Za-z0-9 _().\\-]+\.bat$' -or -not [IO.Path]::IsPathFullyQualified($Batch) -or [IO.Path]::GetFullPath($Batch) -ine $Batch -or -not (Test-Path -LiteralPath $Batch -PathType Leaf)) { throw 'VsDevCmd path unavailable or unsafe' }
+            $cmd = Join-Path ([Environment]::GetFolderPath('System')) 'cmd.exe'
+            if (-not [IO.Path]::IsPathFullyQualified($cmd) -or -not (Test-Path -LiteralPath $cmd -PathType Leaf)) { throw 'System cmd.exe unavailable' }
+            $info = [Diagnostics.ProcessStartInfo]::new()
+            $info.FileName = $cmd
+            $info.Arguments = '/d /s /v:off /c ""{0}" -no_logo -arch=x64 -host_arch=x64 >nul && set"' -f $Batch
+            $info.UseShellExecute = $false
+            $info.RedirectStandardOutput = $true
+            $info.RedirectStandardError = $true
+            $child = [Diagnostics.Process]::Start($info)
+            $out = $child.StandardOutput.ReadToEndAsync()
+            $err = $child.StandardError.ReadToEndAsync()
+            $child.WaitForExit()
+            $code = $child.ExitCode
+            $initialized = $out.GetAwaiter().GetResult()
+            $null = $err.GetAwaiter().GetResult()
+            $child.Dispose()
+            Write-Host "VsDevCmd exit code: $code"
+            if ($code -ne 0) { throw 'VsDevCmd failed' }
+            foreach ($line in ($initialized -split '\r?\n')) {
+              $parts = $line -split '=',2
+              if ($parts.Count -eq 2 -and $Allowed -contains $parts[0]) { [Environment]::SetEnvironmentVariable($parts[0],$parts[1],'Process') }
+            }
           }
+          ImportDevEnvironment $devcmd $allowedEnv
           RejectOverrides
           PrioritizeNode
           if ($env:VSCMD_ARG_TGT_ARCH -ne 'x64' -or -not $env:VCToolsVersion -or -not $env:VCToolsInstallDir -or -not $env:WindowsSDKVersion -or -not $env:WindowsSdkDir) { throw 'MSVC x64 or SDK environment missing' }
