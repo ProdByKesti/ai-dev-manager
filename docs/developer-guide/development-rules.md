@@ -45,7 +45,21 @@ Use least privilege and fail closed. The user controls scope, permission and spe
 
 Never expose or copy credentials, private workspace data, raw account responses, personal paths or private logs to public branches, issue descriptions or reports. Prefer synthetic fixtures and sanitized evidence. If a secret is found, stop propagation, report privately to the maintainer and do not publish the secret itself. Do not attempt destructive history rewrites or credential changes without authorization. Public security reporting arrangements will be established in M11-11.
 
-Do not interpret a worktree, a read-only prompt, a named pipe or sequential profile test as proven isolation. Linux/Windows execution requirements are governed by ADR-002/009 and K02/K06/K07. Unverified execution paths remain blocked. No account sharing or unapproved credential transfer. No automatic paid provider fallback; no mandatory additional subscription, hosting or purchases.
+Do not interpret a worktree, a read-only prompt, a named pipe or sequential profile test as proven isolation. Linux/Windows execution requirements are governed by ADR-002/009 and K02/K06/K07. Unverified execution paths remain blocked, subject only to the narrowly scoped proposal below. No account sharing or unapproved credential transfer. No automatic paid provider fallback; no mandatory additional subscription, hosting or purchases.
+
+### Bounded diagnostic development investigation — M01-02 only
+
+Unverified product execution paths and execution paths required for mandatory integration or release evidence remain blocked.
+
+A single preliminary M01-02 diagnostic Windows build investigation may be considered under a separately versioned, independently reviewed and explicitly approved maintainer risk decision.
+
+The investigation must be bound to an exact source candidate, workflow revision, environment, operation scope and execution budget. Its known residual risks, including the absence of verified inner isolation, must be explicitly documented and accepted before execution.
+
+Diagnostic observations cannot establish isolation, satisfy mandatory acceptance criteria, replace trusted quality evidence or authorize integration or release.
+
+This provision does not authorize execution by itself, override system invariants or permit automatic fallback. If any applicable mandatory security requirement cannot be satisfied, the affected operation remains blocked.
+
+The provision expires after the single authorized M01-02 attempt or its abortion. It establishes no precedent or reusable authorization for subsequent work packages.
 
 ## Quota, retries and cancellation
 
