@@ -59,16 +59,26 @@ jobs:
           Write-Host 'External approval, zero-cost verification and cumulative three-attempt budget control are prerequisites.'
 
           # Neutralize only the documented runner default in this process.
-          $runnerPrefix = [Environment]::GetEnvironmentVariable('npm_config_prefix', 'Process')
-          if ($null -ne $runnerPrefix) {
-            if ($runnerPrefix -cne 'C:\npm\prefix') { throw 'Preflight npm: unexpected npm_config_prefix' }
-            [Environment]::SetEnvironmentVariable('npm_config_prefix', $null, 'Process')
+          Write-Host "Preflight PowerShell version: $($PSVersionTable.PSVersion)"
+          $runnerPrefix = @(Get-ChildItem Env: | Where-Object { $_.Name -ieq 'npm_config_prefix' })
+          if ($runnerPrefix.Count -gt 1) { throw 'Preflight npm: ambiguous npm_config_prefix' }
+          if ($runnerPrefix.Count -eq 1) {
+            if ($runnerPrefix[0].Value -cne 'C:\npm\prefix') { throw 'Preflight npm: unexpected npm_config_prefix' }
+            Remove-Item -LiteralPath 'Env:npm_config_prefix' -ErrorAction Stop
+            if (@(Get-ChildItem Env: | Where-Object { $_.Name -ieq 'npm_config_prefix' }).Count -ne 0) { throw 'Preflight npm: npm_config_prefix still present' }
+            Write-Host 'Preflight npm: known prefix removed from process'
+          } else {
+            Write-Host 'Preflight npm: inherited prefix absent'
           }
           $approvedNpmEnv = @{}
           function RejectOverrides {
             $forbidden = @(Get-ChildItem Env: | Where-Object { $_.Name -match '^(?i:CARGO_(REGISTRIES_|SOURCE_|REGISTRY_|BUILD_|TARGET_|HTTP_)|NPM_CONFIG_)|^(?i:RUSTUP_(TOOLCHAIN|DIST_SERVER|UPDATE_ROOT)|RUSTC|RUSTC_WRAPPER|RUSTC_WORKSPACE_WRAPPER|RUSTDOC|RUSTFLAGS|RUSTDOCFLAGS|CARGO_ENCODED_RUSTFLAGS|NAPI_RS_NATIVE_LIBRARY_PATH|CC|CXX|CFLAGS|CXXFLAGS|AR|RANLIB|CL|_CL_|LINK|_LINK_|HTTP_PROXY|HTTPS_PROXY|ALL_PROXY|NO_PROXY|NODE_OPTIONS|NODE_TLS_REJECT_UNAUTHORIZED|NODE_EXTRA_CA_CERTS|GIT_SSL_NO_VERIFY|GIT_CONFIG_COUNT|GIT_CONFIG_PARAMETERS|SSL_CERT_FILE|SSL_CERT_DIR)$|^(?i:CC_|CXX_|CFLAGS_|CXXFLAGS_|AR_|RANLIB_)' })
             $unexpected = @($forbidden | Where-Object { -not $approvedNpmEnv.ContainsKey($_.Name) -or $_.Value -cne $approvedNpmEnv[$_.Name] })
-            if ($unexpected.Count -ne 0) { throw "Preflight environment: unexpected overrides ($($unexpected.Count))" }
+            if ($unexpected.Count -ne 0) {
+              $npmCount = @($unexpected | Where-Object { $_.Name -match '^(?i:NPM_CONFIG_)' }).Count
+              $otherCount = $unexpected.Count - $npmCount
+              throw "Preflight environment: unexpected npm overrides ($npmCount); other execution overrides ($otherCount)"
+            }
             foreach ($name in $approvedNpmEnv.Keys) {
               if ([Environment]::GetEnvironmentVariable($name, 'Process') -cne $approvedNpmEnv[$name]) { throw 'Preflight npm: controlled environment missing or changed' }
             }
