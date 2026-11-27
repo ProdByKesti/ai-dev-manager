@@ -4,7 +4,7 @@ Scope: this repository and its descendants. Read this file before work. More spe
 
 ## Current project state
 
-Foundation setup only. Do not begin application implementation (M01+) until the maintainer explicitly lifts the implementation hold and accepts M00. Work only on an authorized work package. No fabricated builds, releases, test results or implemented capabilities.
+The M00 foundation status correction was personally accepted at commit `7522720f1fa1fb1265ab3fe0485cd89afb041c33`; it and the subsequent policy were integrated in PR #10 and PR #11. The coordinator records M00 acceptance and the maintainer's M01 authorization in ADM-10, including that local development environment readiness was satisfied with documented limitations. Work only on individually authorized M01 packages and their approved scope. M02 and later milestones require separate authorization. No fabricated builds, releases, test results or implemented capabilities.
 
 ## Sources of truth
 
