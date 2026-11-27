@@ -1,5 +1,7 @@
 import importlib.util
-from pathlib import Path
+import os
+from pathlib import Path, PurePosixPath, PureWindowsPath
+import stat
 import subprocess
 import sys
 import tempfile
@@ -166,6 +168,145 @@ class DocumentationChecks(unittest.TestCase):
             except OSError as exc:
                 self.skipTest(f'symlink creation unavailable: {exc}')
             self.failure('unsafe path outside repository')
+
+    def test_exact_exclusion_and_other_documents(self):
+        self.write('apps/desktop/node_modules/pkg/bad.md', '[bad](missing)')
+        r = self.cli()
+        self.assertEqual(r.returncode, 0, r.stderr)
+        for name in ('node_modules/bad.md', 'apps/node_modules/bad.md',
+                     'apps/desktop/node_modules_extra/bad.md',
+                     'apps/desktop/own.md', 'apps/desktop/.hidden/bad.md'):
+            with self.subTest(name=name):
+                self.write(name, '[bad](missing)')
+                self.failure('missing target')
+                (self.root / name).unlink()
+
+    def test_missing_excluded_directory_is_allowed(self):
+        self.assertEqual(self.cli().returncode, 0)
+
+    def test_links_into_excluded_directory_are_errors(self):
+        self.write('apps/desktop/node_modules/pkg/readme.md', '# Package')
+        for target in ('apps/desktop/node_modules/pkg/readme.md',
+                       'apps/desktop/../desktop/node_modules/pkg/readme.md',
+                       'apps/desktop/%6eode_modules/pkg/readme.md'):
+            with self.subTest(target=target):
+                self.write('README.md', f'[package]({target})')
+                self.failure('link to excluded path')
+
+    def test_resolved_link_into_excluded_directory(self):
+        self.write('apps/desktop/node_modules/pkg/readme.md', '# Package')
+        try:
+            (self.root / 'alias').symlink_to(self.root / 'apps/desktop/node_modules', target_is_directory=True)
+        except OSError as exc:
+            self.skipTest(f'symlink creation unavailable: {exc}')
+        self.write('README.md', '[package](alias/pkg/readme.md)')
+        self.failure('link to excluded path')
+
+    def test_index_detects_staged_and_missing_files(self):
+        subprocess.run(['git', 'init', '-q', str(self.root)], check=True, capture_output=True)
+        name = 'apps/desktop/node_modules/pkg/readme.md'
+        self.write(name, '# Package')
+        subprocess.run(['git', '-C', str(self.root), 'add', '-f', '--', name], check=True, capture_output=True)
+        self.failure('tracked or staged content')
+        (self.root / name).unlink()
+        self.failure('tracked or staged content')
+
+    def test_index_failure_is_reported(self):
+        (self.root / '.git').mkdir()
+        errors, _ = check.run(self.root)
+        self.assertTrue(any('cannot inspect Git index' in e for e in errors))
+
+    def test_unsafe_exclusion_components(self):
+        for name in ('apps', 'apps/desktop', 'apps/desktop/node_modules'):
+            with self.subTest(name=name):
+                component = self.root / name
+                component.mkdir(parents=True, exist_ok=True)
+                original = Path.lstat
+                def reparse(path, *args, **kwargs):
+                    info = original(path, *args, **kwargs)
+                    if path == component:
+                        return mock.Mock(st_mode=info.st_mode, st_file_attributes=stat.FILE_ATTRIBUTE_REPARSE_POINT)
+                    return info
+                with mock.patch.object(Path, 'lstat', reparse):
+                    errors, _ = check.run(self.root)
+                self.assertTrue(any('unsafe exclusion path' in e for e in errors))
+
+    def test_index_path_components_and_case(self):
+        for path_type in (PurePosixPath, PureWindowsPath):
+            self.assertTrue(check.index_path_excluded(b'apps/desktop/node_modules/odd\nname.bin', path_type))
+            self.assertFalse(check.index_path_excluded(b'apps/desktop/node_modules_extra/file', path_type))
+            self.assertFalse(check.index_path_excluded(b'other/node_modules/file', path_type))
+        self.assertTrue(check.index_path_excluded(b'Apps/Desktop/Node_Modules/file', PureWindowsPath))
+        self.assertFalse(check.index_path_excluded(b'Apps/Desktop/Node_Modules/file', PurePosixPath))
+
+    def test_regular_file_in_exclusion_components_stops_walk(self):
+        for name in ('apps', 'apps/desktop', 'apps/desktop/node_modules'):
+            with self.subTest(name=name), tempfile.TemporaryDirectory() as tmp:
+                root = Path(tmp)
+                target = root / name
+                target.parent.mkdir(parents=True, exist_ok=True)
+                target.write_text('not a directory', encoding='utf8')
+                with mock.patch('os.walk', side_effect=AssertionError('unsafe traversal')):
+                    errors, _ = check.run(root)
+                self.assertTrue(any('unsafe exclusion path' in e for e in errors))
+
+    def test_real_symlink_exclusion_component_stops_walk(self):
+        with tempfile.TemporaryDirectory() as outside:
+            try:
+                (self.root / 'apps').symlink_to(outside, target_is_directory=True)
+            except OSError as exc:
+                self.skipTest(f'symlink creation unavailable: {exc}')
+            with mock.patch('os.walk', side_effect=AssertionError('unsafe traversal')):
+                errors, _ = check.run(self.root)
+            self.assertTrue(any('unsafe exclusion path' in e for e in errors))
+
+    def test_exclusion_metadata_failure_stops_walk(self):
+        original = Path.lstat
+        def denied(path, *args, **kwargs):
+            if path == self.root / 'apps':
+                raise PermissionError('synthetic denial')
+            return original(path, *args, **kwargs)
+        with mock.patch.object(Path, 'lstat', denied), mock.patch('os.walk', side_effect=AssertionError('unsafe traversal')):
+            errors, _ = check.run(self.root)
+        self.assertTrue(any('cannot inspect exclusion path' in e for e in errors))
+
+    def test_git_marker_metadata_failure(self):
+        original = Path.lstat
+        def denied(path, *args, **kwargs):
+            if path == self.root / '.git':
+                raise PermissionError('synthetic denial')
+            return original(path, *args, **kwargs)
+        with mock.patch.object(Path, 'lstat', denied):
+            errors, _ = check.run(self.root)
+        self.assertTrue(any('cannot inspect Git marker' in e for e in errors))
+
+    def test_git_redirect_environment_does_not_hide_index(self):
+        subprocess.run(['git', 'init', '-q', str(self.root)], check=True, capture_output=True)
+        name = 'apps/desktop/node_modules/pkg/unusual name.txt'
+        self.write(name, 'tracked')
+        subprocess.run(['git', '-C', str(self.root), 'add', '-f', '--', name], check=True, capture_output=True)
+        redirected = dict(os.environ, GIT_INDEX_FILE=str(self.root / 'missing-index'),
+                          GIT_WORK_TREE=str(self.root.parent), GIT_DIR=str(self.root / 'missing-git'))
+        with mock.patch.object(check.os, 'environ', redirected):
+            errors, _ = check.run(self.root)
+        self.assertTrue(any('tracked or staged content' in e for e in errors))
+
+    def test_git_timeout_and_missing_index_fail_closed(self):
+        subprocess.run(['git', 'init', '-q', str(self.root)], check=True, capture_output=True)
+        errors, _ = check.run(self.root)
+        self.assertTrue(any('cannot inspect Git index' in e for e in errors))
+        with mock.patch.object(check.subprocess, 'run', side_effect=subprocess.TimeoutExpired('git', 10)):
+            errors, _ = check.run(self.root)
+        self.assertTrue(any('cannot inspect Git index' in e for e in errors))
+
+    def test_wrong_git_worktree_fails_closed(self):
+        (self.root / '.git').mkdir()
+        with mock.patch.object(check.subprocess, 'run') as run:
+            run.side_effect = [mock.Mock(stdout=os.fsencode(str(self.root.parent))),
+                               mock.Mock(stdout=os.fsencode(str(self.root / '.git'))),
+                               mock.Mock(stdout=os.fsencode(str(self.root / '.git' / 'index')))]
+            errors, _ = check.run(self.root)
+        self.assertTrue(any('unexpected Git worktree or index path' in e for e in errors))
 
 
 if __name__ == '__main__':
