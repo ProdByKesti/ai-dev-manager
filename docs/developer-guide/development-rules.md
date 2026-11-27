@@ -20,7 +20,7 @@ Activate chats only when a work package needs them. One primary owner per assign
 
 ## Work lifecycle
 
-1. Select an approved package with satisfied dependencies and known acceptance criteria; until the implementation hold is lifted, authorize foundation work only.
+1. Select an individually approved package with satisfied dependencies and known acceptance criteria. M01 authorization does not authorize M02 or later milestones.
 2. Coordinator prepares a targeted work order with role, model/effort, branch/base, allowed paths/operations, constraints, required checks and expected report.
 3. Specialist verifies repository/worktree and applicable sources; plans the smallest safe change. Report blockers before unsupported operations.
 4. Implement within scope; update tests and docs as relevant; keep unrelated changes out.
@@ -45,7 +45,7 @@ Use least privilege and fail closed. The user controls scope, permission and spe
 
 Never expose or copy credentials, private workspace data, raw account responses, personal paths or private logs to public branches, issue descriptions or reports. Prefer synthetic fixtures and sanitized evidence. If a secret is found, stop propagation, report privately to the maintainer and do not publish the secret itself. Do not attempt destructive history rewrites or credential changes without authorization. Public security reporting arrangements will be established in M11-11.
 
-Do not interpret a worktree, a read-only prompt, a named pipe or sequential profile test as proven isolation. Linux/Windows execution requirements are governed by ADR-002/009 and K02/K06/K07. Unverified execution paths remain blocked. No account sharing or unapproved credential transfer. No automatic paid provider fallback; no mandatory additional subscription, hosting or purchases.
+Do not interpret a worktree, a read-only prompt, a named pipe or sequential profile test as proven isolation. Product runtime execution requirements are governed by ADR-002/009 and K02/K06/K07; unverified product execution paths remain blocked. Separately, bounded exploratory development execution may proceed only under an explicit maintainer-approved work order and documented acceptance of its identified residual risks, as defined in the [development profile amendment](development-profile-amendment.md). Unknown or invalid security state still blocks the affected action; a risk decision does not waive product boundaries, mandatory evidence or acceptance criteria. Exploratory execution is not product runtime authorization or mandatory quality evidence. No account sharing or unapproved credential transfer. No automatic paid provider fallback; no mandatory additional subscription, hosting or purchases.
 
 ## Quota, retries and cancellation
 
@@ -57,4 +57,4 @@ Distinguish Pause New Starts, Cancel Run and Emergency Stop; persist global stop
 
 Use English for repository documents, identifiers and public developer instructions; chat language is independently chosen. Explain changes and limitations near the relevant component. Record architecture changes through ADR amendments. Use stable ADM package IDs and actual commit IDs in reports. Do not publish private internal conversations or duplicate task histories.
 
-Follow [Git workflow](git-workflow.md), [quality and evidence](quality-evidence.md) and [work order and handoff](work-order-handoff.md). The 12 [system invariants](../architecture/system-invariants.md) and 18 [consolidation amendments](../architecture/consolidation.md) remain mandatory. Local-first independence, verified releases and preservation of working state take precedence over convenience.
+Follow [Git workflow](git-workflow.md), [quality and evidence](quality-evidence.md), [work order and handoff](work-order-handoff.md), and the [development profile amendment](development-profile-amendment.md). The 12 [system invariants](../architecture/system-invariants.md) and 18 [consolidation amendments](../architecture/consolidation.md) remain mandatory. Local-first independence, verified releases and preservation of working state take precedence over convenience.
