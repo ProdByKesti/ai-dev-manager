@@ -1,0 +1,293 @@
+# Draft only. Do not publish or execute without separate review and approvals.
+name: M01-02 Windows development build
+on:
+  push:
+    branches:
+      - feature/m01-02-windows-development
+permissions:
+  contents: read
+jobs:
+  m01-02-windows-development:
+    name: m01-02-windows-development
+    runs-on: windows-2025
+    timeout-minutes: 30
+    steps:
+      - name: Reject reruns before checkout
+        shell: pwsh
+        env:
+          RUN_ATTEMPT: ${{ github.run_attempt }}
+        run: |
+          if ($env:RUN_ATTEMPT -cne '1') { throw 'Only first run attempt is permitted' }
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+          fetch-depth: 0
+      - name: Development build
+        shell: pwsh
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          EVENT_REF: ${{ github.ref }}
+          EVENT_SHA: ${{ github.sha }}
+          RUN_ID: ${{ github.run_id }}
+          JOB_ID: ${{ github.job }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $source = '37109e0bc5e02c9c363ada3dd8b508816caa5bbf'
+          $sourceTree = 'b3f95073fa21689510bdc5d6401d119af73b1bdd'
+          function Native([string]$Label, [string]$Exe, [string[]]$ArgsList) {
+            $out = & $Exe @ArgsList
+            $code = $LASTEXITCODE
+            Write-Host "$Label exit code: $code"
+            if ($code -ne 0) { throw "$Label failed" }
+            return $out
+          }
+          if ($env:EVENT_NAME -ne 'push' -or $env:EVENT_REF -ne 'refs/heads/feature/m01-02-windows-development') { throw 'Unexpected event or branch' }
+          if ($env:RUNNER_OS -ne 'Windows' -or $env:RUNNER_ARCH -ne 'X64') { throw 'Unexpected runner' }
+          $head = (Native 'git HEAD' 'git' @('rev-parse','HEAD')).Trim()
+          if ($head -cne $env:EVENT_SHA) { throw 'Checkout SHA differs from event' }
+          Native 'desktop ancestor' 'git' @('merge-base','--is-ancestor',$source,'HEAD') | Out-Null
+          if ((Native 'git source tree' 'git' @('rev-parse',"$source`^{tree}")).Trim() -cne $sourceTree) { throw 'Unexpected source tree' }
+          $locks = @{'Cargo.lock'='bb15fc23b33903981020665560e853c91d11ac18'; 'apps/desktop/package-lock.json'='d94ec4ec9520652ba3d48d4dad84e21a78b24662'}
+          foreach ($path in $locks.Keys) {
+            if ((Native 'git lock blob' 'git' @('rev-parse',"HEAD:$path")).Trim() -cne $locks[$path]) { throw "Unexpected lockfile blob: $path" }
+          }
+          Native 'git clean checkout' 'git' @('diff','--exit-code','HEAD','--') | Out-Null
+          $initialStatus = @(Native 'git initial status' 'git' @('status','--porcelain=v1','--untracked-files=all'))
+          if ($initialStatus.Count -ne 0) { throw 'Checkout not clean' }
+          Write-Host "source=$source workflow=$head run=$env:RUN_ID job=$env:JOB_ID runner=$env:RUNNER_OS/$env:RUNNER_ARCH image=$env:ImageVersion"
+          Write-Host 'External approval, zero-cost verification and cumulative three-attempt budget control are prerequisites.'
+
+          # Neutralize only the documented runner default in this process.
+          $runnerPrefix = [Environment]::GetEnvironmentVariable('npm_config_prefix', 'Process')
+          if ($null -ne $runnerPrefix) {
+            if ($runnerPrefix -cne 'C:\npm\prefix') { throw 'Preflight npm: unexpected npm_config_prefix' }
+            [Environment]::SetEnvironmentVariable('npm_config_prefix', $null, 'Process')
+          }
+          $approvedNpmEnv = @{}
+          function RejectOverrides {
+            $forbidden = @(Get-ChildItem Env: | Where-Object { $_.Name -match '^(?i:CARGO_(REGISTRIES_|SOURCE_|REGISTRY_|BUILD_|TARGET_|HTTP_)|NPM_CONFIG_)|^(?i:RUSTUP_(TOOLCHAIN|DIST_SERVER|UPDATE_ROOT)|RUSTC|RUSTC_WRAPPER|RUSTC_WORKSPACE_WRAPPER|RUSTDOC|RUSTFLAGS|RUSTDOCFLAGS|CARGO_ENCODED_RUSTFLAGS|NAPI_RS_NATIVE_LIBRARY_PATH|CC|CXX|CFLAGS|CXXFLAGS|AR|RANLIB|CL|_CL_|LINK|_LINK_|HTTP_PROXY|HTTPS_PROXY|ALL_PROXY|NO_PROXY|NODE_OPTIONS|NODE_TLS_REJECT_UNAUTHORIZED|NODE_EXTRA_CA_CERTS|GIT_SSL_NO_VERIFY|GIT_CONFIG_COUNT|GIT_CONFIG_PARAMETERS|SSL_CERT_FILE|SSL_CERT_DIR)$|^(?i:CC_|CXX_|CFLAGS_|CXXFLAGS_|AR_|RANLIB_)' })
+            $unexpected = @($forbidden | Where-Object { -not $approvedNpmEnv.ContainsKey($_.Name) -or $_.Value -cne $approvedNpmEnv[$_.Name] })
+            if ($unexpected.Count -ne 0) { throw "Preflight environment: unexpected overrides ($($unexpected.Count))" }
+            foreach ($name in $approvedNpmEnv.Keys) {
+              if ([Environment]::GetEnvironmentVariable($name, 'Process') -cne $approvedNpmEnv[$name]) { throw 'Preflight npm: controlled environment missing or changed' }
+            }
+          }
+          RejectOverrides
+          # Point-in-time metadata checks only; these do not provide isolation.
+          function CheckTempPath([string]$Path, [string]$Expected) {
+            if (-not $Path -or $Path -notmatch '^[A-Za-z]:\\' -or -not [IO.Path]::IsPathFullyQualified($Path)) { throw 'Preflight temp: expected local absolute path' }
+            $full = [IO.Path]::GetFullPath($Path)
+            $root = [IO.Path]::GetPathRoot($full)
+            if ($root -notmatch '^[A-Za-z]:\\$' -or $full.TrimEnd('\') -ine $Path.TrimEnd('\')) { throw 'Preflight temp: ambiguous path' }
+            $drive = [IO.DriveInfo]::new($root)
+            if (-not $drive.IsReady -or $drive.DriveType -ne [IO.DriveType]::Fixed) { throw 'Preflight temp: local fixed drive unavailable' }
+            $rootItem = Get-Item -LiteralPath $root -Force -ErrorAction Stop
+            if (-not ($rootItem -is [IO.DirectoryInfo]) -or ($rootItem.Attributes -band [IO.FileAttributes]::ReparsePoint)) { throw 'Preflight temp: invalid drive root' }
+            $parts = $full.Substring($root.Length).Split('\', [StringSplitOptions]::RemoveEmptyEntries)
+            if ($parts.Count -eq 0) { throw 'Preflight temp: drive root not allowed as target' }
+            $current = $root
+            for ($i = 0; $i -lt $parts.Count; $i++) {
+              if ($parts[$i] -match '[:*?"<>|]' -or $parts[$i].EndsWith('.') -or $parts[$i].EndsWith(' ')) { throw 'Preflight temp: invalid path component' }
+              $entries = @(Get-ChildItem -LiteralPath $current -Force -ErrorAction Stop | Where-Object { $_.Name -ieq $parts[$i] })
+              if ($entries.Count -eq 0) {
+                if ($i -eq $parts.Count - 1 -and $Expected -eq 'Absent') { return }
+                throw 'Preflight temp: path component missing'
+              }
+              if ($entries.Count -ne 1) { throw 'Preflight temp: ambiguous path component' }
+              $item = $entries[0]
+              if (($item.Attributes -band [IO.FileAttributes]::ReparsePoint) -ne 0) { throw 'Preflight temp: reparse point rejected' }
+              if ($i -eq $parts.Count - 1) {
+                if ($Expected -eq 'Absent') { throw 'Preflight temp: target already exists' }
+                if ($Expected -eq 'File' -and -not ($item -is [IO.FileInfo])) { throw 'Preflight temp: expected regular file' }
+                if ($Expected -eq 'Directory' -and -not ($item -is [IO.DirectoryInfo])) { throw 'Preflight temp: expected directory' }
+              } elseif (-not ($item -is [IO.DirectoryInfo])) { throw 'Preflight temp: expected directory component' }
+              $current = $item.FullName
+            }
+          }
+          function CheckEmptyDirectory([string]$Path) {
+            CheckTempPath $Path 'Directory'
+            if (@(Get-ChildItem -LiteralPath $Path -Force -ErrorAction Stop).Count -ne 0) { throw 'Preflight temp: expected fresh empty directory' }
+          }
+          function NewFreshDirectory([string]$Path) {
+            CheckTempPath $Path 'Absent'
+            New-Item -ItemType Directory -Path $Path -ErrorAction Stop | Out-Null
+            CheckEmptyDirectory $Path
+          }
+          CheckTempPath $env:RUNNER_TEMP 'Directory'
+          $cacheRoot = Join-Path $env:RUNNER_TEMP ('m01-02-diagnostic-' + [Guid]::NewGuid().ToString('N'))
+          CheckTempPath $cacheRoot 'Absent'
+          New-Item -ItemType Directory -Path $cacheRoot -ErrorAction Stop | Out-Null
+          CheckEmptyDirectory $cacheRoot
+          $userNpmConfig = Join-Path $cacheRoot 'user.npmrc'
+          $globalNpmConfig = Join-Path $cacheRoot 'global.npmrc'
+          $npmCache = Join-Path $cacheRoot 'npm-cache'
+          $npmPrefix = Join-Path $cacheRoot 'npm-prefix'
+          $cargoHome = Join-Path $cacheRoot 'cargo'
+          foreach ($config in @($userNpmConfig,$globalNpmConfig)) {
+            CheckTempPath $config 'Absent'
+            $stream = [IO.File]::Open($config, [IO.FileMode]::CreateNew, [IO.FileAccess]::Write, [IO.FileShare]::None)
+            $stream.Dispose()
+            CheckTempPath $config 'File'
+            if ((Get-Item -LiteralPath $config).Length -ne 0) { throw 'Preflight npm: config file not empty' }
+          }
+          foreach ($dir in @($npmCache,$npmPrefix,$cargoHome)) { NewFreshDirectory $dir }
+          $approvedNpmEnv = @{
+            'NPM_CONFIG_USERCONFIG' = $userNpmConfig
+            'NPM_CONFIG_GLOBALCONFIG' = $globalNpmConfig
+            'NPM_CONFIG_CACHE' = $npmCache
+            'NPM_CONFIG_PREFIX' = $npmPrefix
+          }
+          foreach ($name in $approvedNpmEnv.Keys) { [Environment]::SetEnvironmentVariable($name, $approvedNpmEnv[$name], 'Process') }
+          RejectOverrides
+          if (-not $env:RUNNER_TOOL_CACHE -or -not [IO.Path]::IsPathFullyQualified($env:RUNNER_TOOL_CACHE)) { throw 'Runner tool cache path unavailable' }
+          $nodeDir = [IO.Path]::GetFullPath((Join-Path $env:RUNNER_TOOL_CACHE 'node/24.22.3/x64'))
+          $node = Join-Path $nodeDir 'node.exe'
+          $npmCli = Join-Path $nodeDir 'node_modules/npm/bin/npm-cli.js'
+          if (-not (Test-Path -LiteralPath $node -PathType Leaf) -or -not (Test-Path -LiteralPath $npmCli -PathType Leaf)) { throw 'Required cached Node or npm unavailable' }
+          function PrioritizeNode {
+            $env:PATH = $nodeDir + [IO.Path]::PathSeparator + $env:PATH
+            $resolvedNode = Get-Command node.exe -CommandType Application -ErrorAction Stop | Select-Object -First 1
+            if ($resolvedNode.Source -ine $node) { throw 'Unexpected Node PATH resolution' }
+          }
+          PrioritizeNode
+          if ((Native 'Node version' $node @('--version')).Trim() -cne 'v24.22.3') { throw 'Unexpected Node version' }
+          if ((Native 'Node architecture' $node @('-p','process.arch')).Trim() -cne 'x64') { throw 'Unexpected Node architecture' }
+          $builtinNpmConfig = Join-Path $nodeDir 'node_modules/npm/npmrc'
+          if (Test-Path -LiteralPath $builtinNpmConfig) {
+            $builtinText = [IO.File]::ReadAllText($builtinNpmConfig).Trim()
+            if ($builtinText -cne 'prefix=${APPDATA}\npm') { throw 'Preflight npm: unexpected bundled configuration' }
+          }
+          foreach ($config in @('.cargo/config','.cargo/config.toml','apps/.cargo/config','apps/.cargo/config.toml','apps/desktop/.cargo/config','apps/desktop/.cargo/config.toml','apps/desktop/src-tauri/.cargo/config','apps/desktop/src-tauri/.cargo/config.toml','.npmrc','apps/.npmrc','apps/desktop/.npmrc',"$env:USERPROFILE/.cargo/config","$env:USERPROFILE/.cargo/config.toml")) {
+            if (Test-Path -LiteralPath $config) { throw 'Unexpected package manager configuration' }
+          }
+          if ($env:CARGO_HOME) { foreach ($name in @('config','config.toml')) { if (Test-Path -LiteralPath (Join-Path $env:CARGO_HOME $name)) { throw 'Cargo home configuration is not approved' } } }
+          $ancestor = (Get-Item -LiteralPath '.').Parent
+          while ($null -ne $ancestor) {
+            foreach ($name in @('.cargo/config','.cargo/config.toml','.npmrc')) { if (Test-Path -LiteralPath (Join-Path $ancestor.FullName $name)) { throw 'Ancestor package-manager configuration is not approved' } }
+            $ancestor = $ancestor.Parent
+          }
+          function CheckControlledNpm {
+            RejectOverrides
+            foreach ($dir in @($cacheRoot,$npmCache,$npmPrefix)) { CheckTempPath $dir 'Directory' }
+            foreach ($config in @($userNpmConfig,$globalNpmConfig)) {
+              CheckTempPath $config 'File'
+              if ((Get-Item -LiteralPath $config -Force -ErrorAction Stop).Length -ne 0) { throw 'Preflight npm: controlled config changed' }
+            }
+            $ancestor = Get-Item -LiteralPath '.' -Force -ErrorAction Stop
+            while ($null -ne $ancestor) {
+              $entries = @(Get-ChildItem -LiteralPath $ancestor.FullName -Force -ErrorAction Stop | Where-Object { $_.Name -ieq '.npmrc' })
+              if ($entries.Count -ne 0) { throw 'Preflight npm: project or ancestor configuration present' }
+              $ancestor = $ancestor.Parent
+            }
+            foreach ($kind in @('userconfig','globalconfig','cache','prefix')) {
+              $expectedNpmPath = $approvedNpmEnv["NPM_CONFIG_$($kind.ToUpperInvariant())"]
+              $configPath = (Native "npm $kind" $node @($npmCli,'config','get',$kind)).Trim()
+              if ($configPath -ine $expectedNpmPath) { throw "Preflight npm: unexpected $kind resolution" }
+            }
+            if ((Native 'npm registry' $node @($npmCli,'config','get','registry')).Trim() -cne 'https://registry.npmjs.org/') { throw 'Unexpected npm registry configuration' }
+            if ((Native 'npm strict TLS' $node @($npmCli,'config','get','strict-ssl')).Trim() -cne 'true') { throw 'npm TLS verification disabled' }
+            foreach ($kind in @('cafile','ca','proxy','https-proxy')) {
+              if ((Native "npm $kind" $node @($npmCli,'config','get',$kind)).Trim() -cne 'null') { throw "Preflight npm: unexpected $kind configuration" }
+            }
+            RejectOverrides
+            foreach ($dir in @($cacheRoot,$npmCache,$npmPrefix)) { CheckTempPath $dir 'Directory' }
+            foreach ($config in @($userNpmConfig,$globalNpmConfig)) {
+              CheckTempPath $config 'File'
+              if ((Get-Item -LiteralPath $config -Force -ErrorAction Stop).Length -ne 0) { throw 'Preflight npm: controlled config changed' }
+            }
+          }
+          CheckEmptyDirectory $npmCache
+          CheckEmptyDirectory $npmPrefix
+          CheckTempPath $userNpmConfig 'File'
+          CheckTempPath $globalNpmConfig 'File'
+          if ((Native 'npm version' $node @($npmCli,'--version')).Trim() -cne '11.19.1') { throw 'Unexpected npm version' }
+          CheckControlledNpm
+          # Exact reviewed lock blobs above bind approved registries and integrity.
+          $sslConfig = @(git config --get-regexp '^http(\..*)?\.sslverify$')
+          $sslCode = $LASTEXITCODE
+          if ($sslCode -ne 0 -and $sslCode -ne 1) { throw 'Git TLS configuration query failed' }
+          foreach ($entry in $sslConfig) { if ($entry -notmatch '(?i)\s(true|yes|on|1)$') { throw 'Git TLS verification not enabled' } }
+          $rustup = (Get-Command rustup.exe -CommandType Application -ErrorAction Stop | Select-Object -First 1).Source
+          $rustupHome = if ($env:RUSTUP_HOME) { $env:RUSTUP_HOME } else { Join-Path $env:USERPROFILE '.rustup' }
+          if (-not [IO.Path]::IsPathFullyQualified($rustupHome) -or -not (Test-Path -LiteralPath $rustupHome -PathType Container)) { throw 'Preflight Rust: rustup home unavailable' }
+          $env:RUSTUP_HOME = [IO.Path]::GetFullPath($rustupHome)
+          $installed = @(Native 'rustup installed toolchains' $rustup @('toolchain','list'))
+          $toolchain = $null
+          foreach ($candidate in @('1.100.0-x86_64-pc-windows-msvc','stable-x86_64-pc-windows-msvc')) {
+            if (@($installed | Where-Object { $_ -match ('^' + [regex]::Escape($candidate) + '(?:\s|$)') }).Count -gt 0) { $toolchain = $candidate; break }
+          }
+          if (-not $toolchain) { throw 'Preflight Rust: approved toolchain not installed' }
+          function VerifyRustToolchain {
+            $rustInfo = @(Native 'rustc version and host' $rustup @('run',$toolchain,'rustc','-vV'))
+            if ($rustInfo -cnotcontains 'release: 1.100.0' -or $rustInfo -cnotcontains 'host: x86_64-pc-windows-msvc') { throw 'Preflight Rust: unexpected rustc version or host' }
+            if ((Native 'cargo version' $rustup @('run',$toolchain,'cargo','--version')).Trim() -notmatch '^cargo 1\.100\.0(?:\s|$)') { throw 'Preflight Rust: unexpected cargo version' }
+            $targets = @(Native 'rustup installed targets' $rustup @('target','list','--installed','--toolchain',$toolchain))
+            if ($targets -cnotcontains 'x86_64-pc-windows-msvc') { throw 'Preflight Rust: required target not installed' }
+          }
+          VerifyRustToolchain
+
+          $vswhere = Join-Path ${env:ProgramFiles(x86)} 'Microsoft Visual Studio/Installer/vswhere.exe'
+          if (-not (Test-Path -LiteralPath $vswhere -PathType Leaf)) { throw 'vswhere unavailable' }
+          $install = @(Native 'vswhere' $vswhere @('-latest','-products','*','-requires','Microsoft.VisualStudio.Component.VC.Tools.x86.x64','-property','installationPath'))
+          if ($install.Count -ne 1 -or -not $install[0]) { throw 'Visual Studio C++ tools unavailable' }
+          $devcmd = Join-Path $install[0] 'Common7/Tools/VsDevCmd.bat'
+          if (-not (Test-Path -LiteralPath $devcmd -PathType Leaf) -or $devcmd.Contains('"')) { throw 'VsDevCmd unavailable' }
+          $initialized = @(Native 'VsDevCmd' 'cmd.exe' @('/d','/s','/c',"`"`"$devcmd`" -no_logo -arch=x64 -host_arch=x64 >nul && set`""))
+          $allowedEnv = @('PATH','INCLUDE','LIB','LIBPATH','VCToolsVersion','VCToolsInstallDir','VCINSTALLDIR','VSINSTALLDIR','VSCMD_ARG_TGT_ARCH','WindowsSdkDir','WindowsSDKVersion','WindowsLibPath','UniversalCRTSdkDir','UCRTVersion')
+          foreach ($line in $initialized) {
+            $parts = $line -split '=',2
+            if ($parts.Count -eq 2 -and $allowedEnv -contains $parts[0]) { [Environment]::SetEnvironmentVariable($parts[0],$parts[1],'Process') }
+          }
+          RejectOverrides
+          PrioritizeNode
+          if ($env:VSCMD_ARG_TGT_ARCH -ne 'x64' -or -not $env:VCToolsVersion -or -not $env:VCToolsInstallDir -or -not $env:WindowsSDKVersion -or -not $env:WindowsSdkDir) { throw 'MSVC x64 or SDK environment missing' }
+          $cl = Get-Command cl.exe -CommandType Application -ErrorAction Stop | Select-Object -First 1
+          $link = Get-Command link.exe -CommandType Application -ErrorAction Stop | Select-Object -First 1
+          $compilerDir = Join-Path $env:VCToolsInstallDir 'bin/Hostx64/x64'
+          if ($cl.Source -ine (Join-Path $compilerDir 'cl.exe') -or $link.Source -ine (Join-Path $compilerDir 'link.exe')) { throw 'Unexpected compiler or linker identity' }
+          if (-not (Test-Path -LiteralPath (Join-Path $env:WindowsSdkDir "Include/$env:WindowsSDKVersion/um/Windows.h") -PathType Leaf) -or -not (Test-Path -LiteralPath (Join-Path $env:WindowsSdkDir "Lib/$env:WindowsSDKVersion/um/x64/kernel32.lib") -PathType Leaf)) { throw 'Windows SDK x64 components missing' }
+          Write-Host "MSVC=$env:VCToolsVersion cl=$((Get-Item -LiteralPath $cl.Source).VersionInfo.FileVersion) linker=$((Get-Item -LiteralPath $link.Source).VersionInfo.FileVersion) SDK=$env:WindowsSDKVersion target=$env:VSCMD_ARG_TGT_ARCH; WebView2 runtime is needed for startup, not this build."
+
+          $root = (Get-Location).Path
+          # Enumerate each component to detect files and dangling reparse points.
+          foreach ($output in @('apps/desktop/node_modules','apps/desktop/dist','apps/desktop/src-tauri/permissions/autogenerated','apps/desktop/src-tauri/gen/schemas','target')) {
+            $current = $root
+            $components = $output.Split('/')
+            for ($i = 0; $i -lt $components.Count; $i++) {
+              $matches = @(Get-ChildItem -LiteralPath $current -Force | Where-Object { $_.Name -ieq $components[$i] })
+              if ($matches.Count -eq 0) { break }
+              if ($matches.Count -ne 1) { throw "Ambiguous output path: $output" }
+              $item = $matches[0]
+              if (($item.Attributes -band [IO.FileAttributes]::ReparsePoint) -ne 0) { throw "Reparse point in output path: $output" }
+              if ($i -eq $components.Count - 1) { throw "Pre-existing output path: $output" }
+              if (-not $item.PSIsContainer) { throw "Non-directory output ancestor: $output" }
+              $current = $item.FullName
+            }
+          }
+          # The fresh-output check is a point-in-time observation, not isolation.
+
+          # Keep RUSTUP_HOME fixed while isolating Cargo's registry cache.
+          CheckEmptyDirectory $cargoHome
+          $env:CARGO_HOME = $cargoHome
+          VerifyRustToolchain
+          CheckTempPath $cargoHome 'Directory'
+          if ($env:CARGO_HOME -cne $cargoHome) { throw 'Preflight Rust: controlled cargo home changed' }
+          Native 'cargo fetch --locked' $rustup @('run',$toolchain,'cargo','fetch','--locked') | Out-Host
+          Push-Location 'apps/desktop'
+          try {
+            CheckTempPath $cargoHome 'Directory'
+            CheckControlledNpm
+            Native 'npm ci' $node @($npmCli,'ci','--ignore-scripts','--strict-peer-deps','--engine-strict','--no-force','--no-legacy-peer-deps','--no-audit','--no-fund','--registry=https://registry.npmjs.org/') | Out-Host
+            Native 'TypeScript' $node @('node_modules/typescript/bin/tsc','--noEmit') | Out-Host
+            Native 'Vite' $node @('node_modules/vite/bin/vite.js','build') | Out-Host
+          } finally { Pop-Location }
+          CheckTempPath $cargoHome 'Directory'
+          if ($env:CARGO_HOME -cne $cargoHome) { throw 'Preflight Rust: controlled cargo home changed' }
+          Native 'cargo build' $rustup @('run',$toolchain,'cargo','build','-p','adm-desktop','--release','--frozen') | Out-Host
+          foreach ($output in @('target/release/adm-desktop.exe','apps/desktop/dist/index.html','apps/desktop/src-tauri/permissions/autogenerated/get_foundation_status.toml','apps/desktop/src-tauri/gen/schemas/acl-manifests.json','apps/desktop/src-tauri/gen/schemas/capabilities.json')) {
+            if (-not (Test-Path -LiteralPath $output -PathType Leaf)) { throw "Expected output missing: $output" }
+          }
+          Native 'git final diff' 'git' @('diff','--exit-code','HEAD','--') | Out-Null
+          Native 'git final index diff' 'git' @('diff','--cached','--exit-code','HEAD','--') | Out-Null
+          Write-Host 'Exploratory build observation only: no startup, isolation, mandatory gate, integration or release PASS.'
