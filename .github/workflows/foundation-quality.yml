@@ -56,6 +56,8 @@ jobs:
           rustup run 1.100.0 python3 scripts/check_rust_toolchain.py
       - name: Check Rust formatting
         run: rustup run 1.100.0 cargo fmt --all -- --check
+      - name: Fetch locked Linux dependencies
+        run: rustup run 1.100.0 cargo fetch --locked --target x86_64-unknown-linux-gnu
       - name: Check Rust core
         run: rustup run 1.100.0 cargo check -p adm-core --offline --locked
       - name: Build Rust core
