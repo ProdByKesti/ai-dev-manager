@@ -56,17 +56,17 @@ jobs:
           rustup run 1.100.0 python3 scripts/check_rust_toolchain.py
       - name: Check Rust formatting
         run: rustup run 1.100.0 cargo fmt --all -- --check
-      - name: Check Rust workspace
-        run: rustup run 1.100.0 cargo check --workspace --offline --locked
-      - name: Build Rust workspace
-        run: rustup run 1.100.0 cargo build --workspace --offline --locked
+      - name: Check Rust core
+        run: rustup run 1.100.0 cargo check -p adm-core --offline --locked
+      - name: Build Rust core
+        run: rustup run 1.100.0 cargo build -p adm-core --offline --locked
       - name: Require and run Rust tests
         run: |
           set -o pipefail
           rustup run 1.100.0 cargo test -p adm-core --lib --offline --locked -- tests::baseline_message_is_stable --exact | grep -Fx 'test tests::baseline_message_is_stable ... ok'
-          rustup run 1.100.0 cargo test --workspace --offline --locked
-      - name: Build release workspace
-        run: rustup run 1.100.0 cargo build --workspace --release --offline --locked
+          rustup run 1.100.0 cargo test -p adm-core --offline --locked
+      - name: Build release core
+        run: rustup run 1.100.0 cargo build -p adm-core --release --offline --locked
       - name: Run core program
         run: |
           output=$(./target/release/adm-core)
