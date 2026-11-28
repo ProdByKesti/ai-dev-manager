@@ -1,0 +1,73 @@
+name: M01-02 Python evidence
+
+on:
+  push:
+    branches:
+      - feature/m01-02-desktop-foundation
+
+permissions:
+  contents: read
+
+jobs:
+  m01-02-python-evidence:
+    name: m01-02-python-evidence
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+      - name: Verify event, revision and environment
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          EVENT_REF: ${{ github.ref }}
+          EVENT_SHA: ${{ github.sha }}
+        run: |
+          set -eu
+          test "$EVENT_NAME" = 'push'
+          test "$EVENT_REF" = 'refs/heads/feature/m01-02-desktop-foundation'
+          checked_out=$(git rev-parse HEAD)
+          printf 'Event revision: %s\nCheckout revision: %s\n' "$EVENT_SHA" "$checked_out"
+          test "$checked_out" = "$EVENT_SHA"
+          git --version
+          python3 --version
+          python3 -c 'import sys; assert sys.version_info >= (3, 11), "Python 3.11 or newer required"'
+      - name: Check roadmap
+        run: python3 scripts/check_foundation.py
+      - name: Check documentation
+        run: python3 scripts/check_links.py
+      - name: Require foundation test discovery
+        run: |
+          python3 - <<'PY'
+          import unittest
+
+          def ids_in(suite):
+              for test in suite:
+                  if isinstance(test, unittest.TestSuite):
+                      yield from ids_in(test)
+                  else:
+                      yield test.id()
+
+          loader = unittest.TestLoader()
+          suite = loader.discover('tests')
+          ids = list(ids_in(suite))
+          required = {
+              'test_documentation_checks.DocumentationChecks.test_external_symlink_source',
+              'test_documentation_checks.DocumentationChecks.test_resolved_link_into_excluded_directory',
+              'test_documentation_checks.DocumentationChecks.test_real_symlink_exclusion_component_stops_walk',
+          }
+          print(f'Foundation tests discovered: {len(ids)}')
+          missing = required - set(ids)
+          if len(ids) < 105 or loader.errors or missing:
+              raise SystemExit(f'Incomplete foundation discovery: loader_errors={loader.errors}, missing={sorted(missing)}')
+
+          loader = unittest.TestLoader()
+          suite = loader.discover('tests', pattern='test_rust_toolchain.py')
+          count = suite.countTestCases()
+          print(f'Toolchain diagnostic tests discovered: {count}')
+          if count < 8 or loader.errors:
+              raise SystemExit('Required toolchain diagnostic tests missing or unloadable')
+          PY
+      - name: Run strict foundation tests
+        run: python3 scripts/run_foundation_tests.py

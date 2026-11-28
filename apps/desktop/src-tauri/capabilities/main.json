@@ -1,0 +1,6 @@
+{
+  "identifier": "main",
+  "description": "Allow the local main window to read foundation information.",
+  "windows": ["main"],
+  "permissions": ["allow-get-foundation-status"]
+}
